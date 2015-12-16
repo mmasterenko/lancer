@@ -5,6 +5,7 @@ urlpatterns = [
     # Examples:
     # url(r'^blog/', include('blog.urls')),
 
+    url(r'^makeup/', 'lancerApp.views.makeup', name='makeup'),
     url(r'^$', 'lancerApp.views.home', name='home'),
     url(r'^admin/', include(admin.site.urls)),
 ]
