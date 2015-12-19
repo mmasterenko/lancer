@@ -10,7 +10,6 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic);
 
 /* === fonts === */
-
 .common-font() {
     font-family: 'PT Sans', sans-serif;
 }
@@ -20,10 +19,9 @@
 .choose-font() {
     font-family: 'Open Sans', sans-serif;
 }
-
 /* === end fonts === */
-/* === color variables  === */
 
+/* === color variables  === */
 @txt-red: #ff3300;
 @txt-black: #000;
 @txt-footer: #fff;
@@ -52,11 +50,9 @@
 
 @bg-choiceBtn-top: #078cd6;
 @bg-choiceBtn-bottom: #1a6eb1;
-
-
 /* === end color variables  === */
-/* === mixin functions === */
 
+/* === mixin functions === */
 .border-radius(@radius) {
     -webkit-border-radius: @radius;
        -moz-border-radius: @radius;
@@ -78,12 +74,12 @@
     background: @txt-darkblue url("../images/slices/bg-subheader.png") repeat-x ;
 }
 .bg-header() {
-    background: #ffffff url("../images/slices/bg-header-track.jpg") repeat-x;
+    background: #ffffff url("../images/slices/bg-header-track.jpg") no-repeat;
+    background-position: right;
 }
-
 /* === end mixin functions === */
-/* === common === */
 
+/* === common === */
 body {
     .common-font;
 }
@@ -91,10 +87,112 @@ body {
 .wrapper {
     margin: 0 auto;
 }
-
 /* === end common === */
+
+/* === header === */
+#header {
+    .subheader {
+        .bg-subheader;
+        color: #ffffff;
+        height: 33px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        .glyphicon {
+            color: lighten(@txt-darkblue, 20%);
+        }
+        
+        a.enter {
+            color: #fff;
+            &:hover {
+                .glyphicon {
+                    color: #fff;
+                }
+            }
+        }
+
+    }
+
+    .header {
+
+        #sub-menu {
+            .bg-header;
+
+            .slogan {
+                font-size: 17px;
+                padding: 30px 0;
+                color: @txt-darkblue;
+            }
+            
+            .contact {
+                .callme {
+                    margin-top: 10px;
+                    text-align: right;
+                    a {
+                        color: @txt-red;
+                        border-bottom: 1px dotted;
+                        text-decoration: none;
+                        &:hover {
+                            border-bottom: none;
+                        }
+                    }
+                }
+                .phone {
+                    .choose-font;
+                    margin-top: 30px;
+                    color: @txt-phone;
+                    font-size: 32px;
+                    text-align: right;
+
+                    span {
+                        color: #39b385;
+                        font-size: 18px;
+                    }
+                }
+                .address {
+                    text-align: right;
+                    color: @txt-darkblue;
+                    font-size: 18px;
+                    
+                }
+            }
+        }
+
+        #main-menu {
+            background-color: @bg-menu-dark;
+            height: 40px;
+            ul {
+                list-style-type: none;
+                padding-left: 0;
+                padding-top: 8px;
+                li {
+                    font-size: 13px;
+                    margin-right: 20px;
+                    display: inline-block;
+                    i {
+                        color: @txt-actions;
+                    }
+                    a {
+                        padding-left: 10px;
+                        text-transform: uppercase;
+                        color: @txt-black;
+                        &:hover {
+                            color: @txt-red;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+}
+/* === end header === */
+
 /* === carousel actions  === */
 section#actions {
+    padding-top: 3px;
 
     .carousel {
         width: 65%;
@@ -165,7 +263,163 @@ section#actions {
 section#breadcrumbs {
     ol.breadcrumb {
         background-color: #fff;
+        font-size: 12px;
+        li {
+            &:before {
+                color: @txt-red;
+            }
+            a {
+                color: @txt-red;
+            }
+        }
     }
 }
 /* === end carousel actions === */
 
+/* === section service === */
+section#service {
+    background-color: @bg-menu-dark;
+    padding-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    .header {
+        h3, p {
+            text-align: center;
+        }
+        h3 {
+            color: @txt-red;
+            text-transform: uppercase;
+        }
+        p {
+            color: @txt-darkblue;
+        }
+    }
+
+    .car-model {
+        .border-radius(10px);
+        .linear-gradient(@bg-car-top, @bg-car-bottom);
+        padding: 10px 10px 10px;
+        min-height: 320px;
+
+        &:hover {
+            .linear-gradient(@bg-car-hover-top, @bg-car-hover-bottom);
+        }
+
+        h2 {
+            color: @txt-car-model;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .car-img {
+            text-align: center;
+            img {
+                width: 80%;
+            }
+        }
+
+        hr {
+            border-top: 1px solid #000;
+            margin: 10px auto 10px;
+            width: 90%;
+        }
+
+        .choice-container {
+            .choice {
+                display: none;
+                &.active {
+                    display: block;
+                }
+                p {
+                    line-height: 24px;
+                    text-align: center;
+                }
+                button {
+                    .box-shadow(0,0,0,1px,#666);
+                    .choose-font;
+                    font-size: 18px;
+                    text-transform: uppercase;
+                    color: #fff;
+                    padding: 5px 25px;
+                    display: block;
+                    //margin: 0 auto 10px;
+                    .border-radius(6px);
+                    .linear-gradient(@bg-choiceBtn-top, @bg-choiceBtn-bottom);
+                    border-width: 3px;
+                    border-color: #fff #aaa #aaa #fff;
+                    border-style: solid inset inset solid;
+                    &:active {
+                        border-bottom-color: #fff;
+                        border-right-color: #fff;
+                        border-style: inset solid solid inset;
+                    }
+                    &:focus {
+                        outline: none;
+                    }
+                    // absolute position props
+                    position: absolute;
+                    bottom: 20px;
+                    left: 50%;
+                    margin-left: -68px;
+                    width: 136px;
+                }
+                .back {
+                    text-align: right;
+                    a {
+                        color: #000;
+                        &:hover {
+                            color: @txt-car-model;
+                        }
+                        &:visited, &:focus, &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+                ul.sub-list {
+                    padding-left: 10px;
+                    line-height: 18px;
+                    a {
+                        &:before {
+                            content: '- ';
+                        }
+                    }
+                }
+                ul {
+                    list-style-type: none;
+                    &.list {
+                        line-height: 16px;
+                        padding: 0 12px;
+                        margin: 0 auto;
+
+                        &>li {
+                            margin-top: 15px;
+                            margin-bottom: 7px;
+                        }
+                        .sub-list {
+                            line-height: 18px;
+                            display: none;
+                            &.active {
+                                display: block;
+                            }
+                        }
+                    }
+                    li {
+                        a {
+                            color: #000;
+                            &:hover {
+                                color: @txt-car-model;
+                            }
+                            &:visited, &:focus, &:hover {
+                                text-decoration: none;
+                            }
+                        }
+
+                    }
+                }
+            }
+
+        }
+    }
+    
+}
+/* === end section service === */
