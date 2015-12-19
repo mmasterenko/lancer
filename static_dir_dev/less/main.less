@@ -1,78 +1,171 @@
-/*
- Шрифты
- ------
- общий - Myriad Pro (PT Sans)
- телефонный номер - Century Gothic (Muli)
- кнопка ВЫБРАТЬ - Calibri (Open Sans)
-*/
+/* === *
+  Шрифты
+  ------
+  общий - Myriad Pro (аналог: PT Sans)
+  телефонный номер - Century Gothic (аналог: Muli)
+  кнопка ВЫБРАТЬ - Calibri (аналог: Open Sans)
+ * === */
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic);
 @import url(https://fonts.googleapis.com/css?family=Muli);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic);
 
+/* === fonts === */
+
 .common-font() {
-  font-family: 'PT Sans', sans-serif;
+    font-family: 'PT Sans', sans-serif;
 }
 .phone-font() {
-  font-family: 'Muli', sans-serif;
+    font-family: 'Muli', sans-serif;
 }
 .choose-font() {
-  font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
-/*
- Color Variables
- ---------------
- */
-@red-text: #ff3300;
-@black-text: #000;
-@footer-text: #fff;
 
-@actions-text: #595959;
-@phone-text: #491e05;
-@darkblue-text: #2f3b4b;
+/* === end fonts === */
+/* === color variables  === */
 
-@car-model-text: #3ea8f6;
-@car-choosed-text: #128bd1;
+@txt-red: #ff3300;
+@txt-black: #000;
+@txt-footer: #fff;
 
-@local-headers-text: #333333;
+@txt-actions: #595959;
+@txt-phone: #491e05;
+@txt-darkblue: #2f3b4b;
+
+@txt-car-model: #3ea8f6;
+@txt-car-choosed: #128bd1;
+
+@txt-local-headers: #333333;
 
 @bg-menu-light: #f6f6f6;
 @bg-menu-dark: #eeeef0;
 @bg-block: #eeeef0;
 @bg-blue-btn: #138ad0;
 @bg-footer: #444444;
+@bg-carousel-point: #F24585;
 
-/*
- Mixin functions
- ---------------
-*/
+@bg-car-top: #e4e4e6;
+@bg-car-bottom: #dfdfe8;
+
+@bg-car-hover-top: #e0e0ec;
+@bg-car-hover-bottom: #c6c6d4;
+
+@bg-choiceBtn-top: #078cd6;
+@bg-choiceBtn-bottom: #1a6eb1;
+
+
+/* === end color variables  === */
+/* === mixin functions === */
+
 .border-radius(@radius) {
-  -webkit-border-radius: @radius;
-     -moz-border-radius: @radius;
-          border-radius: @radius;
+    -webkit-border-radius: @radius;
+       -moz-border-radius: @radius;
+            border-radius: @radius;
 }
-.box-shadow(@x: 0; @y: 0; @blur: 1px; @spread: 0px; @color: #000) {
-  -webkit-box-shadow: @arguments;
-     -moz-box-shadow: @arguments;
-          box-shadow: @arguments;
+.box-shadow(@x: 0; @y: 0; @blur: 1px; @spread: 0px; @color: #000; ...) {
+    -webkit-box-shadow: @arguments;
+       -moz-box-shadow: @arguments;
+            box-shadow: @arguments;
 }
 .linear-gradient(@top, @bottom) {
-  background: @top; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(@top, @bottom); /* For Safari 5.1 to 6.0 */
-  background:    -moz-linear-gradient(@top, @bottom); /* For Firefox 3.6 to 15 */
-  background:      -o-linear-gradient(@top, @bottom); /* For Opera 11.1 to 12.0 */
-  background:         linear-gradient(@top, @bottom); /* Standard syntax */
+    background: @top; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(@top, @bottom); /* For Safari 5.1 to 6.0 */
+    background:    -moz-linear-gradient(@top, @bottom); /* For Firefox 3.6 to 15 */
+    background:      -o-linear-gradient(@top, @bottom); /* For Opera 11.1 to 12.0 */
+    background:         linear-gradient(@top, @bottom); /* Standard syntax */
 }
 .bg-subheader() {
-  background: @darkblue-text url("../images/slices/bg-subheader.png") repeat-x ;
+    background: @txt-darkblue url("../images/slices/bg-subheader.png") repeat-x ;
 }
 .bg-header() {
-  background: #ffffff url("../images/slices/bg-header-track.jpg") repeat-x;
+    background: #ffffff url("../images/slices/bg-header-track.jpg") repeat-x;
 }
 
-/*
- Общие
- -----
-*/
+/* === end mixin functions === */
+/* === common === */
+
 body {
-  .common-font;
+    .common-font;
 }
+
+.wrapper {
+    margin: 0 auto;
+}
+
+/* === end common === */
+/* === carousel actions  === */
+section#actions {
+
+    .carousel {
+        width: 65%;
+        float: left;
+        //position: initial;
+
+        .carousel-indicators {
+            bottom: 0;
+            width: 50%;
+            left: 100%;
+            margin-left: 0;
+            text-align: left;
+            padding-left: 10px;
+
+            li {
+                border: 1px solid lighten(@txt-actions, 40%);
+                width: 14px;
+                height: 14px;
+                vertical-align: middle;
+                margin: 0 2px;
+
+                &.active {
+                    width: 13px;
+                    height: 13px;
+                    background-color: @bg-carousel-point;
+                    border: none;
+                    .box-shadow(0,-9px,10px,-7px,#333,inset)
+                }
+            }
+        }
+
+        .carousel-control {
+            opacity: 0;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    .carousel-captions {
+        width: 35%;
+        float: left;
+        //position: initial;
+        //display: block;
+
+        .carousel-caption {
+            display: none;
+            position: initial;
+            color: @txt-actions;
+            text-shadow: none;
+            text-align: left;
+            padding-left: 10px;
+
+            h3 {
+                color: @txt-red;
+                margin-top: 0;
+            }
+
+            &.active {
+                display: block;
+            }
+        }
+    }
+
+}
+
+section#breadcrumbs {
+    ol.breadcrumb {
+        background-color: #fff;
+    }
+}
+/* === end carousel actions === */
+

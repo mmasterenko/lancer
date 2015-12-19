@@ -1,25 +1,82 @@
-/*
- Шрифты
- ------
- общий - Myriad Pro (PT Sans)
- телефонный номер - Century Gothic (Muli)
- кнопка ВЫБРАТЬ - Calibri (Open Sans)
-*/
+/* === *
+  Шрифты
+  ------
+  общий - Myriad Pro (аналог: PT Sans)
+  телефонный номер - Century Gothic (аналог: Muli)
+  кнопка ВЫБРАТЬ - Calibri (аналог: Open Sans)
+ * === */
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic);
 @import url(https://fonts.googleapis.com/css?family=Muli);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic);
-/*
- Color Variables
- ---------------
- */
-/*
- Mixin functions
- ---------------
-*/
-/*
- Общие
- -----
-*/
+/* === fonts === */
+/* === end fonts === */
+/* === color variables  === */
+/* === end color variables  === */
+/* === mixin functions === */
+/* === end mixin functions === */
+/* === common === */
 body {
   font-family: 'PT Sans', sans-serif;
 }
+.wrapper {
+  margin: 0 auto;
+}
+/* === end common === */
+/* === carousel actions  === */
+section#actions .carousel {
+  width: 65%;
+  float: left;
+}
+section#actions .carousel .carousel-indicators {
+  bottom: 0;
+  width: 50%;
+  left: 100%;
+  margin-left: 0;
+  text-align: left;
+  padding-left: 10px;
+}
+section#actions .carousel .carousel-indicators li {
+  border: 1px solid #bfbfbf;
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+  margin: 0 2px;
+}
+section#actions .carousel .carousel-indicators li.active {
+  width: 13px;
+  height: 13px;
+  background-color: #F24585;
+  border: none;
+  -webkit-box-shadow: 0 -9px 10px -7px #333 inset;
+  -moz-box-shadow: 0 -9px 10px -7px #333 inset;
+  box-shadow: 0 -9px 10px -7px #333 inset;
+}
+section#actions .carousel .carousel-control {
+  opacity: 0;
+}
+section#actions .carousel .carousel-control:hover {
+  opacity: 0.8;
+}
+section#actions .carousel-captions {
+  width: 35%;
+  float: left;
+}
+section#actions .carousel-captions .carousel-caption {
+  display: none;
+  position: initial;
+  color: #595959;
+  text-shadow: none;
+  text-align: left;
+  padding-left: 10px;
+}
+section#actions .carousel-captions .carousel-caption h3 {
+  color: #ff3300;
+  margin-top: 0;
+}
+section#actions .carousel-captions .carousel-caption.active {
+  display: block;
+}
+section#breadcrumbs ol.breadcrumb {
+  background-color: #fff;
+}
+/* === end carousel actions === */
