@@ -336,3 +336,144 @@ section#service .car-model .choice-container .choice ul li a:hover {
   text-decoration: none;
 }
 /* === end section service === */
+/* === section info === */
+section#info {
+  color: #333333;
+  background-color: #eeeef0;
+}
+section#info h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 22px;
+  color: #333333;
+}
+section#info h3 i {
+  color: #078cd6;
+  margin-right: 10px;
+}
+section#info .about,
+section#info .contacts {
+  padding: 0;
+}
+section#info h3 {
+  background-color: #fff;
+  padding: 20px 0 10px;
+  margin: 0;
+}
+section#info .wrap-content {
+  background-color: #eeeef0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+section#info h3,
+section#info .wrap-content {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+section#info .content {
+  background-color: #fff;
+  padding: 10px 15px;
+}
+section#info .moreinfo {
+  text-align: right;
+}
+section#info .moreinfo a {
+  color: #ff3300;
+  font-size: 14px;
+}
+section#info a.email {
+  color: inherit;
+}
+section#info a.email:hover {
+  color: #3ea8f6;
+  text-decoration: none;
+}
+/* === end section info === */
+/* === section newsblock === */
+section#newsblock {
+  padding: 0 15px 50px;
+  background-color: #eeeef0;
+}
+section#newsblock h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 22px;
+  color: #333333;
+}
+section#newsblock h3 i {
+  color: #078cd6;
+  margin-right: 10px;
+}
+section#newsblock .moreinfo {
+  text-align: right;
+}
+section#newsblock .moreinfo a {
+  color: #ff3300;
+  font-size: 14px;
+}
+section#newsblock h3 {
+  margin-top: 10px;
+}
+section#newsblock h4 {
+  color: #ff3300;
+  margin-top: 0;
+}
+section#newsblock .anons {
+  line-height: 18px;
+}
+section#newsblock .anons img {
+  float: left;
+  margin-right: 10px;
+}
+section#newsblock .row {
+  margin-bottom: 30px;
+}
+/* === end section newsblock === */
+section#socials {
+  text-align: center;
+  padding: 15px 0;
+}
+.footer-container footer.wrapper {
+  background-color: #444444;
+  color: #fff;
+}
+.footer-container footer.wrapper h5 {
+  text-align: center;
+  line-height: 20px;
+  font-size: 16px;
+  padding: 15px 0;
+}
+.footer-container footer.wrapper ul {
+  list-style-type: none;
+  padding: 20px 10px;
+  text-align: right;
+  display: block;
+  padding-left: 50%;
+}
+.footer-container footer.wrapper ul li {
+  position: relative;
+  display: block;
+  float: left;
+  border: 2px solid #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 99px;
+}
+.footer-container footer.wrapper ul li a {
+  color: #fff;
+  position: absolute;
+}
+.footer-container footer.wrapper ul li.youtube {
+  background-color: #ff3300;
+}
+.footer-container footer.wrapper ul li.youtube a {
+  top: 8px;
+  left: 10px;
+}
+.footer-container footer.wrapper ul li.vk {
+  background-color: #138ad0;
+}
+.footer-container footer.wrapper ul li.vk a {
+  top: 8px;
+  left: 7px;
+}

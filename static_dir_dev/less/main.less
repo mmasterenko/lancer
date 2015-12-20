@@ -423,3 +423,144 @@ section#service {
     
 }
 /* === end section service === */
+
+.local-header-style() {
+    h3 {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 22px;
+        color: @txt-local-headers;
+        i {
+            color: @bg-choiceBtn-top;
+            margin-right: 10px;
+        }
+    }
+}
+
+.moreinfo() {
+    text-align: right;
+    a {
+        color: @txt-red;
+        font-size: 14px;
+    }
+}
+
+/* === section info === */
+section#info {
+    color: @txt-local-headers;
+    background-color: @bg-menu-dark;
+    .local-header-style;
+    .about, .contacts {
+        padding: 0;
+    }
+    h3 {
+        background-color: #fff;
+        padding: 20px 0 10px;
+        margin: 0;
+    }
+    .wrap-content {
+        background-color: @bg-menu-dark;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    h3, .wrap-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .content {
+        background-color: #fff;
+        padding: 10px 15px;
+    }
+    .moreinfo {
+        .moreinfo;
+    }
+    a.email {
+        color: inherit;
+        &:hover {
+            color: @txt-car-model;
+            text-decoration: none;
+        }
+    }
+}
+/* === end section info === */
+
+/* === section newsblock === */
+section#newsblock {
+    .local-header-style;
+    padding: 0 15px 50px;
+    background-color: @bg-menu-dark;
+    .moreinfo {
+        .moreinfo;
+    }
+    h3 {
+        margin-top: 10px;
+    }
+    h4 {
+        color: @txt-red;
+        margin-top: 0;
+    }
+    .anons {
+        line-height: 18px;
+        img {
+            float: left;
+            margin-right: 10px;
+        }
+    }
+    .row {
+        margin-bottom: 30px;
+    }
+}
+/* === end section newsblock === */
+section#socials {
+    text-align: center;
+    padding: 15px 0;
+}
+
+.footer-container {
+    footer.wrapper {
+        background-color: @bg-footer;
+        color: @txt-footer;
+
+        h5 {
+            text-align: center;
+            line-height: 20px;
+            font-size: 16px;
+            padding: 15px 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 20px 10px;
+            text-align: right;
+            display: block;
+            padding-left: 50%;
+            li {
+                position: relative;
+                display: block;
+                float: left;
+                border: 2px solid @txt-footer;
+                width: 48px;
+                height: 48px;
+                border-radius: 99px;
+                a {
+                    color: @txt-footer;
+                    position: absolute;
+                }
+                &.youtube {
+                    background-color: @txt-red;
+                    a {
+                        top: 8px;
+                        left: 10px;
+                    }
+                }
+                &.vk {
+                    background-color: @bg-blue-btn;
+                    a {
+                        top: 8px;
+                        left: 7px;
+                    }
+                }
+            }
+        }
+    }
+}
