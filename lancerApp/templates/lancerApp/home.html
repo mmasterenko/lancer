@@ -50,7 +50,7 @@
                 </div>
                 <div class="header container-fluid">
                     <div id="sub-menu" class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 logo">
                             <a href="javascript:void(0)"><img src="{% static 'original_logo.jpg' %}" alt="logo"></a>
                         </div>
                         <div class="col-md-4 slogan">
@@ -102,7 +102,7 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
                             <div class="item active">
-                                <img src="http://placehold.it/700x300?text=first" alt="first">
+                                <img src="{% static 'images/actions/6784385.j88ul0qym1.W958.jpg' %}" alt="first">
                             </div>
                             <div class="item">
                                 <img src="http://placehold.it/700x300?text=second" alt="first">
@@ -156,9 +156,11 @@
                 </section>
                 <section id="breadcrumbs" class="clearfix">
                     <ol class="breadcrumb">
+                        {% comment %}
                         <li><a href="javascript:void(0)">Главная</a></li>
                         <li><a href="javascript:void(0)">Хлебные</a></li>
                         <li class="active">Крошки</li>
+                        {% endcomment %}
                     </ol>
                 </section>
                 <section id="service" class="clearfix">
@@ -179,7 +181,8 @@
                                         <div class="choice active" data-choice-state="0">
                                             <p>
                                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                Delectus eum itaque quis velit.
+                                                Accusantium amet, blanditiis cupiditate, ducimus eos et,
+                                                eum excepturi itaque
                                             </p>
                                             <button>Выбрать</button>
                                         </div>
@@ -426,7 +429,7 @@
                                             <div class="col-md-12">
                                                 <br>
                                                 <strong>Email: </strong><a href="javascript:void(0)" class="email">MitsubishiLancerService@gmail.com</a><br>
-                                                <strong>Адрес: </strong> <br>
+                                                <strong>Адрес: </strong>
                                                 Санкт-Петербург, ул. Маршала Говорова 29 <br>
                                             </div>
                                         </div>
@@ -446,7 +449,7 @@
                             <div class="col-md-4">
                                 <h4>Заголовок новости напишем тут</h4>
                                 <div class="anons">
-                                    <img src="http://placehold.it/120x80" alt="news title">
+                                    <img src="{% static 'images/news/12571652.4zk18lqeb1.W665.jpg' %}" alt="news title">
                                     <p>
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, rerum.
                                     </p>
@@ -458,7 +461,7 @@
                             <div class="col-md-4">
                                 <h4>Заголовок новости напишем тут</h4>
                                 <div class="anons">
-                                    <img src="http://placehold.it/120x80" alt="news title">
+                                    <img src="{% static 'images/news/6822698.ljkdejizzr.W665.jpeg' %}" alt="news title">
                                     <p>
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, rerum.
                                     </p>
@@ -470,7 +473,7 @@
                             <div class="col-md-4">
                                 <h4>Заголовок новости напишем тут</h4>
                                 <div class="anons">
-                                    <img src="http://placehold.it/120x80" alt="news title">
+                                    <img src="{% static 'images/news/6822982.edargec21c.W665.jpg' %}" alt="news title">
                                     <p>
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, rerum.
                                     </p>
@@ -489,7 +492,7 @@
                     <div class="wrapper">
                         <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
                         <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
-                        <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,moimir,gplus,twitter"></div>
+                        <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,moimir,gplus,twitter" data-counter=""></div>
                     </div>
                 </section>
             </div> <!-- #main -->
@@ -507,23 +510,22 @@
                                 Все права защищены 2012-2015 <br>
                             </h5>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-socials">
                             <ul>
                                 <li class="youtube">
                                     <a target="_blank" href="https://www.youtube.com/watch?v=zsAQZ9IF8Hg">
-                                        <i class="fa fa-youtube fa-2x"></i>
+                                        <i class="fa fa-youtube"></i>
                                     </a>
                                 </li>
                                 <li class="vk">
                                     <a target="_blank" href="https://vk.com/lancerservicespb">
-                                        <i class="fa fa-vk fa-2x"></i>
+                                        <i class="fa fa-vk"></i>
                                     </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
             </footer>
         </div>
 

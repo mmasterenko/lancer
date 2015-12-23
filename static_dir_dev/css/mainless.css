@@ -32,11 +32,12 @@ body {
   background: #2f3b4b url("../images/slices/bg-subheader.png") repeat-x;
   color: #ffffff;
   height: 33px;
-  padding-top: 5px;
+  padding-top: 7px;
   padding-bottom: 5px;
 }
 #header .subheader .glyphicon {
   color: #566c8a;
+  top: 3px;
 }
 #header .subheader a.enter {
   color: #fff;
@@ -44,9 +45,16 @@ body {
 #header .subheader a.enter:hover .glyphicon {
   color: #fff;
 }
+#header .subheader .row > .text-right {
+  padding-right: 28px;
+}
 #header .header #sub-menu {
   background: #ffffff url("../images/slices/bg-header-track.jpg") no-repeat;
   background-position: right;
+}
+#header .header #sub-menu .logo {
+  padding-top: 15px;
+  height: 133px;
 }
 #header .header #sub-menu .slogan {
   font-size: 17px;
@@ -56,6 +64,7 @@ body {
 #header .header #sub-menu .contact .callme {
   margin-top: 10px;
   text-align: right;
+  font-size: 12px;
 }
 #header .header #sub-menu .contact .callme a {
   color: #ff3300;
@@ -67,9 +76,9 @@ body {
 }
 #header .header #sub-menu .contact .phone {
   font-family: 'Open Sans', sans-serif;
-  margin-top: 30px;
+  margin-top: 27px;
   color: #491e05;
-  font-size: 32px;
+  font-size: 36px;
   text-align: right;
 }
 #header .header #sub-menu .contact .phone span {
@@ -79,20 +88,20 @@ body {
 #header .header #sub-menu .contact .address {
   text-align: right;
   color: #2f3b4b;
-  font-size: 18px;
+  font-size: 16px;
 }
 #header .header #main-menu {
   background-color: #eeeef0;
-  height: 40px;
+  height: 38px;
 }
 #header .header #main-menu ul {
   list-style-type: none;
   padding-left: 0;
-  padding-top: 8px;
+  padding-top: 10px;
 }
 #header .header #main-menu ul li {
-  font-size: 13px;
-  margin-right: 20px;
+  font-size: 14px;
+  margin-right: 15px;
   display: inline-block;
 }
 #header .header #main-menu ul li i {
@@ -110,26 +119,26 @@ body {
 /* --- END header --- */
 /* === carousel actions  === */
 section#actions {
-  padding-top: 3px;
+  padding-top: 2px;
 }
 section#actions .carousel {
-  width: 65%;
+  width: 67%;
   float: left;
 }
 section#actions .carousel .carousel-indicators {
   bottom: 0;
   width: 50%;
   left: 100%;
-  margin-left: 0;
   text-align: left;
-  padding-left: 10px;
+  padding-left: 20px;
+  margin: 0 0 1px 0;
 }
 section#actions .carousel .carousel-indicators li {
   border: 1px solid #bfbfbf;
   width: 14px;
   height: 14px;
   vertical-align: middle;
-  margin: 0 2px;
+  margin-right: 2px;
 }
 section#actions .carousel .carousel-indicators li.active {
   width: 13px;
@@ -147,7 +156,7 @@ section#actions .carousel .carousel-control:hover {
   opacity: 0.8;
 }
 section#actions .carousel-captions {
-  width: 35%;
+  width: 33%;
   float: left;
 }
 section#actions .carousel-captions .carousel-caption {
@@ -156,7 +165,10 @@ section#actions .carousel-captions .carousel-caption {
   color: #595959;
   text-shadow: none;
   text-align: left;
-  padding-left: 10px;
+  padding: 10px 10px 0 20px;
+  line-height: 24px;
+  max-height: 240px;
+  overflow: hidden;
 }
 section#actions .carousel-captions .carousel-caption h3 {
   color: #ff3300;
@@ -170,6 +182,8 @@ section#actions .carousel-captions .carousel-caption.active {
 section#breadcrumbs ol.breadcrumb {
   background-color: #fff;
   font-size: 12px;
+  padding: 8px 20px;
+  margin-bottom: 0;
 }
 section#breadcrumbs ol.breadcrumb li:before {
   color: #ff3300;
@@ -192,9 +206,14 @@ section#service .header p {
 section#service .header h3 {
   color: #ff3300;
   text-transform: uppercase;
+  margin-top: 12px;
+  font-size: 20px;
+  margin-bottom: 0;
 }
 section#service .header p {
   color: #2f3b4b;
+  font-size: 18px;
+  margin-bottom: 17px;
 }
 section#service .car-model {
   -webkit-border-radius: 10px;
@@ -210,7 +229,7 @@ section#service .car-model {
   /* For Opera 11.1 to 12.0 */
   background: linear-gradient(#e4e4e6, #dfdfe8);
   /* Standard syntax */
-  padding: 10px 10px 10px;
+  padding: 6px 10px 10px;
   min-height: 320px;
 }
 section#service .car-model:hover {
@@ -233,13 +252,14 @@ section#service .car-model h2 {
 }
 section#service .car-model .car-img {
   text-align: center;
+  margin-top: 16px;
 }
 section#service .car-model .car-img img {
-  max-height: 78px;
+  max-height: 75px;
 }
 section#service .car-model hr {
   border-top: 1px solid #000;
-  margin: 10px auto 10px;
+  margin: 10px auto 6px;
   width: 90%;
 }
 section#service .car-model .choice-container .choice {
@@ -248,20 +268,30 @@ section#service .car-model .choice-container .choice {
 section#service .car-model .choice-container .choice.active {
   display: block;
 }
+section#service .car-model .choice-container .choice[data-choice-state='0'] {
+  text-align: center;
+}
 section#service .car-model .choice-container .choice p {
   line-height: 24px;
   text-align: center;
+  height: 120px;
+  overflow: hidden;
 }
 section#service .car-model .choice-container .choice button {
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 3px 15px;
+  display: block;
+  margin: 12px auto;
+  width: 140px;
+  border-width: 3px;
+  border-color: #fff #aaa #aaa #fff;
+  border-style: solid inset inset solid;
   -webkit-box-shadow: 0 0 0 1px #666;
   -moz-box-shadow: 0 0 0 1px #666;
   box-shadow: 0 0 0 1px #666;
   font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
-  text-transform: uppercase;
-  color: #fff;
-  padding: 5px 25px;
-  display: block;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -275,14 +305,6 @@ section#service .car-model .choice-container .choice button {
   /* For Opera 11.1 to 12.0 */
   background: linear-gradient(#078cd6, #1a6eb1);
   /* Standard syntax */
-  border-width: 3px;
-  border-color: #fff #aaa #aaa #fff;
-  border-style: solid inset inset solid;
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  margin-left: -68px;
-  width: 136px;
 }
 section#service .car-model .choice-container .choice button:active {
   border-bottom-color: #fff;
@@ -348,6 +370,7 @@ section#service .car-model .choice-container .choice ul li a:hover {
 section#info {
   color: #333333;
   background-color: #eeeef0;
+  margin-top: 20px;
 }
 section#info h3 {
   text-transform: uppercase;
@@ -365,29 +388,34 @@ section#info .contacts {
 }
 section#info h3 {
   background-color: #fff;
-  padding: 20px 0 10px;
+  padding: 20px 15px 6px 20px;
   margin: 0;
 }
 section#info .wrap-content {
   background-color: #eeeef0;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 15px 10px 20px;
 }
-section#info h3,
-section#info .wrap-content {
-  padding-left: 15px;
-  padding-right: 15px;
+section#info .contacts h3 {
+  padding-left: 10px;
+}
+section#info .contacts .wrap-content {
+  padding-left: 10px;
+  padding-right: 20px;
+}
+section#info .contacts .moreinfo {
+  margin-top: 5px;
 }
 section#info .content {
   background-color: #fff;
   padding: 10px 15px;
+  height: 140px;
 }
 section#info .moreinfo {
   text-align: right;
 }
 section#info .moreinfo a {
   color: #ff3300;
-  font-size: 14px;
+  font-size: 13px;
 }
 section#info a.email {
   color: inherit;
@@ -399,7 +427,7 @@ section#info a.email:hover {
 /* --- END section info --- */
 /* === section newsblock === */
 section#newsblock {
-  padding: 0 15px 50px;
+  padding: 0 15px 30px;
   background-color: #eeeef0;
 }
 section#newsblock h3 {
@@ -417,10 +445,12 @@ section#newsblock .moreinfo {
 }
 section#newsblock .moreinfo a {
   color: #ff3300;
-  font-size: 14px;
+  font-size: 13px;
 }
 section#newsblock h3 {
-  margin-top: 10px;
+  margin-top: 8px;
+  margin-left: 5px;
+  margin-bottom: 8px;
 }
 section#newsblock h4 {
   color: #ff3300;
@@ -432,9 +462,11 @@ section#newsblock .anons {
 section#newsblock .anons img {
   float: left;
   margin-right: 10px;
+  max-width: 90px;
+  max-height: 60px;
 }
 section#newsblock .row {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 /* --- END section newsblock --- */
 /* === socials === */
@@ -454,38 +486,45 @@ section#socials {
   font-size: 16px;
   padding: 15px 0;
 }
+.footer-container footer.wrapper .col-socials {
+  padding-top: 25px;
+  text-align: right;
+}
 .footer-container footer.wrapper ul {
   list-style-type: none;
-  padding: 20px 10px;
   text-align: right;
-  display: block;
-  padding-left: 50%;
+  display: inline-block;
 }
 .footer-container footer.wrapper ul li {
+  opacity: 0.7;
   position: relative;
   display: block;
   float: left;
   border: 2px solid #fff;
-  width: 48px;
-  height: 48px;
+  width: 38px;
+  height: 38px;
   border-radius: 99px;
 }
 .footer-container footer.wrapper ul li a {
   color: #fff;
   position: absolute;
+  font-size: 24px;
+}
+.footer-container footer.wrapper ul li:hover {
+  opacity: 1;
 }
 .footer-container footer.wrapper ul li.youtube {
   background-color: #ff3300;
 }
 .footer-container footer.wrapper ul li.youtube a {
-  top: 8px;
-  left: 10px;
+  top: 0;
+  left: 7px;
 }
 .footer-container footer.wrapper ul li.vk {
-  background-color: #138ad0;
+  background-color: #48729E;
 }
 .footer-container footer.wrapper ul li.vk a {
-  top: 8px;
-  left: 7px;
+  top: 1px;
+  left: 4px;
 }
 /* --- END footer --- */
