@@ -9,19 +9,24 @@
 @import url(https://fonts.googleapis.com/css?family=Muli);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic);
 /* === fonts === */
-/* === end fonts === */
-/* === color variables  === */
-/* === end color variables  === */
-/* === mixin functions === */
-/* === end mixin functions === */
+/* --- END fonts --- */
+/* === color_variables  === */
+/* --- END color_variables --- */
+/* === mixin_functions === */
+/* --- END mixin_functions --- */
 /* === common === */
 body {
   font-family: 'PT Sans', sans-serif;
 }
 .wrapper {
-  margin: 0 auto;
+  margin: 0 3px;
 }
-/* === end common === */
+@media (min-width: 1042px) {
+  .wrapper {
+    margin: 0 auto;
+  }
+}
+/* --- END common --- */
 /* === header === */
 #header .subheader {
   background: #2f3b4b url("../images/slices/bg-subheader.png") repeat-x;
@@ -102,7 +107,7 @@ body {
   color: #ff3300;
   text-decoration: none;
 }
-/* === end header === */
+/* --- END header --- */
 /* === carousel actions  === */
 section#actions {
   padding-top: 3px;
@@ -160,6 +165,8 @@ section#actions .carousel-captions .carousel-caption h3 {
 section#actions .carousel-captions .carousel-caption.active {
   display: block;
 }
+/* --- END carousel actions --- */
+/* === breadcrumbs === */
 section#breadcrumbs ol.breadcrumb {
   background-color: #fff;
   font-size: 12px;
@@ -170,7 +177,7 @@ section#breadcrumbs ol.breadcrumb li:before {
 section#breadcrumbs ol.breadcrumb li a {
   color: #ff3300;
 }
-/* === end carousel actions === */
+/* --- END breadcrumbs --- */
 /* === section service === */
 section#service {
   background-color: #eeeef0;
@@ -222,12 +229,13 @@ section#service .car-model h2 {
   color: #3ea8f6;
   text-align: center;
   margin-top: 0;
+  font-size: 24px;
 }
 section#service .car-model .car-img {
   text-align: center;
 }
 section#service .car-model .car-img img {
-  width: 80%;
+  max-height: 78px;
 }
 section#service .car-model hr {
   border-top: 1px solid #000;
@@ -335,7 +343,7 @@ section#service .car-model .choice-container .choice ul li a:focus,
 section#service .car-model .choice-container .choice ul li a:hover {
   text-decoration: none;
 }
-/* === end section service === */
+/* --- END section service --- */
 /* === section info === */
 section#info {
   color: #333333;
@@ -388,7 +396,7 @@ section#info a.email:hover {
   color: #3ea8f6;
   text-decoration: none;
 }
-/* === end section info === */
+/* --- END section info --- */
 /* === section newsblock === */
 section#newsblock {
   padding: 0 15px 50px;
@@ -428,11 +436,14 @@ section#newsblock .anons img {
 section#newsblock .row {
   margin-bottom: 30px;
 }
-/* === end section newsblock === */
+/* --- END section newsblock --- */
+/* === socials === */
 section#socials {
   text-align: center;
   padding: 15px 0;
 }
+/* --- END socials --- */
+/* === footer === */
 .footer-container footer.wrapper {
   background-color: #444444;
   color: #fff;
@@ -477,3 +488,4 @@ section#socials {
   top: 8px;
   left: 7px;
 }
+/* --- END footer --- */

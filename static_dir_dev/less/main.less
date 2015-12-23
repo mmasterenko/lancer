@@ -19,9 +19,9 @@
 .choose-font() {
     font-family: 'Open Sans', sans-serif;
 }
-/* === end fonts === */
+/* --- END fonts --- */
 
-/* === color variables  === */
+/* === color_variables  === */
 @txt-red: #ff3300;
 @txt-black: #000;
 @txt-footer: #fff;
@@ -50,9 +50,9 @@
 
 @bg-choiceBtn-top: #078cd6;
 @bg-choiceBtn-bottom: #1a6eb1;
-/* === end color variables  === */
+/* --- END color_variables --- */
 
-/* === mixin functions === */
+/* === mixin_functions === */
 .border-radius(@radius) {
     -webkit-border-radius: @radius;
        -moz-border-radius: @radius;
@@ -77,7 +77,26 @@
     background: #ffffff url("../images/slices/bg-header-track.jpg") no-repeat;
     background-position: right;
 }
-/* === end mixin functions === */
+.local-header-style() {
+    h3 {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 22px;
+        color: @txt-local-headers;
+        i {
+            color: @bg-choiceBtn-top;
+            margin-right: 10px;
+        }
+    }
+}
+.moreinfo() {
+    text-align: right;
+    a {
+        color: @txt-red;
+        font-size: 14px;
+    }
+}
+/* --- END mixin_functions --- */
 
 /* === common === */
 body {
@@ -85,9 +104,15 @@ body {
 }
 
 .wrapper {
-    margin: 0 auto;
+    margin: 0 3px;
 }
-/* === end common === */
+
+@media (min-width: 1042px) {
+    .wrapper {
+        margin: 0 auto;
+    }
+}
+/* --- END common --- */
 
 /* === header === */
 #header {
@@ -188,7 +213,7 @@ body {
 
     }
 }
-/* === end header === */
+/* --- END header --- */
 
 /* === carousel actions  === */
 section#actions {
@@ -259,7 +284,9 @@ section#actions {
     }
 
 }
+/* --- END carousel actions --- */
 
+/* === breadcrumbs === */
 section#breadcrumbs {
     ol.breadcrumb {
         background-color: #fff;
@@ -274,7 +301,7 @@ section#breadcrumbs {
         }
     }
 }
-/* === end carousel actions === */
+/* --- END breadcrumbs --- */
 
 /* === section service === */
 section#service {
@@ -309,12 +336,13 @@ section#service {
             color: @txt-car-model;
             text-align: center;
             margin-top: 0;
+            font-size: 24px;
         }
 
         .car-img {
             text-align: center;
             img {
-                width: 80%;
+                max-height: 78px;
             }
         }
 
@@ -422,28 +450,7 @@ section#service {
     }
     
 }
-/* === end section service === */
-
-.local-header-style() {
-    h3 {
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: 22px;
-        color: @txt-local-headers;
-        i {
-            color: @bg-choiceBtn-top;
-            margin-right: 10px;
-        }
-    }
-}
-
-.moreinfo() {
-    text-align: right;
-    a {
-        color: @txt-red;
-        font-size: 14px;
-    }
-}
+/* --- END section service --- */
 
 /* === section info === */
 section#info {
@@ -482,7 +489,7 @@ section#info {
         }
     }
 }
-/* === end section info === */
+/* --- END section info --- */
 
 /* === section newsblock === */
 section#newsblock {
@@ -510,12 +517,16 @@ section#newsblock {
         margin-bottom: 30px;
     }
 }
-/* === end section newsblock === */
+/* --- END section newsblock --- */
+
+/* === socials === */
 section#socials {
     text-align: center;
     padding: 15px 0;
 }
+/* --- END socials --- */
 
+/* === footer === */
 .footer-container {
     footer.wrapper {
         background-color: @bg-footer;
@@ -564,3 +575,5 @@ section#socials {
         }
     }
 }
+/* --- END footer --- */
+
