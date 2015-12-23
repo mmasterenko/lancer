@@ -3,7 +3,22 @@
  * */
 var choosedEngine = {};
 
+/*
+ * urls:
+ * {'lancer9':  ['/repair', '/tech', ]
+ *  'lancer10': ['/repair', '/tech', ]
+ * }
+ * */
+var service_urls = {};
+
 $(document).ready(function(){
+
+    $('[data-car-model]').each(function(){
+        var model = $(this).data('carModel');
+        var urls = [];
+        $(this).find('[data-choice-state=2] .sub-list a').each(function(){urls.push($(this).attr('href'))});
+        service_urls[model] = urls;
+    });
 
     // кнопка: ВЫБРАТЬ
     $('.car-model button').on('click', function(){
@@ -36,10 +51,10 @@ $(document).ready(function(){
         var capacity = $(this).parents('[data-capacity]').data('capacity');
         choosedEngine[model] = [transType, capacity];
         var url = '/' + model + '/' + transType + '/' + capacity;
-
-        choiceContainer.find('[data-choice-state=2] .sub-list a').each(function(){
-            var href = $(this).attr('href');
-            $(this).attr('href', href + url);
+        choiceContainer.find('[data-choice-state=2] .sub-list a').each(function($index){
+            var basic_url = service_urls[model][$index];
+            $(this).attr('href', basic_url + url);
         });
+
     });
 });
