@@ -96,8 +96,7 @@
                             <li data-target="#actions-carousel" data-slide-to="0" class="active"></li>
                             <li data-target="#actions-carousel" data-slide-to="1"></li>
                             <li data-target="#actions-carousel" data-slide-to="2"></li>
-                            <li data-target="#actions-carousel" data-slide-to="2"></li>
-                            <li data-target="#actions-carousel" data-slide-to="2"></li>
+                            <li data-target="#actions-carousel" data-slide-to="3"></li>
                         </ol>
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
@@ -105,10 +104,13 @@
                                 <img src="{% static 'images/actions/6784385.j88ul0qym1.W958.jpg' %}" alt="first">
                             </div>
                             <div class="item">
-                                <img src="http://placehold.it/700x300?text=second" alt="first">
+                                <img src="{% static 'images/actions/6784521.5hrbqmamug.W958.jpg' %}" alt="first">
                             </div>
                             <div class="item">
-                                <img src="http://placehold.it/700x300?text=third" alt="first">
+                                <img src="{% static 'images/actions/6784500.8ze8tmguy6.W958.jpg' %}" alt="first">
+                            </div>
+                            <div class="item">
+                                <img src="{% static 'images/actions/6784690.jgw2gjvjwf.W958.jpg' %}" alt="first">
                             </div>
                         </div>
                         <!-- Controls -->
@@ -144,6 +146,16 @@
                         </div>
                         <div class="carousel-caption" data-caption-id="2">
                             <h3>Third.</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur,
+                                debitis distinctio eaque eos ipsa ipsum itaque laboriosam libero modi
+                                nesciunt numquam praesentium, tenetur voluptates voluptatum.
+                                Dolor impedit itaque obcaecati officiis, quasi quis reiciendis saepe
+                                temporibus! Aliquam beatae blanditiis eaque odit quasi repellendus sequi?
+                            </p>
+                        </div>
+                        <div class="carousel-caption" data-caption-id="3">
+                            <h3>Fourth.</h3>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur,
                                 debitis distinctio eaque eos ipsa ipsum itaque laboriosam libero modi
@@ -534,10 +546,8 @@
         <script src="{% static 'initializr/js/plugins.js' %}"></script>
         <script src="{% static 'js/lancer.js' %}"></script>
 
-        {% comment %}
-            <script src="{% static 'bower_components/bootstrap/dist/js/carousel.js' %}"></script>
-            <script src="{% static 'bower_components/bootstrap/dist/js/transition.js' %}"></script>
-        {% endcomment %}
+        <script src="{% static 'bower_components/bootstrap/dist/js/carousel.js' %}"></script>
+        <script src="{% static 'bower_components/bootstrap/dist/js/transition.js' %}"></script>
 
         {% block makeup %}
             <script src="{% static 'js/makeup/makeup.js' %}?maket=/static/js/makeup/index-2.jpg"></script>
