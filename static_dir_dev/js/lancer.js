@@ -57,4 +57,18 @@ $(document).ready(function(){
         });
 
     });
+
+
+    $('#header .callme > a').on('click', function(){
+        $('#callme').toggle('shake', 400);
+    });
+
+    $('#callme div a').on('click', function(){
+        // отправить сообщение
+    });
+
+    $('#callme a.close').on('click', function(){
+        $('#callme').toggle('fade', 500);
+    });
+
 });

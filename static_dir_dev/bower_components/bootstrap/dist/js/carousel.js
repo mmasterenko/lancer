@@ -138,6 +138,14 @@
     if (this.$indicators.length) {
       this.$indicators.find('.active').removeClass('active')
       var $nextIndicator = $(this.$indicators.children()[this.getItemIndex($next)])
+
+      // fadeOut/In carousel captions
+      var index = this.getItemIndex($next);
+      $('[data-caption-id].active').fadeOut(300, function(){
+        $(this).removeClass('active');
+        $('[data-caption-id='+ index +']').fadeIn(300).addClass('active');
+      });
+
       $nextIndicator && $nextIndicator.addClass('active')
     }
 
