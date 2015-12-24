@@ -146,7 +146,7 @@ body {
   color: #ff3300;
 }
 #header .header #main-menu {
-  background: #eeeef0 url(../images/slices/bg-menu-track.png) no-repeat right;
+  background: #eeeef0 url(../images/slices/bg-menu-track.png) right;
   height: 38px;
 }
 #header .header #main-menu ul {

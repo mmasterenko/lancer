@@ -563,7 +563,9 @@
         <script src="{% static 'bower_components/bootstrap/dist/js/transition.js' %}"></script>
 
         {% block makeup %}
+            {% comment %}
             <script src="{% static 'js/makeup/makeup.js' %}?maket=/static/js/makeup/index-2.jpg"></script>
+            {% endcomment %}
         {% endblock %}
     </body>
 </html>

@@ -1,17 +1,16 @@
-/*
+$(document).ready(function(){
+    /*
  * {'lancer9': ['mechanic', '1.3'] }
  * */
-var choosedEngine = {};
+    var choosedEngine = {};
 
-/*
- * urls:
- * {'lancer9':  ['/repair', '/tech', ]
- *  'lancer10': ['/repair', '/tech', ]
- * }
- * */
-var service_urls = {};
-
-$(document).ready(function(){
+    /*
+     * urls:
+     * {'lancer9':  ['/repair', '/tech', ]
+     *  'lancer10': ['/repair', '/tech', ]
+     * }
+     * */
+    var service_urls = {};
 
     $('[data-car-model]').each(function(){
         var model = $(this).data('carModel');
