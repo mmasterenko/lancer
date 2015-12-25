@@ -96,6 +96,30 @@
         font-size: 13px;
     }
 }
+.button() {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 3px 15px;
+    display: block;
+    margin: 12px auto;
+    width: 140px;
+    border-width: 3px;
+    border-color: #fff #aaa #aaa #fff;
+    border-style: solid inset inset solid;
+    .box-shadow(0,0,0,1px,#666);
+    .choose-font;
+    .border-radius(6px);
+    .linear-gradient(@bg-choiceBtn-top, @bg-choiceBtn-bottom);
+    &:active {
+        border-bottom-color: #fff;
+        border-right-color: #fff;
+        border-style: inset solid solid inset;
+    }
+    &:focus {
+        outline: none;
+    }
+}
 /* --- END mixin_functions --- */
 
 /* === common === */
@@ -439,28 +463,7 @@ section#service {
                     overflow: hidden;
                 }
                 button {
-                    font-size: 18px;
-                    text-transform: uppercase;
-                    color: #fff;
-                    padding: 3px 15px;
-                    display: block;
-                    margin: 12px auto;
-                    width: 140px;
-                    border-width: 3px;
-                    border-color: #fff #aaa #aaa #fff;
-                    border-style: solid inset inset solid;
-                    .box-shadow(0,0,0,1px,#666);
-                    .choose-font;
-                    .border-radius(6px);
-                    .linear-gradient(@bg-choiceBtn-top, @bg-choiceBtn-bottom);
-                    &:active {
-                        border-bottom-color: #fff;
-                        border-right-color: #fff;
-                        border-style: inset solid solid inset;
-                    }
-                    &:focus {
-                        outline: none;
-                    }
+                    .button;
                 }
                 .back {
                     text-align: right;
@@ -679,5 +682,76 @@ section#map {
         .border-radius(5px);
         padding: 3px;
         margin-bottom: 30px;
+    }
+}
+
+section#write-us {
+    h2 {
+        text-align: center;
+        color: @txt-darkblue + #333;
+        font-family: 'Open Sans', sans-serif;
+    }
+    form {
+        padding: 20px 0 40px;
+
+        div {
+            margin: 20px 0;
+            text-align: right;
+
+            .form-error {
+                text-align: right;
+                color: @txt-red;
+            }
+        }
+        .has-error>label {
+            color: @txt-darkblue + #333;
+        }
+        label {
+            color: @txt-darkblue + #333;
+            width: 30%;
+            margin-right: 15px;
+            font-size: 18px;
+            text-align: right;
+            &[for=message] {
+                vertical-align: top;
+            }
+        }
+
+        input:not([type=submit]), textarea {
+            width: 60%;
+            .border-radius(5px);
+            border: 1px solid @txt-actions + #555;
+            &:focus {
+                border-color: rgba(82,168,236,0.8);
+                outline: 0;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(57,179,133,0.8);
+                -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(57,179,133,0.8);
+                box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(57,179,133,0.8);
+
+                -webkit-transition: border linear .2s,box-shadow linear .2s;
+                -moz-transition: border linear .2s,box-shadow linear .2s;
+                -o-transition: border linear .2s,box-shadow linear .2s;
+                transition: border linear .2s,box-shadow linear .2s;
+            }
+        }
+
+        input {
+            font-size: 20px;
+            padding-left: 9px;
+            &[type=submit] {
+                .button;
+                margin-left: auto;
+                margin-right: 0;
+                &:focus {
+                    outline-offset: 0;
+                    outline: auto 5px #676767;
+                }
+            }
+        }
+
+        textarea {
+            height: 100px;
+            padding: 5px;
+        }
     }
 }
