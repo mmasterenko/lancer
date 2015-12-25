@@ -269,8 +269,10 @@ body {
         }
 
         #main-menu {
-            background: @bg-menu-dark url(../images/slices/bg-menu-track.png) right;
             height: 38px;
+            &>.col {
+                background: @bg-menu-dark url(../images/slices/bg-menu-track.png) right;
+            }
             ul {
                 list-style-type: none;
                 padding-left: 0;
@@ -293,9 +295,7 @@ body {
                     }
                 }
             }
-
         }
-
     }
 }
 /* --- END header --- */
@@ -686,9 +686,11 @@ section#map {
 }
 
 section#write-us {
+    @txt-form-label: @txt-darkblue + #333;
+
     h2 {
         text-align: center;
-        color: @txt-darkblue + #333;
+        color: @txt-form-label;
         font-family: 'Open Sans', sans-serif;
     }
     form {
@@ -704,10 +706,10 @@ section#write-us {
             }
         }
         .has-error>label {
-            color: @txt-darkblue + #333;
+            color: @txt-form-label;
         }
         label {
-            color: @txt-darkblue + #333;
+            color: @txt-form-label;
             width: 30%;
             margin-right: 15px;
             font-size: 18px;
@@ -722,7 +724,7 @@ section#write-us {
             .border-radius(5px);
             border: 1px solid @txt-actions + #555;
             &:focus {
-                border-color: rgba(82,168,236,0.8);
+                border-color: rgba(57,179,133,0.8);
                 outline: 0;
                 -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(57,179,133,0.8);
                 -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(57,179,133,0.8);
@@ -744,7 +746,10 @@ section#write-us {
                 margin-right: 0;
                 &:focus {
                     outline-offset: 0;
-                    outline: auto 5px #676767;
+                    outline: auto 5px #39B385;
+                    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(57,179,133,0.8);
+                    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(57,179,133,0.8);
+                    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(57,179,133,0.8);
                 }
             }
         }
