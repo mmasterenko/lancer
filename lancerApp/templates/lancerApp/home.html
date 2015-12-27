@@ -188,13 +188,13 @@
                 {% endblock %}
                 {% block breadcrumbs %}
                 <section id="breadcrumbs" class="clearfix">
+                {% comment %}
                     <ol class="breadcrumb">
-                        {% comment %}
                         <li><a href="javascript:void(0)">Главная</a></li>
                         <li><a href="javascript:void(0)">Хлебные</a></li>
                         <li class="active">Крошки</li>
-                        {% endcomment %}
                     </ol>
+                {% endcomment %}
                 </section>
                 {% endblock %}
                 {% block content %}
@@ -523,6 +523,8 @@
                         <a href="javascript:void(0)">Все новости</a>
                     </div>
                 </section>
+                {% endblock %}
+                {% block socials %}
                 <section id="socials" class="clearfix">
                     <div class="wrapper">
                         <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
@@ -569,12 +571,16 @@
         <script>window.jQuery || document.write('<script src="{% static 'initializr/js/vendor/jquery-1.11.2.min.js' %}"><\/script>')</script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
         <script src="{% static 'initializr/js/plugins.js' %}"></script>
-        <script src="{% static 'js/lancer.js' %}"></script>
 
         {% block carousel_js %}
         <script src="{% static 'bower_components/bootstrap/dist/js/carousel.js' %}"></script>
         <script src="{% static 'bower_components/bootstrap/dist/js/transition.js' %}"></script>
         {% endblock %}
+
+        {% block js_plugins %}
+        {% endblock %}
+
+        <script src="{% static 'js/lancer.js' %}"></script>
 
         {% block makeup %}
             {% comment %}

@@ -1,20 +1,37 @@
 {% extends 'lancerApp/home.html' %}
-{% block title %}Lancer Service{% endblock %}
-{% block actions %}
-{% endblock %}
+{% load staticfiles %}
+{% block title %}О нас{% endblock %}
 {% block content %}
 
-    <style>
-        #not_found {
-            margin: 130px auto;
-            text-align: center;
-            font-size: 32px;
-            position: relative;
-            color: #aaaaaa;
-            font-family: 'PT Sans', sans-serif;
-        }
-    </style>
-    <div id="not_found">404 <br> Страница еще не готова</div>
+    <section id="about" class="clearfix">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3><i class="fa fa-youtube-play"></i>О компании</h3>
+                    <div class="local-wrapper">
+                        <div id="video-display" class="pretty-embed"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="stuff" class="clearfix">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3><i class="fa fa-users"></i>Наши сотрудники</h3>
+                </div>
+            </div>
+        </div>
+    </section>
 
 {% endblock %}
-{% block carousel_js %}{% endblock %}
+{% block js_plugins %}
+    <script src="{% static 'bower_components/waitForImages/dist/jquery.waitforimages.js' %}"></script>
+    <script src="{% static 'bower_components/pretty-embed/jquery.prettyembed.js' %}"></script>
+    <script src="{% static 'js/about.js' %}"></script>
+{% endblock %}
+{% block makeup %}
+    <script src="{% static 'js/makeup/makeup.js' %}?maket=/static/js/makeup/index-2_about.jpg"></script>
+{% endblock %}

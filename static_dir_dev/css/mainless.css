@@ -236,6 +236,9 @@ section#actions .carousel-captions .carousel-caption.active {
 }
 /* --- END carousel actions --- */
 /* === breadcrumbs === */
+section#breadcrumbs {
+  height: 33px;
+}
 section#breadcrumbs ol.breadcrumb {
   background-color: #fff;
   font-size: 12px;
@@ -696,4 +699,34 @@ section#write-us form input[type=submit]:focus {
 section#write-us form textarea {
   height: 100px;
   padding: 5px;
+}
+section#about {
+  background-color: #eeeef0;
+}
+section#about h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 22px;
+  color: #333333;
+}
+section#about h3 i {
+  color: #078cd6;
+  margin-right: 10px;
+}
+section#about .local-wrapper {
+  margin: 20px auto 40px;
+  width: 80%;
+}
+section#stuff {
+  background-color: #eeeef0;
+}
+section#stuff h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 22px;
+  color: #333333;
+}
+section#stuff h3 i {
+  color: #078cd6;
+  margin-right: 10px;
 }
