@@ -590,10 +590,9 @@ section#socials {
 /* --- END footer --- */
 /* === === === === === === === OTHER PAGES === === === === === === === */
 section#map .yandex_map {
-  border: 1px solid #eeeef0;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  background: url("/static/images/ajax-loader.gif") no-repeat center center;
+  height: 460px;
+  width: 100%;
   padding: 3px;
   margin-bottom: 30px;
 }
