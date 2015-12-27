@@ -719,6 +719,7 @@ section#about .local-wrapper {
 }
 section#stuff {
   background-color: #eeeef0;
+  padding-bottom: 30px;
 }
 section#stuff h3 {
   text-transform: uppercase;
@@ -729,4 +730,11 @@ section#stuff h3 {
 section#stuff h3 i {
   color: #078cd6;
   margin-right: 10px;
+}
+section#stuff .stuff {
+  text-align: center;
+  padding: 15px 0;
+}
+section#stuff .stuff img {
+  width: 80%;
 }

@@ -23,6 +23,64 @@
                     <h3><i class="fa fa-users"></i>Наши сотрудники</h3>
                 </div>
             </div>
+            <div class="row stuff">
+                <div class="col-md-3">
+                    <a class="fancybox" rel="gallery" data-title-id="title-1" href="{% static 'images/stuff_photos/3cKaa71lCvs.jpg' %}">
+                        <img src="{% static 'images/stuff_photos/3cKaa71lCvs.jpg' %}" alt="stuff">
+                    </a>
+                    <div id="title-1" class="hidden">
+                        <h5>Иван Иванов</h5>
+                        Механик первого разряда
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <a class="fancybox" rel="gallery" data-title-id="title-2" href="{% static 'images/stuff_photos/7kxB_OnN630.jpg' %}">
+                        <img src="{% static 'images/stuff_photos/7kxB_OnN630.jpg' %}" alt="stuff">
+                    </a>
+                    <div id="title-2" class="hidden">
+                        <h5>Иван Иванов</h5>
+                        Механик первого разряда
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <a class="fancybox" rel="gallery" data-title-id="title-3" href="{% static 'images/stuff_photos/eI5exe0Wm_8.jpg' %}">
+                        <img src="{% static 'images/stuff_photos/eI5exe0Wm_8.jpg' %}" alt="stuff">
+                    </a>
+                    <div id="title-3" class="hidden">
+                        <h5>Иван Иванов</h5>
+                        Механик первого разряда
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <a class="fancybox" rel="gallery" data-title-id="title-4" href="{% static 'images/stuff_photos/OIaSTNGRRI4.jpg' %}">
+                        <img src="{% static 'images/stuff_photos/OIaSTNGRRI4.jpg' %}" alt="stuff">
+                    </a>
+                    <div id="title-4" class="hidden">
+                        <h5>Иван Иванов</h5>
+                        Механик первого разряда
+                    </div>
+                </div>
+            </div>
+            <div class="row stuff">
+                <div class="col-md-3">
+                    <a class="fancybox" rel="gallery" data-title-id="title-5" href="{% static 'images/stuff_photos/uoXR4aZBln4.jpg' %}">
+                        <img src="{% static 'images/stuff_photos/uoXR4aZBln4.jpg' %}" alt="stuff">
+                    </a>
+                    <div id="title-5" class="hidden">
+                        <h5>Иван Иванов</h5>
+                        Механик первого разряда
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <a class="fancybox" rel="gallery" data-title-id="title-6" href="{% static 'images/stuff_photos/lFFVdjCWTCo.jpg' %}">
+                        <img src="{% static 'images/stuff_photos/lFFVdjCWTCo.jpg' %}" alt="stuff">
+                    </a>
+                    <div id="title-6" class="hidden">
+                        <h5>Иван Иванов</h5>
+                        Механик первого разряда
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -30,6 +88,10 @@
 {% block js_plugins %}
     <script src="{% static 'bower_components/waitForImages/dist/jquery.waitforimages.js' %}"></script>
     <script src="{% static 'bower_components/pretty-embed/jquery.prettyembed.js' %}"></script>
+
+    <link rel="stylesheet" href="{% static 'bower_components/fancybox/source/jquery.fancybox.css' %}">
+    <script src="{% static 'bower_components/fancybox/source/jquery.fancybox.js' %}"></script>
+
     <script src="{% static 'js/about.js' %}"></script>
 {% endblock %}
 {% block makeup %}
