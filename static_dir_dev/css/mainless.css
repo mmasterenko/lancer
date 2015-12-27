@@ -738,3 +738,17 @@ section#stuff .stuff {
 section#stuff .stuff img {
   width: 80%;
 }
+section#news .article-col {
+  padding-bottom: 30px;
+}
+section#news .article-col h3 {
+  color: #ff3300;
+}
+section#news .article-col h3 .date {
+  font-size: 14px;
+  float: right;
+  padding: 5px 0;
+}
+section#news .article-col .full-text {
+  color: #595959;
+}
