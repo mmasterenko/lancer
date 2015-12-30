@@ -13,4 +13,5 @@ urlpatterns = [
     url(r'^news/', 'lancerApp.views.news', name='news'),
     url(r'^contact/', 'lancerApp.views.contact', name='contact'),
     url(r'^partners/', 'lancerApp.views.partners', name='partners'),
+    url(r'^service/', 'lancerApp.views.service', name='service'),
 ]

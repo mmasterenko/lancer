@@ -1,0 +1,54 @@
+{% extends 'lancerApp/home.html' %}
+{% load staticfiles %}
+{% block title %}Наши услуги{% endblock %}
+{% block content %}
+
+    <section id="page-service" class="clearfix">
+        <h3><i class="fa fa-gear"></i>Наши услуги</h3>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="service-type">
+                        <a href="javascript:void(0)"><img src="{% static 'images/service-type/oil.png' %}" alt=""></a>
+                        <span class="service-name">Замена жидкостей</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="service-type">
+                        <a href="javascript:void(0)"><img src="http://placehold.it/150x50" alt=""></a>
+                        <span class="service-name">Рулевое управление</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="service-type">
+                        <a href="javascript:void(0)"><img src="http://placehold.it/150x50" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="service-type">
+                        <a href="javascript:void(0)"><img src="http://placehold.it/150x50" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="service-type">
+                        <a href="javascript:void(0)"><img src="http://placehold.it/150x50" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="service-type">
+                        <a href="javascript:void(0)"><img src="http://placehold.it/150x50" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+{% block carousel_js %}{% endblock %}
+{% block makeup %}
+    <script src="{% static 'js/makeup/makeup.js' %}?maket=/static/js/makeup/index-2_icons.jpg"></script>
+{% endblock %}

@@ -24,3 +24,7 @@ def contact(req):
 def partners(req):
     return render(req, 'lancerApp/partners.html')
 
+
+def service(req):
+    return render(req, 'lancerApp/service.html')
+

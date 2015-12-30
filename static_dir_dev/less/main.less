@@ -809,3 +809,44 @@ section#news {
         }
     }
 }
+
+
+section#page-service {
+    .local-header-style;
+    background-color: @bg-menu-dark;
+    h3 {
+        padding: 0 15px 10px;
+    }
+
+    .row {
+        padding-bottom: 20px;
+
+        .service-type {
+            height: 150px;
+            .border-radius(10px);
+            .linear-gradient(@bg-car-top, @bg-car-bottom);
+            text-align: left;
+
+            .service-name {
+                font-size: 20px;
+                vertical-align: middle;
+            }
+
+            a {
+                padding: 30px 20px;
+                vertical-align: middle;
+                height: 100%;
+                img {
+                    max-height: 150px;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                }
+            }
+
+            &:hover {
+                .linear-gradient(@bg-car-hover-top, @bg-car-hover-bottom);
+            }
+        }
+    }
+}
+
