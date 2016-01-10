@@ -771,6 +771,7 @@ section#page-service .row {
   padding-bottom: 20px;
 }
 section#page-service .row .service-type {
+  display: block;
   height: 150px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -791,12 +792,7 @@ section#page-service .row .service-type .service-name {
   font-size: 20px;
   vertical-align: middle;
 }
-section#page-service .row .service-type a {
-  padding: 30px 20px;
-  vertical-align: middle;
-  height: 100%;
-}
-section#page-service .row .service-type a img {
+section#page-service .row .service-type img {
   max-height: 150px;
   padding-top: 5px;
   padding-bottom: 5px;
