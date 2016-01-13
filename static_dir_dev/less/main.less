@@ -827,16 +827,23 @@ section#page-service {
             .border-radius(10px);
             .linear-gradient(@bg-car-top, @bg-car-bottom);
             text-align: left;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
 
             .service-name {
-                font-size: 20px;
+                font-size: 24px;
                 vertical-align: middle;
+                position: absolute;
+                top: 60px;
+                left: 43%;
             }
 
             img {
                 max-height: 150px;
-                padding-top: 5px;
-                padding-bottom: 5px;
+                //padding-top: 20px;
+                //padding-bottom: 20px;
+                padding: 20px;
             }
 
             &:hover {

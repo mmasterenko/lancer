@@ -787,15 +787,20 @@ section#page-service .row .service-type {
   background: linear-gradient(#e4e4e6, #dfdfe8);
   /* Standard syntax */
   text-align: left;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
 }
 section#page-service .row .service-type .service-name {
-  font-size: 20px;
+  font-size: 24px;
   vertical-align: middle;
+  position: absolute;
+  top: 60px;
+  left: 43%;
 }
 section#page-service .row .service-type img {
   max-height: 150px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 20px;
 }
 section#page-service .row .service-type:hover {
   background: #e0e0ec;
