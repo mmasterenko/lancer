@@ -28,3 +28,7 @@ def partners(req):
 def service(req):
     return render(req, 'lancerApp/service.html')
 
+
+def price(req):
+    return render(req, 'lancerApp/service_table.html')
+

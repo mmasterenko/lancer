@@ -814,3 +814,22 @@ section#page-service .row .service-type:hover {
   background: linear-gradient(#e0e0ec, #c6c6d4);
   /* Standard syntax */
 }
+section#page-service table.price-table {
+  margin-bottom: 20px;
+}
+section#page-service table.price-table th {
+  background-color: #138ad0;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 10px 15px;
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+section#page-service table.price-table td {
+  border: 2px solid #fff;
+  padding: 2px 5px;
+}
+section#page-service table.price-table tr:nth-child(odd) {
+  background-color: #c6c6d4;
+}
