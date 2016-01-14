@@ -59,7 +59,7 @@ $(document).ready(function(){
 
 
     $('#header .callme > a').on('click', function(){
-        $('#callme').toggle('shake', 400);
+        $('#callme').toggle('fade', 400);
     });
 
     $('#callme div a').on('click', function(){
