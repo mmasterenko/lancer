@@ -5,7 +5,7 @@ from lancerApp import views
 urlpatterns = [
     # Examples:
     # url(r'^blog/', include('blog.urls')),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^lanceradmin/', include(admin.site.urls)),
 
     url(r'^$', views.home, name='home'),
     url(r'^about/', 'lancerApp.views.about', name='about'),
