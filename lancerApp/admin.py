@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.contrib import admin
 from .models import Car, Service, Spares, TechLiquids
 
@@ -22,3 +24,7 @@ admin.site.register(Car, CarAdmin)
 admin.site.register(Service, ServiceAdmin)
 admin.site.register(Spares, SparesAdmin)
 admin.site.register(TechLiquids, TechLiquidsAdmin)
+
+admin.site.site_header = u'Интерфейс администратора'
+admin.site.index_title = u'Управление'
+admin.site.site_title = u'Лансер Сервис'
