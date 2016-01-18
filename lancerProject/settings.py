@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Django settings for lancerProject project.
 
@@ -35,6 +37,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = (
+    'admin_shortcuts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,6 +46,24 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'lancerApp'
 )
+
+ADMIN_SHORTCUTS = [
+    {
+        'title': 'Lancer Service',
+        'shortcuts': [
+            {
+                'url_name': 'admin:lancerApp_car_changelist',
+                'title': u'Машины',
+                'count_new': 'lancerApp.utils.cars_count',
+            },
+        ]
+    },
+]
+
+ADMIN_SHORTCUTS_SETTINGS = {
+    'hide_app_list': False,
+    'open_new_window': False,
+}
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
