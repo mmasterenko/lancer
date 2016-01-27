@@ -54,7 +54,7 @@
                 <div class="header container-fluid">
                     <div id="sub-menu" class="row">
                         <div class="hidden-xs col-sm-6 col-md-4 col-lg-4 logo">
-                            <a href="javascript:void(0)">
+                            <a href="{% url 'home' %}">
                                 <img class="hidden-xs hidden-sm" src="{% static 'original_logo.jpg' %}" alt="logo">
                                 <img class="hidden-md hidden-lg" src="{% static 'images/slices/logo.png' %}" alt="logo">
                             </a>
@@ -440,7 +440,7 @@
                                             laborum omnis perspiciatis placeat quas quidem quod soluta!
                                         </p>
                                         <div class="moreinfo">
-                                            <a href="javascript:void(0)">Подробнее...</a>
+                                            <a href="{% url 'about' %}">Подробнее...</a>
                                         </div>
                                     </div>
                                 </div>
@@ -471,7 +471,7 @@
                                         </div>
                                     </div>
                                     <div class="moreinfo">
-                                        <a href="javascript:void(0)">Посмотреть на карте</a>
+                                        <a href="{% url 'map' %}">Посмотреть на карте</a>
                                     </div>
                                 </div>
                             </div>
@@ -521,7 +521,7 @@
                         </div>
                     </div>
                     <div class="moreinfo">
-                        <a href="javascript:void(0)">Все новости</a>
+                        <a href="{% url 'news' %}">Все новости</a>
                     </div>
                 </section>
                 {% endblock %}
