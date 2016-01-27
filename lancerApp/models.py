@@ -43,7 +43,7 @@ class GeneralInfo(models.Model):
     phones = models.TextField(u'телефоны')
     about = models.TextField(u'о компании')
     footerText = models.TextField(u'текст в футере')
-    feedbackURL = models.URLField(u'Ссылка на форум')
+    feedbackURL = models.URLField(u'Ссылка на форум', default='http://www.forum.lancer-club.ru/index.php?showtopic=117021')
 
     car_lancer9 = models.TextField(u'Lancer 9')
     car_lancer10 = models.TextField(u'Lancer 10')
