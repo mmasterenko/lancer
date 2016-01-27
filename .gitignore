@@ -5,7 +5,6 @@ devfiles
 *.pyc
 .idea
 .env
-db.sqlite3
 venv
 staticfiles
 settings_dev.py
