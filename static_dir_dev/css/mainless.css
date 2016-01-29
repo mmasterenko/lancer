@@ -332,9 +332,10 @@ section#service .car-model .choice-container .choice[data-choice-state='0'] {
   text-align: center;
 }
 section#service .car-model .choice-container .choice p {
-  line-height: 24px;
+  line-height: 21px;
+  font-size: 13px;
   text-align: center;
-  height: 120px;
+  height: 130px;
   overflow: hidden;
 }
 section#service .car-model .choice-container .choice button {

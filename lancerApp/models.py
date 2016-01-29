@@ -4,6 +4,7 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from django.utils.timezone import now
 from .utils import SlugNullField
+from model_mixins import SEOFieldsMixin
 
 upload_path = 'images/original'
 
@@ -17,15 +18,6 @@ SERVICE_TYPE = (
     ('electro',   'Электрика'),
     ('other',   'Другое'),
 )
-
-
-class SEOFieldsMixin(models.Model):
-    class Meta:
-        abstract = True
-
-    title = models.CharField('<title>', max_length=100, null=True, blank=True)
-    meta_desc = models.CharField('meta description', max_length=100, null=True, blank=True)
-    meta_keywords = models.CharField('meta keywords', max_length=100, null=True, blank=True)
 
 
 class GeneralInfo(models.Model):
@@ -48,10 +40,10 @@ class GeneralInfo(models.Model):
     car_lancer9 = models.TextField(u'Lancer 9')
     car_lancer10 = models.TextField(u'Lancer 10')
     car_evolution = models.TextField(u'Evolution')
-    car_lancerASX = models.TextField(u'Lancer ASX')
+    car_lancerASX = models.TextField(u'Mitsubishi ASX')
 
 
-class News(models.Model):
+class News(SEOFieldsMixin, models.Model):
     class Meta:
         verbose_name = u'новость'
         verbose_name_plural = u'новости'
@@ -77,11 +69,8 @@ class Actions(models.Model):
         return '%s' % self.header
 
     header = models.CharField(u'Заголовок', max_length=80)
-    text = models.TextField(u'Текст')
-    date = models.DateField(u'Дата', default=now)
+    text = models.TextField(u'Текст', blank=True, null=True)
     img = models.ImageField(u'Картинка', upload_to=upload_path)
-    uri_help_text = u'URI под которым будет доступна акция. например: /novaya-akciya/'
-    url = SlugNullField(u'URI', help_text=uri_help_text, null=True, blank=True, unique=True, max_length=90, default=None)
 
 
 class Stuff(models.Model):

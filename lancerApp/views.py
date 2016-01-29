@@ -1,8 +1,14 @@
 from django.shortcuts import render
+from .models import GeneralInfo, News, Actions
 
 
 def home(req):
-    return render(req, 'lancerApp/home.html')
+    context = {
+        'news': News.objects.order_by('-date', '-id')[:3],
+        'info': GeneralInfo.objects.first(),
+        'actions': Actions.objects.order_by('-id')
+    }
+    return render(req, 'lancerApp/home.html', context)
 
 
 def about(req):

@@ -1,11 +1,14 @@
 from django.conf.urls import include, url
 from django.contrib import admin
-from lancerApp import views
+from lancerApp import views, extra_views
 
 urlpatterns = [
     # Examples:
     # url(r'^blog/', include('blog.urls')),
     url(r'^lanceradmin/', include(admin.site.urls)),
+
+    url(r'^media/(?P<path>images/.+(?:\.jpeg|\.jpg|\.png))$', extra_views.media, name='media'),
+    url(r'^media/(?P<path>files/.+(?:\.pdf|\.doc|\.docx|\.txt))$', extra_views.media, name='media'),
 
     url(r'^$', views.home, name='home'),
     url(r'^about/', 'lancerApp.views.about', name='about'),
