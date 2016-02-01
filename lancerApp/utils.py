@@ -23,3 +23,8 @@ class SlugNullField(models.SlugField):
         else:
             # otherwise, just pass the value
             return self.to_python(value)
+
+
+def cars_count():
+    return '554'
+
