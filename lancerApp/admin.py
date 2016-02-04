@@ -38,15 +38,30 @@ class CarAdmin(admin.ModelAdmin):
 
 
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ('name', 'type', 'car', 'price', 'price_cons')
+    list_display = ('name', 'car', 'type', 'price', 'price_cons')
+    list_filter = ('car', 'type')
+    save_as = True
+    filter_horizontal = ('techliq', 'spares')
 
 
 class SparesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'car', 'price')
+    list_display = ('name', 'price', 'car')
+    list_filter = ('car',)
+    fieldsets = [
+        (None, {'fields': ('name', 'price')}),
+        (u'применимо только к данной модели', {'fields': ('car',)})
+    ]
+    save_as = True
 
 
 class TechLiquidsAdmin(admin.ModelAdmin):
-    list_display = ('name', 'car', 'amount', 'price')
+    list_display = ('name', 'price', 'car')
+    list_filter = ('car',)
+    fieldsets = [
+        (None, {'fields': ('name', 'price')}),
+        (u'применимо только к данной модели', {'fields': ('car',)})
+    ]
+    save_as = True
 
 
 admin.site.register(Car, CarAdmin)

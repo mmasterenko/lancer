@@ -50,19 +50,65 @@ INSTALLED_APPS = (
 
 ADMIN_SHORTCUTS = [
     {
-        'title': 'Lancer Service',
+        'title': u'Лансер Сервис',
+        'shortcuts': [
+            {
+                'url_name': 'admin:lancerApp_generalinfo_changelist',
+                'title': u'Общая информация',
+                'url_extra': '1',
+                'class': 'home'
+            },
+            {
+                'url_name': 'admin:lancerApp_news_changelist',
+                'title': u'Новости',
+                'class': 'date'
+            },
+            {
+                'url_name': 'admin:lancerApp_actions_changelist',
+                'title': u'Акции',
+                'class': 'blog'
+            },
+            {
+                'url_name': 'admin:lancerApp_stuff_changelist',
+                'title': u'Наша команда',
+                'class': 'user'
+            },
+        ]
+    },
+    {
+        'title': u'Машины и услуги',
         'shortcuts': [
             {
                 'url_name': 'admin:lancerApp_car_changelist',
-                'title': u'Машины',
-                'count_new': 'lancerApp.utils.cars_count',
+                'title': u'Модели машин',
+                'class': 'plus'
+            },
+            {
+                'url_name': 'admin:lancerApp_service_changelist',
+                'title': u'Услуги',
+                'class': 'cash'
+            },
+        ]
+    },
+    {
+        'title': u'Запчасти',
+        'shortcuts': [
+            {
+                'url_name': 'admin:lancerApp_spares_changelist',
+                'title': u'Запчасти',
+                'class': 'config'
+            },
+            {
+                'url_name': 'admin:lancerApp_techliquids_changelist',
+                'title': u'Тех. жидкости',
+                'class': 'warning'
             },
         ]
     },
 ]
 
 ADMIN_SHORTCUTS_SETTINGS = {
-    'hide_app_list': False,
+    'hide_app_list': True,
     'open_new_window': False,
 }
 
