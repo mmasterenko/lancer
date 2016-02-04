@@ -3,8 +3,7 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.utils.timezone import now
-from .utils import SlugNullField
-from model_mixins import SEOFieldsMixin
+from .model_mixins import SlugNullField, SEOFieldsMixin
 
 upload_path = 'images/original'
 

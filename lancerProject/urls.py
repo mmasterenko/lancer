@@ -18,4 +18,5 @@ urlpatterns = [
     url(r'^partners/', 'lancerApp.views.partners', name='partners'),
     url(r'^service/', 'lancerApp.views.service', name='service'),
     url(r'^price/', 'lancerApp.views.price', name='price'),
+    url(r'^price/(?P<service_type>[-\w]+)/$', 'lancerApp.views.price', name='price'),
 ]

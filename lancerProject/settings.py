@@ -86,7 +86,8 @@ ADMIN_SHORTCUTS = [
             {
                 'url_name': 'admin:lancerApp_service_changelist',
                 'title': u'Услуги',
-                'class': 'cash'
+                'class': 'cash',
+                'count_new': 'lancerApp.utils.service_count'
             },
         ]
     },
@@ -96,12 +97,14 @@ ADMIN_SHORTCUTS = [
             {
                 'url_name': 'admin:lancerApp_spares_changelist',
                 'title': u'Запчасти',
-                'class': 'config'
+                'class': 'config',
+                'count_new': 'lancerApp.utils.spares_count'
             },
             {
                 'url_name': 'admin:lancerApp_techliquids_changelist',
                 'title': u'Тех. жидкости',
-                'class': 'warning'
+                'class': 'warning',
+                'count_new': 'lancerApp.utils.techliquids_count'
             },
         ]
     },

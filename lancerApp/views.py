@@ -35,6 +35,6 @@ def service(req):
     return render(req, 'lancerApp/service.html')
 
 
-def price(req):
+def price(req, service_type=None):
     return render(req, 'lancerApp/service_table.html')
 
