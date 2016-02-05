@@ -174,6 +174,18 @@ class Service(models.Model):
         return '%s' % self.name
 
     @property
+    def price_materials(self):
+        spares_price_sum = sum([spare.price for spare in self.spares.all()])
+        techliqs_price_sum = sum([tl.price for tl in self.techliq.all()])
+        return sum([spares_price_sum, techliqs_price_sum, self.price_cons])
+
+    @staticmethod
+    def type2name(type):
+        for typ, name in SERVICE_TYPE:
+            if type == typ:
+                return name
+
+    @property
     def type_name(self):
         for typ, name in SERVICE_TYPE:
             if self.type == typ:
@@ -183,7 +195,7 @@ class Service(models.Model):
     name = models.CharField(u'название', max_length=100)
     car = models.ForeignKey(Car, verbose_name=u'модель автомобиля', null=True)
     price = models.DecimalField(u'цена', max_digits=9, decimal_places=2)
-    price_cons = models.DecimalField(u'стоимость расходных материалов', max_digits=9, decimal_places=2, blank=True, null=True)
+    price_cons = models.DecimalField(u'стоимость расходных материалов', max_digits=9, decimal_places=2, default=0)
     spares = models.ManyToManyField(Spares, verbose_name=u'запчасти', blank=True)
     techliq = models.ManyToManyField(TechLiquids, verbose_name=u'тех.жидкости', blank=True)
 
