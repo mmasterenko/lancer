@@ -1,0 +1,42 @@
+{% extends 'lancerApp/home.html' %}
+{% load staticfiles %}
+{% block title %}Прайс{% endblock %}
+{% block breadcrumbs %}
+    <section id="breadcrumbs" class="clearfix">
+        <ol class="breadcrumb">
+            <li><a href="{% url 'home' %}">Главная</a></li>
+            <li><a href="{% url 'service' %}">Услуги</a></li>
+            {% comment %}<li><a href="javascript:void(0)">{{ car_model }}</a></li>{% endcomment %}
+            <li class="active">{{ service_type_name }}</li>
+        </ol>
+    </section>
+{% endblock %}
+{% block actions %}
+{% endblock %}
+{% block content %}
+
+    <section id="page-service" class="clearfix">
+        <h3><i class="fa fa-gear"></i>{{ car_model }}</h3>
+        <div class="container-fluid">
+            <table class="price-table">
+                <tr>
+                    <th>Наименование работы</th>
+                    <th>Стоимость работы</th>
+                    <th>Стоимость материалов</th>
+                </tr>
+                {% for service in services %}
+                    <tr>
+                        <td>{{ service.name }}</td>
+                        <td>{{ service.price|stringformat:'d руб' }}</td>
+                        <td><a title="подробнее о цене" href="{% url 'service' service_id=service.id %}">{{ service.price_materials|default_if_none:''|stringformat:'d руб' }}</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </section>
+
+{% endblock %}
+{% block carousel_js %}{% endblock %}
+{% block makeup %}
+    <script src="{% static 'js/makeup/makeup.js' %}?maket=/static/js/makeup/index-2_price.jpg"></script>
+{% endblock %}

@@ -8,14 +8,14 @@ from .model_mixins import SlugNullField, SEOFieldsMixin
 upload_path = 'images/original'
 
 SERVICE_TYPE = (
-    ('oil',       'Замена жидкостей'),
-    ('wheel',     'Рулевое управление'),
-    ('brake',     'Тормозная система'),
-    ('chassis',   'Ходовая часть'),
-    ('engine',    'Двигатель'),
-    ('transmiss', 'Трансмиссия'),
-    ('electro',   'Электрика'),
-    ('other',   'Другое'),
+    ('oil',       u'Замена жидкостей'),
+    ('wheel',     u'Рулевое управление'),
+    ('brake',     u'Тормозная система'),
+    ('chassis',   u'Ходовая часть'),
+    ('engine',    u'Двигатель'),
+    ('transmiss', u'Трансмиссия'),
+    ('electro',   u'Электрика'),
+    ('other',   u'Другое'),
 )
 
 
@@ -128,6 +128,11 @@ class Car(models.Model):
         if self.transmission == self.engine == 'all':
             result = self.get_type_display()
         return result
+
+    @property
+    def name(self):
+        return self.__unicode__()
+
     type = models.CharField(u'модель', max_length=20, choices=CAR_TYPE)
     engine = models.CharField(u'объем двигателя', max_length=4, choices=ENGINE_CAPACITY, default='all')
     transmission = models.CharField(u'коробка передач', max_length=4, choices=TRANSMISSION_TYPE, default='all')
@@ -167,6 +172,13 @@ class Service(models.Model):
 
     def __unicode__(self):
         return '%s' % self.name
+
+    @property
+    def type_name(self):
+        for typ, name in SERVICE_TYPE:
+            if self.type == typ:
+                return name
+
     type = models.CharField(u'тип', max_length=15, choices=SERVICE_TYPE)
     name = models.CharField(u'название', max_length=100)
     car = models.ForeignKey(Car, verbose_name=u'модель автомобиля', null=True)
