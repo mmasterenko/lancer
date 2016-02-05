@@ -35,13 +35,11 @@ def partners(req):
 def service(req, service_id=None):
     if service_id:
         S = Service.objects.get(pk=service_id)
-        context = {'car_model': S.car.name,
-                   'service': S,
-                   'service_name': S.name,
-                   'price_cons': S.price_cons,
-                   'spares': S.spares.all(),
-                   'techliqs': S.techliq.all()
-                   }
+        context = {
+            'service': S,
+            'spares': S.spares.all(),
+            'techliqs': S.techliq.all()
+        }
         return render(req, 'lancerApp/service_table.html', context=context)
     else:
         return render(req, 'lancerApp/service.html')

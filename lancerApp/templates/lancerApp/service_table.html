@@ -1,13 +1,13 @@
 {% extends 'lancerApp/home.html' %}
 {% load staticfiles %}
-{% block title %}Прайс{% endblock %}
+{% block title %}{{ service.name }} | Лансер Сервис{% endblock %}
 {% block breadcrumbs %}
     <section id="breadcrumbs" class="clearfix">
         <ol class="breadcrumb">
             <li><a href="{% url 'home' %}">Главная</a></li>
             <li><a href="{% url 'service' %}">Услуги</a></li>
             <li><a href="{% url 'price' service_type=service.type %}">{{ service.type_name }}</a></li>
-            <li><a href="javascript:void(0)">{{ car_model }}</a></li>
+            <li><a href="javascript:void(0)">{{ service.car.name }}</a></li>
             <li class="active">{{ service.name }}</li>
         </ol>
     </section>
@@ -17,7 +17,9 @@
 {% block content %}
 
     <section id="page-service" class="clearfix">
-        <h3><i class="fa fa-gear"></i>Услуга: {{ service_name }} {% if car_model %} ({{ car_model }}) {% endif %}</h3>
+        <h3><i class="fa fa-wrench"></i>Услуга: {{ service.name }} {% if service.car %} на {{ service.car.name }} {% endif %}</h3>
+        <h3><i class="fa fa-ruble"></i> Стоимость услуги: {{ service.price|stringformat:'d руб' }}</h3>
+        <h3><i class="fa fa-gear"></i>Используемые материалы:</h3>
         <div class="container-fluid">
             <table class="price-table">
                 {% if spares %}
@@ -44,12 +46,12 @@
                         </tr>
                     {% endfor %}
                 {% endif %}
-                {% if price_cons %}
+                {% if service.price_cons %}
                     <tr>
                         <th colspan="2">Стоимость расходных материалы</th>
                     </tr>
                     <tr>
-                        <td colspan="2">{{ price_cons|stringformat:'d руб' }}</td>
+                        <td colspan="2">{{ service.price_cons|stringformat:'d руб' }}</td>
                     </tr>
                 {% endif %}
             </table>
