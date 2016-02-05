@@ -16,7 +16,8 @@
 {% block content %}
 
     <section id="page-service" class="clearfix">
-        <h3><i class="fa fa-gear"></i>{{ car_model }}</h3>
+    {% for car_model in car_models %}
+        <h3><i class="fa fa-car"></i>{{ car_model.name }}</h3>
         <div class="container-fluid">
             <table class="price-table">
                 <tr>
@@ -24,7 +25,7 @@
                     <th>Стоимость работы</th>
                     <th>Стоимость материалов</th>
                 </tr>
-                {% for service in services %}
+                {% for service in car_model.services %}
                     <tr>
                         <td>{{ service.name }}</td>
                         <td>{{ service.price|stringformat:'d руб' }}</td>
@@ -33,6 +34,7 @@
                 {% endfor %}
             </table>
         </div>
+    {% endfor %}
     </section>
 
 {% endblock %}
