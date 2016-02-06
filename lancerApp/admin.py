@@ -49,7 +49,7 @@ class SparesAdmin(admin.ModelAdmin):
     list_filter = ('car',)
     fieldsets = [
         (None, {'fields': ('name', 'price')}),
-        (u'применимо только к данной модели', {'fields': ('car',)})
+        (u'применимо только к данной модели', {'fields': ('car',), 'classes': ('collapse',)})
     ]
     save_as = True
 
@@ -59,7 +59,7 @@ class TechLiquidsAdmin(admin.ModelAdmin):
     list_filter = ('car',)
     fieldsets = [
         (None, {'fields': ('name', 'price')}),
-        (u'применимо только к данной модели', {'fields': ('car',)})
+        (u'применимо только к данной модели', {'fields': ('car',), 'classes': ('collapse',)})
     ]
     save_as = True
 
