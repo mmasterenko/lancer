@@ -45,17 +45,17 @@ class ServiceAdmin(admin.ModelAdmin):
 
 
 class SparesAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'car')
-    list_filter = ('car',)
+    list_display = ('__unicode__', 'price', 'service_type', 'car')
+    list_filter = ('car', 'service_type')
     fieldsets = [
-        (None, {'fields': ('name', 'price')}),
+        (None, {'fields': ('name', 'price', 'service_type')}),
         (u'применимо только к данной модели', {'fields': ('car',), 'classes': ('collapse',)})
     ]
     save_as = True
 
 
 class TechLiquidsAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'car')
+    list_display = ('name', 'price')
     list_filter = ('car',)
     fieldsets = [
         (None, {'fields': ('name', 'price')}),

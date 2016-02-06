@@ -145,10 +145,14 @@ class Spares(models.Model):
         unique_together = ('name', 'car')
 
     def __unicode__(self):
-        return '%s' % self.name
+        if self.car:
+            return '%s (%s)' % (self.name, self.car.name)
+        else:
+            return '%s' % self.name
     name = models.CharField(u'название', max_length=100)
     car = models.ForeignKey(Car, verbose_name=u'модель автомобиля', null=True, blank=True)
     price = models.DecimalField(u'цена', max_digits=9, decimal_places=2)
+    service_type = models.CharField(u'тип работ', max_length=15, choices=SERVICE_TYPE, null=True, blank=True)
 
 
 class TechLiquids(models.Model):
