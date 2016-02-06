@@ -64,6 +64,10 @@ class TechLiquidsAdmin(admin.ModelAdmin):
     save_as = True
 
 
+class StuffAdmin(admin.ModelAdmin):
+    list_display = ('full_name', 'position')
+
+
 admin.site.register(Car, CarAdmin)
 admin.site.register(Service, ServiceAdmin)
 admin.site.register(Spares, SparesAdmin)
@@ -71,7 +75,7 @@ admin.site.register(TechLiquids, TechLiquidsAdmin)
 admin.site.register(GeneralInfo, GeneralInfoAdmin)
 admin.site.register(News, NewsAdmin)
 admin.site.register(Actions)
-admin.site.register(Stuff)
+admin.site.register(Stuff, StuffAdmin)
 
 admin.site.site_header = u'Интерфейс администратора'
 admin.site.index_title = u'Управление'
