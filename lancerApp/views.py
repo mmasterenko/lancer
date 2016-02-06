@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.shortcuts import render
 from .models import GeneralInfo, News, Actions, Service
 from collections import OrderedDict
@@ -46,14 +48,18 @@ def service(req, service_id=None):
 
 
 def price(req, service_type=None):
+    if service_type:
+        services = Service.objects.filter(type=service_type).order_by('car')
+    else:
+        services = Service.objects.order_by('car')
     carModels = OrderedDict()
-    for S in Service.objects.filter(type=service_type).order_by('car'):
+    for S in services:
         carModels.setdefault(S.car.name, []).append(S)
     car_models = [{'name': name, 'services': servicelist} for name, servicelist in carModels.items()]
     context = {
         'car_models': car_models,
         'service_type': service_type,
-        'service_type_name': Service.type2name(service_type),
+        'service_type_name': Service.type2name(service_type) if service_type else u'Все',
     }
     return render(req, 'lancerApp/price_table.html', context=context)
 

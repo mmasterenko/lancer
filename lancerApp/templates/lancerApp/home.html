@@ -57,6 +57,7 @@
                             <a href="{% url 'home' %}">
                                 <img class="hidden-xs hidden-sm" src="{% static 'original_logo.jpg' %}" alt="logo">
                                 <img class="hidden-md hidden-lg" src="{% static 'images/slices/logo.png' %}" alt="logo">
+                                {% comment %}<img src="{% static 'images/slices/logo.png' %}" alt="logo">{% endcomment %}
                             </a>
                         </div>
                         <div class="hidden-xs hidden-sm col-md-3 col-lg-4 slogan">
@@ -460,7 +461,7 @@
                                 <div class="col-md-4">
                                     <h4>{{ headline.header | truncatechars:30 }}</h4>
                                     <div class="anons">
-                                        <img src="{% static 'dummy_logo.jpg' %}" alt="news title">
+                                        <img src="{% static 'images/slices/logo-sm.png' %}" alt="news title">
                                         {% autoescape off %}
                                             {{ headline.text | truncatechars_html:150 | striptags }}
                                         {% endautoescape %}
