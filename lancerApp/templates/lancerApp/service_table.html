@@ -17,8 +17,8 @@
 {% block content %}
 
     <section id="page-service" class="clearfix">
-        <h3><i class="fa fa-wrench"></i>Услуга: {{ service.name }} {% if service.car %} на {{ service.car.name }} {% endif %}</h3>
-        <h3><i class="fa fa-ruble"></i> Стоимость услуги: {{ service.price|stringformat:'d руб' }}</h3>
+        <h3><i class="fa fa-wrench"></i>Услуга: <span class="service-highlight">{{ service.name }}</span> {% if service.car %} на {{ service.car.name }} {% endif %}</h3>
+        <h3><i class="fa fa-ruble"></i> Стоимость работы: <span class="service-highlight">{{ service.price|stringformat:'d руб' }}</span></h3>
         <h3><i class="fa fa-gear"></i>Используемые материалы:</h3>
         <div class="container-fluid">
             <table class="price-table">
