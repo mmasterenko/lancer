@@ -66,6 +66,7 @@ class TechLiquidsAdmin(admin.ModelAdmin):
 
 class StuffAdmin(admin.ModelAdmin):
     list_display = ('full_name', 'position')
+    save_as = True
 
 
 admin.site.register(Car, CarAdmin)

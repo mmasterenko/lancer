@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
+from django.core.paginator import Paginator
 from django.shortcuts import render
-from .models import GeneralInfo, News, Actions, Service
+from .models import GeneralInfo, News, Actions, Service, Stuff
 from collections import OrderedDict
 
 
@@ -15,7 +16,12 @@ def home(req):
 
 
 def about(req):
-    return render(req, 'lancerApp/about.html')
+    pagntr = Paginator(Stuff.objects.all(), 4)
+    context = {
+        'staff_rows': [pagntr.page(N).object_list for N in pagntr.page_range],
+        'about_company': GeneralInfo.objects.first().about
+    }
+    return render(req, 'lancerApp/about.html', context=context)
 
 
 def map_page(req):

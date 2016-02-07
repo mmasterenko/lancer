@@ -9,7 +9,22 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h3><i class="fa fa-youtube-play"></i>О компании</h3>
+                    <h3><i class="fa fa-book"></i>О компании</h3>
+                    <div>
+                        {% autoescape off %}
+                            {{ about_company }}
+                        {% endautoescape %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="clearfix">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    {% comment %}<h3><i class="fa fa-youtube-play"></i>О компании</h3>{% endcomment %}
                     <div class="local-wrapper">
                         <div id="video-display" class="pretty-embed"></div>
                     </div>
@@ -25,64 +40,25 @@
                     <h3><i class="fa fa-users"></i>Наши сотрудники</h3>
                 </div>
             </div>
-            <div class="row stuff">
-                <div class="col-md-3">
-                    <a class="fancybox" rel="gallery" data-title-id="title-1" href="{% static 'images/stuff_photos/3cKaa71lCvs.jpg' %}">
-                        <img src="{% static 'images/stuff_photos/3cKaa71lCvs.jpg' %}" alt="stuff">
-                    </a>
-                    <div id="title-1" class="hidden">
-                        <h5>Иван Иванов</h5>
-                        Механик первого разряда
+            {% for staff_row in staff_rows %}
+                <div class="row stuff">
+                {% for person in staff_row %}
+                    <div class="col-md-3 text-left">
+                        <a class="fancybox" rel="gallery" data-title-id="title-{{ person.id }}" href="{{ person.photo.url }}">
+                            <img src="{{ person.photo.url }}" alt="staff">
+                        </a>
+                        <div id="title-{{ person.id }}" class="hidden">
+                            <h5>{{ person.full_name }} / {{ person.position }}</h5>
+                            {{ person.desc }}
+                        </div>
+                        <div class="clearfix">
+                            {{ person.full_name }} <br>
+                            {{ person.position }}
+                        </div>
                     </div>
+                {% endfor %}
                 </div>
-                <div class="col-md-3">
-                    <a class="fancybox" rel="gallery" data-title-id="title-2" href="{% static 'images/stuff_photos/7kxB_OnN630.jpg' %}">
-                        <img src="{% static 'images/stuff_photos/7kxB_OnN630.jpg' %}" alt="stuff">
-                    </a>
-                    <div id="title-2" class="hidden">
-                        <h5>Иван Иванов</h5>
-                        Механик первого разряда
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <a class="fancybox" rel="gallery" data-title-id="title-3" href="{% static 'images/stuff_photos/eI5exe0Wm_8.jpg' %}">
-                        <img src="{% static 'images/stuff_photos/eI5exe0Wm_8.jpg' %}" alt="stuff">
-                    </a>
-                    <div id="title-3" class="hidden">
-                        <h5>Иван Иванов</h5>
-                        Механик первого разряда
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <a class="fancybox" rel="gallery" data-title-id="title-4" href="{% static 'images/stuff_photos/OIaSTNGRRI4.jpg' %}">
-                        <img src="{% static 'images/stuff_photos/OIaSTNGRRI4.jpg' %}" alt="stuff">
-                    </a>
-                    <div id="title-4" class="hidden">
-                        <h5>Иван Иванов</h5>
-                        Механик первого разряда
-                    </div>
-                </div>
-            </div>
-            <div class="row stuff">
-                <div class="col-md-3">
-                    <a class="fancybox" rel="gallery" data-title-id="title-5" href="{% static 'images/stuff_photos/uoXR4aZBln4.jpg' %}">
-                        <img src="{% static 'images/stuff_photos/uoXR4aZBln4.jpg' %}" alt="stuff">
-                    </a>
-                    <div id="title-5" class="hidden">
-                        <h5>Иван Иванов</h5>
-                        Механик первого разряда
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <a class="fancybox" rel="gallery" data-title-id="title-6" href="{% static 'images/stuff_photos/lFFVdjCWTCo.jpg' %}">
-                        <img src="{% static 'images/stuff_photos/lFFVdjCWTCo.jpg' %}" alt="stuff">
-                    </a>
-                    <div id="title-6" class="hidden">
-                        <h5>Иван Иванов</h5>
-                        Механик первого разряда
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </section>
 
