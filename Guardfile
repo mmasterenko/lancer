@@ -3,7 +3,7 @@
 
 ## Uncomment and set this to only include directories you want to watch
 
-directories %w(static_dir_dev lancerApp/templates) \
+directories %w(static_dir_dev lancerApp/templates clientArea/templates) \
  .select{|d| Dir.exists?(d) ? d : UI.warning("Directory #{d} does not exist")}
 
 guard 'livereload' do

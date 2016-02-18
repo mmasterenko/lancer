@@ -185,6 +185,7 @@ STATIC_ROOT = 'staticfiles'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static_dir_dev'),
+    os.path.join(BASE_DIR, 'clientArea/static')
 )
 
 # *** import development settings if exists ***

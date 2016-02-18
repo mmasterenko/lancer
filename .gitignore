@@ -1,4 +1,5 @@
 clientArea/templates/
+clientArea/static/
 makeup
 node_modules
 devfiles
