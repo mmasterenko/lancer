@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def visits(req):
+    return render(req, 'clientArea/pages/index.html')

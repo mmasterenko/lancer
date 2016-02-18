@@ -4,7 +4,7 @@ from lancerApp import views, extra_views
 
 urlpatterns = [
     # Examples:
-    # url(r'^blog/', include('blog.urls')),
+    url(r'^personal/', include('clientArea.urls')),
     url(r'^lanceradmin/', include(admin.site.urls)),
 
     url(r'^media/(?P<path>images/.+(?:\.jpeg|\.jpg|\.png))$', extra_views.media, name='media'),
