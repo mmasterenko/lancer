@@ -175,7 +175,7 @@ class Service(models.Model):
         unique_together = ('type', 'name', 'car')
 
     def __unicode__(self):
-        return '%s' % self.name
+        return u'%s на %s (%d руб)' % (self.name, self.car, self.price)
 
     @property
     def price_materials(self):

@@ -45,7 +45,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'lancerApp'
+    'lancerApp',
+    'clientArea'
 )
 
 ADMIN_SHORTCUTS = [
@@ -111,7 +112,7 @@ ADMIN_SHORTCUTS = [
 ]
 
 ADMIN_SHORTCUTS_SETTINGS = {
-    'hide_app_list': True,
+    'hide_app_list': False,
     'open_new_window': False,
 }
 

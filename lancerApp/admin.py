@@ -42,6 +42,7 @@ class ServiceAdmin(admin.ModelAdmin):
     list_filter = ('car', 'type')
     save_as = True
     filter_horizontal = ('techliq', 'spares')
+    list_select_related = ('car',)
 
 
 class SparesAdmin(admin.ModelAdmin):
