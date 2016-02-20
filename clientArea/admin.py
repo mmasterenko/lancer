@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib import admin
-from .models import Customer, Visit
+from .models import Customer, Visit, CustomUser
 
 
 class VisitInline(admin.StackedInline):
@@ -67,3 +67,4 @@ class VisitAdmin(admin.ModelAdmin):
 
 admin.site.register(Customer, CustomerAdmin)
 admin.site.register(Visit, VisitAdmin)
+admin.site.register(CustomUser)

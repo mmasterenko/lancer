@@ -3,6 +3,7 @@
 from django.db import models
 from lancerApp.models import Car, Service
 from django.utils.timezone import now
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 
 class Customer(models.Model):
@@ -83,4 +84,50 @@ class Visit(models.Model):
     customer = models.ForeignKey(Customer, verbose_name=u'клиент')
     services = models.ManyToManyField(Service, verbose_name=u'оказанные услуги', blank=True)
     note = models.TextField(u'доп.инфо', blank=True, null=True)
+
+
+class CustomUserManager(BaseUserManager):
+
+    def create_user(self, car_number, last_name=None, password=None, **extra_fields):
+        """
+        Creates and saves a User with the given username, email and password.
+        """
+        if not car_number:
+            raise ValueError(u'Car number must be set')
+        user = self.model(car_number=car_number, last_name=last_name, is_active=True, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+
+class CustomUser(AbstractBaseUser):
+
+    USERNAME_FIELD = 'car_number'
+    REQUIRED_FIELDS = ['last_name']
+
+    car_number = models.CharField(u'гос. номер авто (логин)', max_length=9, unique=True)
+
+    last_name = models.CharField(u'фамилия', max_length=20)
+    first_name = models.CharField(u'имя', max_length=20, blank=True, null=True)
+    patronymic_name = models.CharField(u'отчество', max_length=20, blank=True, null=True)
+
+    note = models.TextField(u'доп.инфо', blank=True, null=True)
+    car = models.ForeignKey(Car, verbose_name=u'автомобиль', blank=True, null=True)
+    phone = models.CharField(u'телефон', max_length=20, blank=True, null=True)
+    email = models.EmailField(u'e-mail', blank=True, null=True)
+    is_active = models.BooleanField(u'активный', default=True,
+                                    help_text=u'уберите эту галочку, если хотите деактивировать клиента')
+
+    objects = CustomUserManager()
+
+    def get_full_name(self):
+        """
+        Returns the first_name plus the last_name, with a space in between.
+        """
+        full_name = '%s %s' % (self.first_name, self.last_name)
+        return full_name.strip()
+
+    def get_short_name(self):
+        "Returns the short name for the user."
+        return self.first_name
 
