@@ -77,7 +77,7 @@ class VisitAdmin(admin.ModelAdmin):
 
 
 class CustomUserAdmin(admin.ModelAdmin):
-    
+
     def add_view(self, request, form_url='', extra_context=None):
 
         IS_POPUP_VAR = '_popup'
@@ -89,27 +89,12 @@ class CustomUserAdmin(admin.ModelAdmin):
 
         model = self.model
         opts = model._meta
+        object_id = None
         add = object_id is None
 
-        if add:
-            if not self.has_add_permission(request):
-                raise PermissionDenied
-            obj = None
-
-        else:
-            obj = self.get_object(request, unquote(object_id), to_field)
-
-            if not self.has_change_permission(request, obj):
-                raise PermissionDenied
-
-            if obj is None:
-                raise Http404(_('%(name)s object with primary key %(key)r does not exist.') % {
-                    'name': force_text(opts.verbose_name), 'key': escape(object_id)})
-
-            if request.method == 'POST' and "_saveasnew" in request.POST:
-                return self.add_view(request, form_url=reverse('admin:%s_%s_add' % (
-                    opts.app_label, opts.model_name),
-                    current_app=self.admin_site.name))
+        if not self.has_add_permission(request):
+            raise PermissionDenied
+        obj = None
 
         ModelForm = self.get_form(request, obj)
         if request.method == 'POST':
@@ -122,7 +107,9 @@ class CustomUserAdmin(admin.ModelAdmin):
                 new_object = form.instance
             formsets, inline_instances = self._create_formsets(request, new_object, change=not add)
             if all_valid(formsets) and form_validated:
-                self.save_model(request, new_object, form, not add)
+                raw_password = new_object.password
+                new_object.set_password(raw_password)
+                self.save_model(request, new_object, form, not add)  # запись в базу
                 self.save_related(request, form, formsets, not add)
                 if add:
                     self.log_addition(request, new_object)
