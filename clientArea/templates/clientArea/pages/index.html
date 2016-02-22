@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Личный кабинет | Лансер Сервис</title>
+    <title>{% block title %}Личный кабинет | Лансер Сервис{% endblock %}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{% static 'clientArea/bower_components/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -17,17 +17,21 @@
     <!-- MetisMenu CSS -->
     <link href="{% static 'clientArea/bower_components/metisMenu/dist/metisMenu.min.css' %}" rel="stylesheet">
 
-    <!-- Timeline CSS -->
-    <link href="{% static 'clientArea/dist/css/timeline.css' %}" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="{% static 'clientArea/dist/css/sb-admin-2.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'clientArea/bower_components/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+    {% block extra_head %}
 
     <!-- Morris Charts CSS -->
     <link href="{% static 'clientArea/bower_components/morrisjs/morris.css' %}" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="{% static 'clientArea/bower_components/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <!-- Timeline CSS -->
+    <link href="{% static 'clientArea/dist/css/timeline.css' %}" rel="stylesheet">
+
+    {% endblock %}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,6 +43,8 @@
 </head>
 
 <body>
+
+    {% block content %}
 
     <div id="wrapper">
 
@@ -1069,6 +1075,8 @@
     </div>
     <!-- /#wrapper -->
 
+    {% endblock %}
+
     <!-- jQuery -->
     <script src="{% static 'clientArea/bower_components/jquery/dist/jquery.min.js' %}"></script>
 
@@ -1078,10 +1086,14 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="{% static 'clientArea/bower_components/metisMenu/dist/metisMenu.min.js' %}"></script>
 
+    {% block extra_js %}
+
     <!-- Morris Charts JavaScript -->
     <script src="{% static 'clientArea/bower_components/raphael/raphael-min.js' %}"></script>
     <script src="{% static 'clientArea/bower_components/morrisjs/morris.min.js' %}"></script>
     <script src="{% static 'clientArea/js/morris-data.js' %}"></script>
+
+    {% endblock %}
 
     <!-- Custom Theme JavaScript -->
     <script src="{% static 'clientArea/dist/js/sb-admin-2.js' %}"></script>
