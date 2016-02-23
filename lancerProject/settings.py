@@ -49,6 +49,11 @@ INSTALLED_APPS = (
     'clientArea'
 )
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'clientArea.backends.CustomBackend'
+)
+
 ADMIN_SHORTCUTS = [
     {
         'title': u'Лансер Сервис',
