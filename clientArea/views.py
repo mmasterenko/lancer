@@ -9,7 +9,10 @@ from .models import CustomUser, Visit
 
 def visits(request):
     if request.user.is_authenticated() and isinstance(request.user, CustomUser):
-        context = {}
+        context = {
+            'visits': Visit.objects.filter(customer=request.user),
+            'user': request.user
+        }
         return render(request, 'clientArea/pages/index.html', context=context)
     else:
         return HttpResponseRedirect(reverse('login'))
