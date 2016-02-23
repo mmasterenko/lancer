@@ -73,8 +73,39 @@ class VisitAdmin(admin.ModelAdmin):
 
 
 class CustomUserAdmin(admin.ModelAdmin):
+    # inlines = [VisitInline]
+    search_fields = ('car_number', 'last_name', 'first_name', 'patronymic_name', 'note')
+    list_filter = ('car',)
+    list_display = ('get_abbrev_name', 'phone', 'get_car_number', 'car', 'get_visit_count', 'get_last_visit')
+    list_select_related = ('car',)
+
+    fieldsets = [
+        (
+            u'информация о машине',
+            {
+                'fields': ('car_number', 'car'),
+                'classes': ('wide',)
+            },
+        ),
+        (
+            u'информация о клиенте',
+            {
+                'fields': ('last_name', 'first_name', 'patronymic_name', 'phone', 'email')
+            },
+        ),
+        (
+            u'дополнительная информация',
+            {
+                'fields': ('note',)
+            },
+        ),
+    ]
 
     def add_view(self, request, form_url='', extra_context=None):
+
+        saved_fieldsets = self.fieldsets
+        self.fieldsets = None
+        self.fields = ('car_number', 'password', 'car', 'last_name', 'first_name', 'patronymic_name', 'phone', 'email', 'note')
 
         IS_POPUP_VAR = '_popup'
         TO_FIELD_VAR = '_to_field'
@@ -150,6 +181,9 @@ class CustomUserAdmin(admin.ModelAdmin):
         )
 
         context.update(extra_context or {})
+
+        self.fieldsets = saved_fieldsets
+        self.fields = None
 
         return self.render_change_form(request, context, add=add, change=not add, obj=obj, form_url=form_url)
 

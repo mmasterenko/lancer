@@ -35,13 +35,13 @@ class CustomUser(AbstractBaseUser):
                               self.patronymic_name.title() if self.patronymic_name else u'')
 
     def get_abbrev_name(self):
-        return u'%s %s. %s.' % (self.last_name.title(),
-                                self.first_name[0].upper() if self.first_name else u'',
-                                self.patronymic_name[0].upper() if self.patronymic_name else u'')
+        return u'%s %s %s' % (self.last_name.title(),
+                              self.first_name[0].upper() + '.' if self.first_name else u'',
+                              self.patronymic_name[0].upper() + '.' if self.patronymic_name else u'')
     get_abbrev_name.short_description = u'ФИО'
 
     def get_abbrev_name_car(self):
-        return u'%s (%s)' % (self.get_abbrev_name(), self.car)
+        return u'%s %s' % (self.get_abbrev_name(), u'(%s)' % self.car if self.car else u'')
     get_abbrev_name_car.short_description = u'ФИО + машина'
 
     def get_visit_count(self):
@@ -60,6 +60,8 @@ class CustomUser(AbstractBaseUser):
 
     USERNAME_FIELD = 'car_number'
     REQUIRED_FIELDS = ['last_name']
+
+    is_staff = False
 
     car_number = models.CharField(u'гос. номер авто (логин)', max_length=9, unique=True)
 
