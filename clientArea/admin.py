@@ -2,17 +2,13 @@
 
 from django.contrib.admin import helpers
 from django.contrib.admin.exceptions import DisallowedModelAdminToField
-from django.contrib.admin.utils import unquote
 from django.core.exceptions import PermissionDenied
-from django.core.urlresolvers import reverse
 from django.forms.formsets import all_valid
-from django.http import Http404
 from django.utils.encoding import force_text
-from django.utils.html import escape
 from django.utils.translation import ugettext as _
 
 from django.contrib import admin
-from .models import Customer, Visit, CustomUser
+from .models import Visit, CustomUser
 
 
 class VisitInline(admin.StackedInline):
@@ -158,6 +154,5 @@ class CustomUserAdmin(admin.ModelAdmin):
         return self.render_change_form(request, context, add=add, change=not add, obj=obj, form_url=form_url)
 
 
-admin.site.register(Customer, CustomerAdmin)
 admin.site.register(Visit, VisitAdmin)
 admin.site.register(CustomUser, CustomUserAdmin)
