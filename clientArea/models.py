@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
-from lancerApp.models import Car, Service
+from lancerApp.models import Car, Service, TechLiquids, Spares
 from django.utils.timezone import now
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
@@ -118,6 +118,8 @@ class Visit(models.Model):
     date = models.DateField(u'дата', default=now)
     km = models.PositiveIntegerField(u'пробег', blank=True, null=True)
     customer = models.ForeignKey(CustomUser, verbose_name=u'клиент')
-    services = models.ManyToManyField(Service, verbose_name=u'оказанные услуги', blank=True)
     note = models.TextField(u'доп.инфо', blank=True, null=True)
+    services = models.ManyToManyField(Service, verbose_name=u'оказанные услуги', blank=True)
+    spares = models.ManyToManyField(Spares, verbose_name=u'запчасти', blank=True)
+    techliqs = models.ManyToManyField(TechLiquids, verbose_name=u'тех.жидкости', blank=True)
 

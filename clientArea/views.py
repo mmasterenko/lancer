@@ -9,9 +9,12 @@ from .models import CustomUser, Visit
 
 def visits(request):
     if request.user.is_authenticated() and isinstance(request.user, CustomUser):
+        user_visits = Visit.objects.filter(customer=request.user)
         context = {
-            'visits': Visit.objects.filter(customer=request.user),
-            'user': request.user
+            'visits': user_visits,
+            'user': request.user,
+            'visit_count': user_visits.count(),
+            'service_count': sum([visit.services.count() for visit in user_visits])
         }
         return render(request, 'clientArea/pages/index.html', context=context)
     else:

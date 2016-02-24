@@ -66,10 +66,10 @@ class VisitAdmin(admin.ModelAdmin):
 
     fieldsets = [
         (None, {
-            'fields': (('date', 'km'), 'customer', 'services', 'note'),
+            'fields': (('date', 'km'), 'customer', 'services', 'spares', 'techliqs', 'note'),
         })
     ]
-    filter_horizontal = ('services',)
+    filter_horizontal = ('services', 'spares', 'techliqs')
 
 
 class CustomUserAdmin(admin.ModelAdmin):
