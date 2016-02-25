@@ -18,7 +18,7 @@ def visits(request):
         }
         return render(request, 'clientArea/pages/index.html', context=context)
     else:
-        return HttpResponseRedirect(reverse('login'))
+        return HttpResponseRedirect(reverse('clients:login'))
 
 
 def login_view(request):
@@ -31,7 +31,7 @@ def login_view(request):
         else:
             return HttpResponseForbidden(u'Неверный логин или пароль')
         if request.user.is_authenticated() and isinstance(request.user, CustomUser):
-            return HttpResponseRedirect(reverse('visits'))
+            return HttpResponseRedirect(reverse('clients:visits'))
         else:
             return render(request, 'clientArea/pages/login.html')
     else:
@@ -40,7 +40,7 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return HttpResponseRedirect(reverse('login'))
+    return HttpResponseRedirect(reverse('clients:login'))
 
 
 # def pages(req, page_name):

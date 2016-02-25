@@ -57,10 +57,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{% url 'visits' %}" style="padding: 5px 10px">
+                <a class="navbar-brand" href="{% url 'clients:visits' %}" style="padding: 5px 10px">
                     <img src="{% static 'images/slices/logo-sm.png' %}" alt="лансер сервис" height="40px">
                 </a>
-                <a href="{% url 'visits' %}" class="navbar-brand" style="padding-left: 0">Лансер Сервис</a>
+                <a href="{% url 'clients:visits' %}" class="navbar-brand" style="padding-left: 0">Лансер Сервис</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -271,7 +271,7 @@
                         </li>
                         <li class="divider"></li>
                         {% endcomment %}
-                        <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out fa-fw"></i> Выйти</a>
+                        <li><a href="{% url 'clients:logout' %}"><i class="fa fa-sign-out fa-fw"></i> Выйти</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -297,7 +297,7 @@
                         </li>
                         {% endcomment %}
                         <li>
-                            <a href="{% url 'visits' %}"><i class="fa fa-dashboard fa-fw"></i> История посещений</a>
+                            <a href="{% url 'clients:visits' %}"><i class="fa fa-dashboard fa-fw"></i> История посещений</a>
                         </li>
                         {% comment %}
                         <li>
