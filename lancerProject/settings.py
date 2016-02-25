@@ -114,10 +114,27 @@ ADMIN_SHORTCUTS = [
             },
         ]
     },
+    {
+        'title': u'Личный кабинет',
+        'shortcuts': [
+            {
+                'url_name': 'admin:clientArea_customuser_changelist',
+                'title': u'Клиенты',
+                'class': 'user',
+                # 'count_new': 'lancerApp.utils.spares_count'
+            },
+            {
+                'url_name': 'admin:clientArea_visit_changelist',
+                'title': u'Посещения',
+                # 'class': 'warning',
+                # 'count_new': 'lancerApp.utils.techliquids_count'
+            },
+        ]
+    },
 ]
 
 ADMIN_SHORTCUTS_SETTINGS = {
-    'hide_app_list': False,
+    'hide_app_list': True,
     'open_new_window': False,
 }
 
