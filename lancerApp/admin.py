@@ -57,11 +57,7 @@ class SparesAdmin(admin.ModelAdmin):
 
 class TechLiquidsAdmin(admin.ModelAdmin):
     list_display = ('name', 'price')
-    list_filter = ('car',)
-    fieldsets = [
-        (None, {'fields': ('name', 'price')}),
-        (u'применимо только к данной модели', {'fields': ('car',), 'classes': ('collapse',)})
-    ]
+    fields = ('name', 'price')
     save_as = True
 
 

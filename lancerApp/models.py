@@ -163,8 +163,6 @@ class TechLiquids(models.Model):
     def __unicode__(self):
         return '%s' % self.name
     name = models.CharField(u'название', max_length=100)
-    car = models.ForeignKey(Car, verbose_name=u'модель автомобиля', null=True, blank=True)
-    amount = models.DecimalField(u'кол-во, шт', max_digits=9, decimal_places=2, default=1.00)
     price = models.DecimalField(u'цена', max_digits=9, decimal_places=2)
 
 
