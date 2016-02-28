@@ -108,7 +108,7 @@ class Car(models.Model):
     )
 
     type = models.CharField(u'модель', max_length=20, choices=CAR_TYPE)
-    engine = models.CharField(u'двигатель', max_length=20, null=True, blank=True, unique=True)
+    engine = models.CharField(u'двигатель', max_length=20, null=True, blank=True)
     transmission = models.CharField(u'коробка передач', max_length=4, choices=TRANSMISSION_TYPE, default='all')
 
     class Meta:
