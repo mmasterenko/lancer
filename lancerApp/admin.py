@@ -34,7 +34,9 @@ class NewsAdmin(admin.ModelAdmin):
 
 
 class CarAdmin(admin.ModelAdmin):
-    list_display = ('__unicode__', 'engine', 'transmission')
+    list_display = ('__unicode__', 'type', 'engine', 'transmission')
+    list_filter = ('type', 'transmission')
+    fields = ('type', 'transmission', 'engine')
 
 
 class ServiceAdmin(admin.ModelAdmin):
