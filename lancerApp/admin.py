@@ -58,6 +58,7 @@ class SparesAdmin(admin.ModelAdmin):
 class TechLiquidsAdmin(admin.ModelAdmin):
     list_display = ('name', 'price')
     fields = ('name', 'price')
+    search_fields = ('name',)
     save_as = True
 
 
