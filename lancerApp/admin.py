@@ -48,10 +48,11 @@ class ServiceAdmin(admin.ModelAdmin):
 
 
 class SparesAdmin(admin.ModelAdmin):
-    list_display = ('__unicode__', 'price', 'service_type', 'car')
+    list_display = ('__unicode__', 'number', 'price', 'service_type', 'car')
     list_filter = ('car', 'service_type')
+    search_fields = ('name', 'number')
     fieldsets = [
-        (None, {'fields': ('name', 'price', 'service_type')}),
+        (None, {'fields': ('name', 'number', 'price', 'service_type')}),
         (u'применимо только к данной модели', {'fields': ('car',), 'classes': ('collapse',)})
     ]
     save_as = True
