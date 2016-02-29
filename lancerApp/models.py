@@ -19,6 +19,14 @@ SERVICE_TYPE = (
     ('other',     u'Другое'),
 )
 
+CAR_TYPE = (
+    ('lancer9', 'Lancer 9'),
+    ('lancer10', 'Lancer X'),
+    ('evo', 'Evolution'),
+    ('asx', 'Lancer ASX'),
+    ('all', u'Все модели'),
+)
+
 
 class GeneralInfo(models.Model):
     class Meta:
@@ -92,15 +100,26 @@ class Stuff(models.Model):
     photo = models.ImageField(u'Фото', upload_to=upload_path)
 
 
-class Car(models.Model):
-    CAR_TYPE = (
-        ('lancer9', 'Lancer 9'),
-        ('lancer10', 'Lancer X'),
-        ('evo', 'Evolution'),
-        ('asx', 'Lancer ASX'),
-        ('all', u'Все модели'),
+class CarGroupOrder(models.Model):
+    GROUPS = (
+        ('subtype', u'подвид'),
+        ('trans',   u'трансмиссия'),
+        ('engine',  u'двигатель'),
     )
+    type = models.CharField(u'вид', max_length=20, choices=CAR_TYPE, unique=True)
+    order1 = models.CharField('#1', max_length=15, choices=GROUPS)
+    order2 = models.CharField('#2', max_length=15, choices=GROUPS, null=True, blank=True)
+    order3 = models.CharField('#3', max_length=15, choices=GROUPS, null=True, blank=True)
 
+    class Meta:
+        verbose_name_plural = u'порядок группировки авто'
+        verbose_name = u'порядок группировки авто'
+
+    def __unicode__(self):
+        return self.type
+
+
+class Car(models.Model):
     TRANSMISSION_TYPE = (
         ('auto', u'автоматическая'),
         ('mech', u'механическая'),
