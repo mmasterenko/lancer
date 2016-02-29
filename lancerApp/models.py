@@ -102,14 +102,15 @@ class Car(models.Model):
     )
 
     TRANSMISSION_TYPE = (
-        ('auto', u'автомат'),
-        ('mech', u'механика'),
+        ('auto', u'автоматическая'),
+        ('mech', u'механическая'),
         ('all',  u'любая'),
     )
 
-    type = models.CharField(u'модель', max_length=20, choices=CAR_TYPE)
+    type = models.CharField(u'вид', max_length=20, choices=CAR_TYPE)
+    subtype = models.CharField(u'подвид', max_length=20, null=True, blank=True)
     engine = models.CharField(u'двигатель', max_length=20, null=True, blank=True)
-    transmission = models.CharField(u'коробка передач', max_length=4, choices=TRANSMISSION_TYPE, default='all')
+    transmission = models.CharField(u'трансмиссия', max_length=4, choices=TRANSMISSION_TYPE, default='all')
 
     class Meta:
         verbose_name_plural = u'машины'

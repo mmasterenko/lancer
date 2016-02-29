@@ -34,14 +34,14 @@ class NewsAdmin(admin.ModelAdmin):
 
 
 class CarAdmin(admin.ModelAdmin):
-    list_display = ('__unicode__', 'type', 'engine', 'transmission')
+    list_display = ('__unicode__', 'type', 'subtype', 'engine', 'transmission')
     list_filter = ('type', 'transmission')
-    fields = ('type', 'transmission', 'engine')
+    fields = ('type', 'subtype', 'transmission', 'engine')
 
 
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ('name', 'car', 'type', 'price', 'price_cons')
-    list_filter = ('car', 'type')
+    list_filter = ('car__type', 'type')
     save_as = True
     filter_horizontal = ('techliq', 'spares')
     list_select_related = ('car',)
@@ -51,7 +51,7 @@ class ServiceAdmin(admin.ModelAdmin):
 
 class SparesAdmin(admin.ModelAdmin):
     list_display = ('__unicode__', 'number', 'price', 'service_type', 'car')
-    list_filter = ('car', 'service_type')
+    list_filter = ('car__type', 'service_type')
     search_fields = ('name', 'number')
     fieldsets = [
         (None, {'fields': ('name', 'number', 'price', 'service_type')}),
