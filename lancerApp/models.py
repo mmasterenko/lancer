@@ -134,7 +134,7 @@ class Car(models.Model):
     class Meta:
         verbose_name_plural = u'машины'
         verbose_name = u'машина'
-        unique_together = ('type', 'engine', 'transmission')
+        unique_together = ('type', 'subtype', 'engine', 'transmission')
 
     def __unicode__(self):
         result = '%s %s %s' % (self.get_type_display(), self.get_transmission_display(), self.engine)
