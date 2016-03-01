@@ -20,4 +20,6 @@ urlpatterns = [
     url(r'^service/', 'lancerApp.views.service', name='service'),
     url(r'^price/(?P<service_type>[-\w]+)', 'lancerApp.views.price', name='price'),
     url(r'^price/', 'lancerApp.views.price', name='price'),
+
+    url(r'^api/cars/', 'lancerApp.views.api_cars', name='api_cars'),
 ]

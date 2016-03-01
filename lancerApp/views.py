@@ -2,7 +2,7 @@
 
 from django.core.paginator import Paginator
 from django.shortcuts import render
-from .models import GeneralInfo, News, Actions, Service, Stuff
+from .models import GeneralInfo, News, Actions, Service, Stuff, Car, CarGroupOrder
 from collections import OrderedDict
 
 
@@ -68,4 +68,8 @@ def price(req, service_type=None):
         'service_type_name': Service.type2name(service_type) if service_type else u'Все',
     }
     return render(req, 'lancerApp/price_table.html', context=context)
+
+
+def api_cars(req):
+    pass
 
