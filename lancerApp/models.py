@@ -24,7 +24,7 @@ CAR_TYPE = (
     ('lancer10', 'Lancer X'),
     ('evo', 'Evolution'),
     ('asx', 'Lancer ASX'),
-    ('all', u'Все модели'),
+    # ('all', u'Все модели'),
 )
 
 
