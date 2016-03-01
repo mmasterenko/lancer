@@ -70,7 +70,7 @@ class CustomUser(AbstractBaseUser):
     patronymic_name = models.CharField(u'отчество', max_length=20, blank=True, null=True)
 
     note = models.TextField(u'доп.инфо', blank=True, null=True)
-    car = models.ForeignKey(Car, verbose_name=u'автомобиль', blank=True, null=True)
+    car = models.ForeignKey(Car, verbose_name=u'автомобиль', blank=True, null=True, on_delete=models.SET_NULL)
     phone = models.CharField(u'телефон', max_length=20, blank=True, null=True)
     email = models.EmailField(u'e-mail', blank=True, null=True)
     is_active = models.BooleanField(u'активный', default=True,

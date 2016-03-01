@@ -163,7 +163,7 @@ class Spares(models.Model):
         else:
             return '%s' % self.name
     name = models.CharField(u'название', max_length=100)
-    car = models.ForeignKey(Car, verbose_name=u'модель автомобиля', null=True, blank=True)
+    car = models.ForeignKey(Car, verbose_name=u'модель автомобиля', null=True, blank=True, on_delete=models.SET_NULL)
     price = models.DecimalField(u'цена', max_digits=9, decimal_places=2)
     service_type = models.CharField(u'тип работ', max_length=15, choices=SERVICE_TYPE, null=True, blank=True)
     number = models.CharField(u'номер', max_length=25, null=True, blank=True, unique=True)
@@ -186,7 +186,7 @@ class Service(models.Model):
     price = models.DecimalField(u'цена', max_digits=9, decimal_places=2)
     price_cons = models.DecimalField(u'стоимость расходных материалов', max_digits=9, decimal_places=2, default=0)
 
-    car = models.ForeignKey(Car, verbose_name=u'модель автомобиля', null=True)
+    car = models.ForeignKey(Car, verbose_name=u'модель автомобиля', null=True, on_delete=models.SET_NULL)
 
     spares = models.ManyToManyField(Spares, verbose_name=u'запчасти', blank=True)
     techliq = models.ManyToManyField(TechLiquids, verbose_name=u'тех.жидкости', blank=True)
