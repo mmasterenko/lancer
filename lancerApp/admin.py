@@ -44,7 +44,7 @@ class CarGroupOrderAdmin(admin.ModelAdmin):
 class CarAdmin(admin.ModelAdmin):
     list_display = ('__unicode__', 'type', 'subtype', 'engine', 'transmission')
     list_filter = ('type', 'transmission')
-    fields = ('type', 'subtype', 'transmission', 'engine')
+    fields = ('type', 'subtype', 'engine', 'transmission')
 
 
 class ServiceAdmin(admin.ModelAdmin):

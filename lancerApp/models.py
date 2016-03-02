@@ -137,7 +137,7 @@ class Car(models.Model):
         unique_together = ('type', 'subtype', 'engine', 'transmission')
 
     def __unicode__(self):
-        result = '%s %s %s' % (self.get_type_display(), self.get_transmission_display(), self.engine)
+        result = '%s %s %s' % (self.get_type_display(), self.engine, self.get_transmission_display())
         if self.transmission == 'all':
             result = '%s %s' % (self.get_type_display(), self.engine)
         if self.engine == 'all' or not self.engine:
