@@ -123,28 +123,29 @@ class Car(models.Model):
     TRANSMISSION_TYPE = (
         ('auto', u'автоматическая'),
         ('mech', u'механическая'),
-        ('all',  u'любая'),
+        # ('all',  u'любая'),
     )
 
-    type = models.CharField(u'вид', max_length=20, choices=CAR_TYPE)
-    subtype = models.CharField(u'подвид', max_length=20, null=True, blank=True)
+    type = models.CharField(u'вид а/м', max_length=20, choices=CAR_TYPE)
+    subtype = models.CharField(u'подвид а/м', max_length=20, null=True, blank=True)
     engine = models.CharField(u'двигатель', max_length=20, null=True, blank=True)
-    transmission = models.CharField(u'трансмиссия', max_length=4, choices=TRANSMISSION_TYPE, default='all')
+    transmission = models.CharField(u'трансмиссия', max_length=4, choices=TRANSMISSION_TYPE, null=True, blank=True)
 
     class Meta:
         verbose_name_plural = u'машины'
         verbose_name = u'машина'
         unique_together = ('type', 'subtype', 'engine', 'transmission')
 
+    def get_transmission_display(self):
+        if not self.transmission:
+            return ''
+        if self.transmission == 'mech':
+            return u'механика'
+        if self.transmission == 'auto':
+            return u'автомат'
+
     def __unicode__(self):
-        result = '%s %s %s' % (self.get_type_display(), self.engine, self.get_transmission_display())
-        if self.transmission == 'all':
-            result = '%s %s' % (self.get_type_display(), self.engine)
-        if self.engine == 'all' or not self.engine:
-            result = '%s %s' % (self.get_type_display(), self.get_transmission_display())
-        if self.transmission == 'all' and (self.engine == 'all' or not self.engine):
-            result = self.get_type_display()
-        return result
+        return '%s %s %s %s' % (self.get_type_display(), self.subtype, self.engine, self.get_transmission_display())
 
     @property
     def name(self):
@@ -181,7 +182,7 @@ class TechLiquids(models.Model):
 
 
 class Service(models.Model):
-    type = models.CharField(u'тип', max_length=15, choices=SERVICE_TYPE)
+    type = models.CharField(u'тип услуги', max_length=15, choices=SERVICE_TYPE)
     name = models.CharField(u'название', max_length=100)
     price = models.DecimalField(u'цена', max_digits=9, decimal_places=2)
     price_cons = models.DecimalField(u'стоимость расходных материалов', max_digits=9, decimal_places=2, default=0)

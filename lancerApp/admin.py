@@ -42,14 +42,16 @@ class CarGroupOrderAdmin(admin.ModelAdmin):
 
 
 class CarAdmin(admin.ModelAdmin):
-    list_display = ('__unicode__', 'type', 'subtype', 'engine', 'transmission')
-    list_filter = ('type', 'transmission')
+    list_display = ('__unicode__', 'type', 'subtype', 'engine', 'transmission', 'id')
+    list_filter = ('type', 'subtype', 'engine', 'transmission')
     fields = ('type', 'subtype', 'engine', 'transmission')
+    ordering = ('type', '-subtype', '-engine', 'transmission')
 
 
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ('name', 'car', 'type', 'price', 'price_cons')
-    list_filter = ('car__type', 'type')
+    list_editable = ('car',)
+    list_filter = ('car__type', 'car__subtype', 'car__engine', 'car__transmission', 'type')
     save_as = True
     filter_horizontal = ('techliq', 'spares')
     list_select_related = ('car',)
