@@ -2,7 +2,8 @@
 
 from django.core.paginator import Paginator
 from django.shortcuts import render
-from .models import GeneralInfo, News, Actions, Service, Stuff, Car, CarGroupOrder
+from django.http import JsonResponse
+from .models import GeneralInfo, News, Actions, Service, Stuff, Car, CarGroupOrder, CAR_TYPE
 from collections import OrderedDict
 
 
@@ -60,7 +61,11 @@ def price(req, service_type=None):
         services = Service.objects.order_by('car')
     carModels = OrderedDict()
     for S in services:
-        carModels.setdefault(S.car.name, []).append(S)
+        try:
+            name = S.car.name
+        except AttributeError:
+            name = u'<а/м не указан>'
+        carModels.setdefault(name, []).append(S)
     car_models = [{'name': name, 'services': servicelist} for name, servicelist in carModels.items()]
     context = {
         'car_models': car_models,
@@ -70,6 +75,62 @@ def price(req, service_type=None):
     return render(req, 'lancerApp/price_table.html', context=context)
 
 
-def api_cars(req):
-    pass
+class CarTypeGroup:
+    def __init__(self, obj_list):
+        self.result = {}
 
+        self.get_subtypes(obj_list)
+        self.get_engines(obj_list)
+        self.get_transmission(obj_list)
+        self.get_transmission_2(obj_list)
+
+    def get_result(self):
+        return self.result
+
+    def get_subtypes(self, obj_list):
+        for obj in obj_list:
+            subtype = obj.subtype
+            subtype = subtype if subtype else 'all'
+            self.result[subtype] = {}
+
+    def get_engines(self, obj_list):
+        for obj in obj_list:
+            subtype = obj.subtype
+            engine = obj.engine
+            subtype = subtype if subtype else 'all'
+            engine = engine if engine else 'all'
+            self.result[subtype][engine] = {}
+
+    def get_transmission(self, obj_list):
+        for obj in obj_list:
+            subtype = obj.subtype
+            engine = obj.engine
+            transmission = obj.transmission
+            subtype = subtype if subtype else 'all'
+            engine = engine if engine else 'all'
+            transmission = transmission if transmission else 'all'
+            self.result[subtype][engine][transmission] = [obj.id]
+
+    def get_transmission_2(self, obj_list):
+        for obj in obj_list:
+            subtype = obj.subtype
+            engine = obj.engine
+            transmission = obj.transmission
+            subtype = subtype if subtype else 'all'
+            engine = engine if engine else 'all'
+            transmission = transmission if transmission else 'all'
+            try:
+                if transmission in ('auto', 'mech'):
+                    all_trans = self.result[subtype][engine]['all']
+                    self.result[subtype][engine][transmission].extend(all_trans)
+            except KeyError:
+                pass
+
+
+def api_cars(req):
+    result = {}
+    cars = Car.objects.all()
+    for t in CAR_TYPE:
+        car_type = t[0]
+        result[car_type] = CarTypeGroup(cars.filter(type=car_type)).get_result()
+    return JsonResponse(result)
