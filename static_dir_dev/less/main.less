@@ -398,6 +398,11 @@ section#service {
     padding-bottom: 30px;
     padding-left: 15px;
     padding-right: 15px;
+
+    .car-model-wrap {
+        margin: 5px 0 10px;
+    }
+
     .header {
         h3, p {
             text-align: center;
@@ -420,17 +425,17 @@ section#service {
         .border-radius(10px);
         .linear-gradient(@bg-car-top, @bg-car-bottom);
         padding: 6px 10px 10px;
-        min-height: 320px;
+        //min-height: 320px;
 
         &:hover {
             .linear-gradient(@bg-car-hover-top, @bg-car-hover-bottom);
         }
 
         h2 {
-            color: @txt-car-model;
+            color: @txt-red; // @txt-car-model;
             text-align: center;
             margin-top: 0;
-            font-size: 24px;
+            font-size: 20px;
         }
 
         .car-img {
