@@ -346,7 +346,7 @@ section#service .car-model .choice-container .choice button {
   color: #fff;
   padding: 3px 15px;
   display: block;
-  margin: 12px auto;
+  margin: 12px auto 5px;
   width: 140px;
   border-width: 3px;
   border-color: #fff #aaa #aaa #fff;
@@ -658,7 +658,7 @@ section#write-us form input[type=submit] {
   color: #fff;
   padding: 3px 15px;
   display: block;
-  margin: 12px auto;
+  margin: 12px auto 5px;
   width: 140px;
   border-width: 3px;
   border-color: #fff #aaa #aaa #fff;

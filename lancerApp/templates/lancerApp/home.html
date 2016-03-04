@@ -113,6 +113,7 @@
                 <section id="actions" class="clearfix">
                     <div id="actions-carousel" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
+                        {% if actions|length > 1 %}
                         <ol class="carousel-indicators">
                             {% for action in actions %}
                                 {% if forloop.first %}
@@ -122,6 +123,7 @@
                                 {% endif %}
                             {% endfor %}
                         </ol>
+                        {% endif %}
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
                             {% for action in actions %}
@@ -137,6 +139,7 @@
                             {% endfor %}
                         </div>
                         <!-- Controls -->
+                        {% if actions|length > 1 %}
                         <a class="left carousel-control" href="#actions-carousel" role="button" data-slide="prev">
                             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
@@ -145,6 +148,7 @@
                             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                         </a>
+                        {% endif %}
                     </div>
                     <div class="carousel-captions">
                         {% for action in actions %}
