@@ -3,15 +3,17 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.http import JsonResponse
-from .models import GeneralInfo, News, Actions, Service, Stuff, Car, CarGroupOrder, CAR_TYPE
+from .models import GeneralInfo, News, Actions, Service, Stuff, Car, CarGroupOrder, CAR_TYPE, SERVICE_TYPE
 from collections import OrderedDict
 
 
 def home(req):
+    service_types = [{'code': code, 'name': name} for code, name in SERVICE_TYPE]
     context = {
         'news': News.objects.order_by('-date', '-id')[:3],
         'info': GeneralInfo.objects.first(),
-        'actions': Actions.objects.order_by('-id')
+        'actions': Actions.objects.order_by('-id'),
+        'service_types': service_types
     }
     return render(req, 'lancerApp/home.html', context)
 

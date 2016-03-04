@@ -20,11 +20,16 @@ SERVICE_TYPE = (
 )
 
 CAR_TYPE = (
-    ('lancer9', 'Lancer 9'),
-    ('lancer10', 'Lancer X'),
-    ('evo', 'Evolution'),
-    ('asx', 'Lancer ASX'),
-    # ('all', u'Все модели'),
+    ('lancer9',     'Lancer 9'),
+    ('lancer10',    'Lancer X'),
+    ('evo',         'Evolution'),
+    ('asx',         'Lancer ASX'),
+    ('out_classic', 'OutLander Classic'),
+    ('out_xl',      'OutLander XL'),
+    ('out3',        'OutLander III'),
+    ('pajero',      'Pajero III-IV'),
+    ('paj_sport',   'Pajero Sport'),
+    ('l200',        'L-200'),
 )
 
 
