@@ -134,5 +134,5 @@ def api_cars(req):
     cars = Car.objects.all()
     for t in CAR_TYPE:
         car_type = t[0]
-        result[car_type] = CarTypeGroup(cars.filter(type=car_type)).get_result()
+        result[car_type] = list(cars.filter(type=car_type).values())
     return JsonResponse(result)
