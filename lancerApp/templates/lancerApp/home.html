@@ -204,23 +204,11 @@
                                             <button>Выбрать</button>
                                         </div>
                                         <div class="choice " data-choice-state="1">
-                                            <ul class="list">
-                                                <li class="transmission" data-trans-type="mechanic">
-                                                    <a href="javascript:void(0)"><strong>Механическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="transmission" data-trans-type="automatic">
-                                                    <a href="javascript:void(0)"><strong>Автоматическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
+                                            <h5 class="choice-header">Какой у вас объем двигателя ?</h5>
+                                            <ul class="sub-list choice-list">
+                                                <li data-capacity="1.3"><a href="javascript:void(0)">1.3</a></li>
+                                                <li data-capacity="1.6"><a href="javascript:void(0)">1.6</a></li>
+                                                <li data-capacity="all"><a href="javascript:void(0)">другое</a></li>
                                             </ul>
                                             <div class="back">
                                                 <a href="javascript:void(0)">< Назад</a>
@@ -854,6 +842,7 @@
         {% endblock %}
 
         {% block js_plugins %}
+            <script src="{% static 'bower_components/underscore/underscore-min.js' %}"></script>
         {% endblock %}
 
         <script src="{% static 'js/lancer.js' %}"></script>
