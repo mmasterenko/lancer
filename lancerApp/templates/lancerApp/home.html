@@ -204,11 +204,9 @@
                                             <button>Выбрать</button>
                                         </div>
                                         <div class="choice " data-choice-state="1">
-                                            <h5 class="choice-header">Какой у вас объем двигателя ?</h5>
+                                            <h5 class="choice-header"></h5>
                                             <ul class="sub-list choice-list">
-                                                <li data-capacity="1.3"><a href="javascript:void(0)">1.3</a></li>
-                                                <li data-capacity="1.6"><a href="javascript:void(0)">1.6</a></li>
-                                                <li data-capacity="all"><a href="javascript:void(0)">другое</a></li>
+                                                <li data-capacity=""><a href="javascript:void(0)"></a></li>
                                             </ul>
                                             <div class="back">
                                                 <a href="javascript:void(0)">< Назад</a>
@@ -244,23 +242,9 @@
                                             <button>Выбрать</button>
                                         </div>
                                         <div class="choice " data-choice-state="1">
-                                            <ul class="list">
-                                                <li class="transmission" data-trans-type="mechanic">
-                                                    <a href="javascript:void(0)"><strong>Механическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="transmission" data-trans-type="automatic">
-                                                    <a href="javascript:void(0)"><strong>Автоматическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
+                                            <h5 class="choice-header"></h5>
+                                            <ul class="sub-list choice-list">
+                                                <li data-capacity=""><a href="javascript:void(0)"></a></li>
                                             </ul>
                                             <div class="back">
                                                 <a href="javascript:void(0)">< Назад</a>
@@ -268,14 +252,9 @@
                                         </div>
                                         <div class="choice " data-choice-state="2">
                                             <ul class="sub-list">
-                                                <li><a href="{% url 'price' service_type='oil' %}">Замена жидкостей</a></li>
-                                                <li><a href="{% url 'price' service_type='wheel' %}">Рулевое управление</a></li>
-                                                <li><a href="{% url 'price' service_type='brake' %}">Тормозная система</a></li>
-                                                <li><a href="{% url 'price' service_type='chassis' %}">Ходовая часть</a></li>
-                                                <li><a href="{% url 'price' service_type='engine' %}">Двигатель</a></li>
-                                                <li><a href="{% url 'price' service_type='transmiss' %}">Трансмиссия</a></li>
-                                                <li><a href="{% url 'price' service_type='electro' %}">Электрика</a></li>
-                                                <li><a href="{% url 'price' service_type='other' %}">Другое</a></li>
+                                                {% for st in service_types %}
+                                                    <li><a href="{% url 'price' service_type=st.code %}">{{ st.name }}</a></li>
+                                                {% endfor %}
                                             </ul>
                                             <div class="back">
                                                 <a href="javascript:void(0)">< Назад</a>
@@ -301,23 +280,9 @@
                                             <button>Выбрать</button>
                                         </div>
                                         <div class="choice " data-choice-state="1">
-                                            <ul class="list">
-                                                <li class="transmission" data-trans-type="mechanic">
-                                                    <a href="javascript:void(0)"><strong>Механическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="transmission" data-trans-type="automatic">
-                                                    <a href="javascript:void(0)"><strong>Автоматическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
+                                            <h5 class="choice-header"></h5>
+                                            <ul class="sub-list choice-list">
+                                                <li data-capacity=""><a href="javascript:void(0)"></a></li>
                                             </ul>
                                             <div class="back">
                                                 <a href="javascript:void(0)">< Назад</a>
@@ -325,14 +290,9 @@
                                         </div>
                                         <div class="choice " data-choice-state="2">
                                             <ul class="sub-list">
-                                                <li><a href="{% url 'price' service_type='oil' %}">Замена жидкостей</a></li>
-                                                <li><a href="{% url 'price' service_type='wheel' %}">Рулевое управление</a></li>
-                                                <li><a href="{% url 'price' service_type='brake' %}">Тормозная система</a></li>
-                                                <li><a href="{% url 'price' service_type='chassis' %}">Ходовая часть</a></li>
-                                                <li><a href="{% url 'price' service_type='engine' %}">Двигатель</a></li>
-                                                <li><a href="{% url 'price' service_type='transmiss' %}">Трансмиссия</a></li>
-                                                <li><a href="{% url 'price' service_type='electro' %}">Электрика</a></li>
-                                                <li><a href="{% url 'price' service_type='other' %}">Другое</a></li>
+                                                {% for st in service_types %}
+                                                    <li><a href="{% url 'price' service_type=st.code %}">{{ st.name }}</a></li>
+                                                {% endfor %}
                                             </ul>
                                             <div class="back">
                                                 <a href="javascript:void(0)">< Назад</a>
@@ -358,23 +318,9 @@
                                             <button>Выбрать</button>
                                         </div>
                                         <div class="choice " data-choice-state="1">
-                                            <ul class="list">
-                                                <li class="transmission" data-trans-type="mechanic">
-                                                    <a href="javascript:void(0)"><strong>Механическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="transmission" data-trans-type="automatic">
-                                                    <a href="javascript:void(0)"><strong>Автоматическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
+                                            <h5 class="choice-header"></h5>
+                                            <ul class="sub-list choice-list">
+                                                <li data-capacity=""><a href="javascript:void(0)"></a></li>
                                             </ul>
                                             <div class="back">
                                                 <a href="javascript:void(0)">< Назад</a>
@@ -382,14 +328,9 @@
                                         </div>
                                         <div class="choice " data-choice-state="2">
                                             <ul class="sub-list">
-                                                <li><a href="{% url 'price' service_type='oil' %}">Замена жидкостей</a></li>
-                                                <li><a href="{% url 'price' service_type='wheel' %}">Рулевое управление</a></li>
-                                                <li><a href="{% url 'price' service_type='brake' %}">Тормозная система</a></li>
-                                                <li><a href="{% url 'price' service_type='chassis' %}">Ходовая часть</a></li>
-                                                <li><a href="{% url 'price' service_type='engine' %}">Двигатель</a></li>
-                                                <li><a href="{% url 'price' service_type='transmiss' %}">Трансмиссия</a></li>
-                                                <li><a href="{% url 'price' service_type='electro' %}">Электрика</a></li>
-                                                <li><a href="{% url 'price' service_type='other' %}">Другое</a></li>
+                                                {% for st in service_types %}
+                                                    <li><a href="{% url 'price' service_type=st.code %}">{{ st.name }}</a></li>
+                                                {% endfor %}
                                             </ul>
                                             <div class="back">
                                                 <a href="javascript:void(0)">< Назад</a>
@@ -417,23 +358,9 @@
                                             <button>Выбрать</button>
                                         </div>
                                         <div class="choice " data-choice-state="1">
-                                            <ul class="list">
-                                                <li class="transmission" data-trans-type="mechanic">
-                                                    <a href="javascript:void(0)"><strong>Механическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="transmission" data-trans-type="automatic">
-                                                    <a href="javascript:void(0)"><strong>Автоматическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
+                                            <h5 class="choice-header"></h5>
+                                            <ul class="sub-list choice-list">
+                                                <li data-capacity=""><a href="javascript:void(0)"></a></li>
                                             </ul>
                                             <div class="back">
                                                 <a href="javascript:void(0)">< Назад</a>
@@ -469,23 +396,9 @@
                                             <button>Выбрать</button>
                                         </div>
                                         <div class="choice " data-choice-state="1">
-                                            <ul class="list">
-                                                <li class="transmission" data-trans-type="mechanic">
-                                                    <a href="javascript:void(0)"><strong>Механическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="transmission" data-trans-type="automatic">
-                                                    <a href="javascript:void(0)"><strong>Автоматическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
+                                            <h5 class="choice-header"></h5>
+                                            <ul class="sub-list choice-list">
+                                                <li data-capacity=""><a href="javascript:void(0)"></a></li>
                                             </ul>
                                             <div class="back">
                                                 <a href="javascript:void(0)">< Назад</a>
@@ -521,23 +434,9 @@
                                             <button>Выбрать</button>
                                         </div>
                                         <div class="choice " data-choice-state="1">
-                                            <ul class="list">
-                                                <li class="transmission" data-trans-type="mechanic">
-                                                    <a href="javascript:void(0)"><strong>Механическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="transmission" data-trans-type="automatic">
-                                                    <a href="javascript:void(0)"><strong>Автоматическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
+                                            <h5 class="choice-header"></h5>
+                                            <ul class="sub-list choice-list">
+                                                <li data-capacity=""><a href="javascript:void(0)"></a></li>
                                             </ul>
                                             <div class="back">
                                                 <a href="javascript:void(0)">< Назад</a>
@@ -573,23 +472,9 @@
                                             <button>Выбрать</button>
                                         </div>
                                         <div class="choice " data-choice-state="1">
-                                            <ul class="list">
-                                                <li class="transmission" data-trans-type="mechanic">
-                                                    <a href="javascript:void(0)"><strong>Механическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="transmission" data-trans-type="automatic">
-                                                    <a href="javascript:void(0)"><strong>Автоматическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
+                                            <h5 class="choice-header"></h5>
+                                            <ul class="sub-list choice-list">
+                                                <li data-capacity=""><a href="javascript:void(0)"></a></li>
                                             </ul>
                                             <div class="back">
                                                 <a href="javascript:void(0)">< Назад</a>
@@ -628,23 +513,9 @@
                                             <button>Выбрать</button>
                                         </div>
                                         <div class="choice " data-choice-state="1">
-                                            <ul class="list">
-                                                <li class="transmission" data-trans-type="mechanic">
-                                                    <a href="javascript:void(0)"><strong>Механическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="transmission" data-trans-type="automatic">
-                                                    <a href="javascript:void(0)"><strong>Автоматическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
+                                            <h5 class="choice-header"></h5>
+                                            <ul class="sub-list choice-list">
+                                                <li data-capacity=""><a href="javascript:void(0)"></a></li>
                                             </ul>
                                             <div class="back">
                                                 <a href="javascript:void(0)">< Назад</a>
@@ -680,23 +551,9 @@
                                             <button>Выбрать</button>
                                         </div>
                                         <div class="choice " data-choice-state="1">
-                                            <ul class="list">
-                                                <li class="transmission" data-trans-type="mechanic">
-                                                    <a href="javascript:void(0)"><strong>Механическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="transmission" data-trans-type="automatic">
-                                                    <a href="javascript:void(0)"><strong>Автоматическая коробка передач</strong></a>
-                                                    <ul class="sub-list ">
-                                                        <li data-capacity="1.3"><a href="javascript:void(0)">объем двигателя 1.3</a></li>
-                                                        <li data-capacity="1.6"><a href="javascript:void(0)">объем двигателя 1.6</a></li>
-                                                        <li data-capacity="2.0"><a href="javascript:void(0)">объем двигателя 2.0</a></li>
-                                                    </ul>
-                                                </li>
+                                            <h5 class="choice-header"></h5>
+                                            <ul class="sub-list choice-list">
+                                                <li data-capacity=""><a href="javascript:void(0)"></a></li>
                                             </ul>
                                             <div class="back">
                                                 <a href="javascript:void(0)">< Назад</a>

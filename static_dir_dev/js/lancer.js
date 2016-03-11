@@ -60,8 +60,9 @@ function analyze_subtypes(model, subtypes) {
         analyze_engines(model, subtype, engines);
 
     } else {
-        // вывести меню подвидов
-        // + навешать на меню коллбэки
+
+        set_menu(model, 'subtypes', subtypes);
+
     }
 }
 
@@ -111,8 +112,8 @@ function set_menu(model, type, list) {
     console.log('set_menu: model, type, list:', model, type, list);
 
     var header = {
-        'subtypes': 'Какая модель:',
-        'engines': 'Какой у вас двигатель:',
+        'subtypes': 'Выберете модель:',
+        'engines': 'Выберете двигатель:',
         'transmissions': 'Какая у вас трансмиссия:'
     };
 
