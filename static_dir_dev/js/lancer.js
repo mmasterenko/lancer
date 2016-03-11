@@ -293,12 +293,22 @@ $(document).ready(function(){
 
     // кнопка: ВЫБРАТЬ
     $('.car-model button').on('click', function(){
+
+        var model = $(this).parents('[data-car-model]').data('carModel');
+
+        if(_.size(all_cars[model]) == 0) {
+            var to_services = confirm('К сожалению, для данной модели пока не представлены услуги. Хотите просмотреть весь список услуг ?')
+            if(to_services) {
+                window.location = '/price/';
+            } else {
+                return
+            }
+        }
+
         var choiceContainer = $(this).parents('.choice-container');
         choiceContainer.children().each(function(){$(this).removeClass('active')});
         choiceContainer.find('[data-choice-state=1]').addClass('active');
 
-        //
-        var model = $(this).parents('[data-car-model]').data('carModel');
         var subtypes = get_subtypes(all_cars[model]);
 
         analyze_subtypes(model, subtypes);
