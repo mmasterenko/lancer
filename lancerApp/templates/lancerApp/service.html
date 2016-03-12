@@ -10,15 +10,15 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6">
-                    <a class="service-type" href="{% url 'price' service_type='oil' %}">
-                        <img src="{% static 'images/service-type/oil.png' %}" alt="">
-                        <span class="service-name">Замена жидкостей</span>
+                    <a class="service-type" href="{% url 'price' service_type='to' %}">
+                        <img src="{% static 'images/service-type/to/kpp.png' %}" alt="">
+                        <span class="service-name">Тех. осмотр</span>
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <a class="service-type" href="{% url 'price' service_type='wheel' %}">
-                        <img src="{% static 'images/service-type/detail-2.png' %}" alt="">
-                        <span class="service-name">Рулевое управление</span>
+                    <a class="service-type" href="{% url 'price' service_type='oil' %}">
+                        <img src="{% static 'images/service-type/oil.png' %}" alt="">
+                        <span class="service-name">Замена жидкостей</span>
                     </a>
                 </div>
             </div>
@@ -58,14 +58,20 @@
                     </a>
                 </div>
                 <div class="col-md-6">
+                    <a class="service-type" href="{% url 'price' service_type='wheel' %}">
+                        <img src="{% static 'images/service-type/detail-2.png' %}" alt="">
+                        <span class="service-name">Рулевое управление</span>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
                     <a class="service-type" href="{% url 'price' service_type='other' %}">
                         <img src="{% static 'images/service-type/filtry-vozdushnyye.png' %}" alt="">
                         <span class="service-name">Другое</span>
                     </a>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-6">
                     <a class="service-type" href="{% url 'price' %}">
                         <img src="{% static 'images/slices/logo-sm.png' %}" alt="">
                         <span class="service-name">Все услуги</span>
