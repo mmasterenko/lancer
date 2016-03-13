@@ -57,7 +57,7 @@ body {
   height: 133px;
 }
 #header .header #sub-menu .slogan {
-  font-size: 17px;
+  font-size: 15px;
   padding: 30px 0;
   color: #2f3b4b;
 }
@@ -91,7 +91,7 @@ body {
 #header .header #sub-menu .contact .address {
   text-align: right;
   color: #2f3b4b;
-  font-size: 16px;
+  font-size: 15px;
 }
 #header .header #sub-menu #callme.popup {
   background: #fff url(../images/slices/bg-menu-track.png);
