@@ -82,7 +82,7 @@ function analyze_engines(model, subtype, engines) {
 
     } else {
 
-        set_engines(model, engines)
+        set_menu(model, 'engines', engines);
 
     }
 
@@ -215,40 +215,31 @@ function click_menu(model, type, raw_value) {
 
 }
 
-function set_engines(model, engines) {
-    console.log('set_engines -> set_menu');
-
-    set_menu(model, 'engines', engines);
-
-}
-
-function set_subtypes(model, subtypes) {
-    console.log('set_subtypes -> set_menu');
-
-    set_menu(model, 'subtypes', subtypes);
-
-}
-
-// выбирает id машин имея полную конфигурацию
+/*
+ * - выбирает id машин имея полную конфигурацию
+ * - переключаемся на меню видов услуг (в URL уже присутствуют выбранные машины)
+ */
 function set_trans(model, subtype, engine, transmission) {
 
     console.log('set_trans: current_choice:', current_choice);
 
     var car, id;
     var cars = all_cars[model];
+    var is_subtype, is_engine, is_trans;
 
     for(var i in cars) {
         car = cars[i];
         id = car['id'];
 
-        if(car['subtype'] == subtype && car['engine'] == engine) {
+        is_subtype = !car['subtype'] || car['subtype'] == subtype;
+        is_engine = !car['engine'] || car['engine'] == engine;
+        is_trans = !car['transmission'] || car['transmission'] == transmission;
 
-            if(car['transmission'] == transmission || !car['transmission']){
+        if(is_subtype && is_engine && is_trans) {
 
-                var arr = car_ids[model] || [];
-                arr.push(id);
-                car_ids[model] = arr;
-            }
+            var arr = car_ids[model] || [];
+            arr.push(id);
+            car_ids[model] = arr;
         }
     }
 
