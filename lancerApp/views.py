@@ -56,11 +56,16 @@ def service(req, service_id=None):
         return render(req, 'lancerApp/service.html')
 
 
-def price(req, service_type=None):
+def price(request, service_type=None):
     if service_type:
         services = Service.objects.filter(type=service_type).order_by('car')
     else:
         services = Service.objects.order_by('car')
+
+    cars_id = request.GET.get('cars')
+    if cars_id:
+        services = services.filter(car__id__in=cars_id.split(','))
+
     carModels = OrderedDict()
     for S in services:
         try:
@@ -74,7 +79,7 @@ def price(req, service_type=None):
         'service_type': service_type,
         'service_type_name': Service.type2name(service_type) if service_type else u'Все',
     }
-    return render(req, 'lancerApp/price_table.html', context=context)
+    return render(request, 'lancerApp/price_table.html', context=context)
 
 
 class CarTypeGroup:
