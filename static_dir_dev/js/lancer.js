@@ -111,6 +111,9 @@ function analyze_trans(model, subtype, engine, transmissions) {
 function set_menu(model, type, list) {
     console.log('set_menu: model, type, list:', model, type, list);
 
+    list.sort()
+    list.reverse()
+
     var header = {
         'subtypes': 'Выберете модель:',
         'engines': 'Выберете двигатель:',
