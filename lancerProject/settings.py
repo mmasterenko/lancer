@@ -86,7 +86,7 @@ ADMIN_SHORTCUTS = [
         'shortcuts': [
             {
                 'url_name': 'admin:lancerApp_car_changelist',
-                'title': u'Модели машин',
+                'title': u'Машины',
                 'class': 'plus'
             },
             {
@@ -94,6 +94,11 @@ ADMIN_SHORTCUTS = [
                 'title': u'Услуги',
                 'class': 'cash',
                 'count_new': 'lancerApp.utils.service_count'
+            },
+            {
+                'url_name': 'admin:lancerApp_diagnostic_changelist',
+                'title': u'Тех.осмотры',
+                'class': 'zoom',
             },
         ]
     },
@@ -126,7 +131,7 @@ ADMIN_SHORTCUTS = [
             {
                 'url_name': 'admin:clientArea_visit_changelist',
                 'title': u'Посещения',
-                # 'class': 'warning',
+                'class': 'clock',
                 # 'count_new': 'lancerApp.utils.techliquids_count'
             },
         ]
