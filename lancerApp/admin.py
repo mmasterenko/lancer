@@ -84,6 +84,8 @@ class StuffAdmin(admin.ModelAdmin):
 
 class DiagnosticAdmin(admin.ModelAdmin):
     save_as = True
+    list_display = ('__unicode__', 'car')
+    list_filter = ('car__type',)
     filter_horizontal = ('services',)
 
 admin.site.register(Car, CarAdmin)

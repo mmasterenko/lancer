@@ -1,0 +1,36 @@
+{% extends 'lancerApp/price_table.html' %}
+{% load staticfiles %}
+{% block content %}
+
+    <section id="page-service" class="clearfix">
+    {% for car_diagnostic in car_diagnostics %}
+        <h3><i class="fa fa-car"></i>{{ car_diagnostic.name }}</h3>
+        <div class="container-fluid">
+            <table class="price-table">
+                <tr>
+                    <th>ТО (пробег)</th>
+                    <th>Работы</th>
+                    <th>Стоимость работ</th>
+                    <th>Стоимость материалов</th>
+                </tr>
+                {% for diagnostic in car_diagnostic.diagnostics %}
+                    {% for service in diagnostic.services.all %}
+                    <tr>
+                        {% if forloop.first %}
+                        <td rowspan="{{ diagnostic.services.count }}">{{ diagnostic.name }}</td>
+                        {% endif %}
+                        <td>{{ service.name }}</td>
+                        <td>{{ service.price|stringformat:'d руб' }}</td>
+                        <td><a title="подробнее о цене" href="{% url 'service' service_id=service.id %}">{{ service.price_materials|default_if_none:''|stringformat:'d руб' }}</a></td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="4">&nbsp;</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endfor %}
+    </section>
+
+{% endblock %}

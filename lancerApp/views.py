@@ -3,7 +3,7 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.http import JsonResponse
-from .models import GeneralInfo, News, Actions, Service, Stuff, Car, CarGroupOrder, CAR_TYPE, SERVICE_TYPE
+from .models import GeneralInfo, News, Actions, Service, Stuff, Car, CarGroupOrder, CAR_TYPE, SERVICE_TYPE, Diagnostic
 from collections import OrderedDict
 
 
@@ -56,7 +56,33 @@ def service(req, service_id=None):
         return render(req, 'lancerApp/service.html')
 
 
+def price_diagnostic(request, service_type='to'):
+    cars_id = request.GET.get('cars')
+    diagnostics = Diagnostic.objects.select_related('car').all()
+    if cars_id:
+        diagnostics = diagnostics.filter(car__id__in=cars_id.split(','))
+
+    car_diag = OrderedDict()
+    for D in diagnostics:
+        try:
+            name = D.car.name
+        except AttributeError:
+            name = u'<а/м не указан>'
+        car_diag.setdefault(name, []).append(D)
+
+    car_diagnostics = [{'name': name, 'diagnostics': D_list} for name, D_list in car_diag.items()]
+
+    context = {
+        'car_diagnostics': car_diagnostics,
+        'service_type_name': Service.type2name(service_type)
+    }
+    return render(request, 'lancerApp/price_diagnostic.html', context=context)
+
+
 def price(request, service_type=None):
+    if service_type == 'to':
+        return price_diagnostic(request, 'to')
+
     if service_type:
         services = Service.objects.filter(type=service_type).order_by('car')
     else:
