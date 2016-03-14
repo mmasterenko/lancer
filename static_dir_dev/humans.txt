@@ -12,5 +12,5 @@
 
 # TECHNOLOGY COLOPHON
 
-    HTML5, CSS3
-    jQuery
+    HTML5, CSS3, LESS
+    jQuery, Underscore.js
