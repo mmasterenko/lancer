@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib import admin
-from .models import Car, Service, Spares, TechLiquids, GeneralInfo, News, Actions, Stuff, CarGroupOrder
+from .models import Car, Service, Spares, TechLiquids, GeneralInfo, News, Actions, Stuff, CarGroupOrder, Diagnostic
 
 
 class GeneralInfoAdmin(admin.ModelAdmin):
@@ -82,6 +82,10 @@ class StuffAdmin(admin.ModelAdmin):
     save_as = True
 
 
+class DiagnosticAdmin(admin.ModelAdmin):
+    save_as = True
+    filter_horizontal = ('services',)
+
 admin.site.register(Car, CarAdmin)
 admin.site.register(Service, ServiceAdmin)
 admin.site.register(Spares, SparesAdmin)
@@ -91,6 +95,7 @@ admin.site.register(News, NewsAdmin)
 admin.site.register(Actions)
 admin.site.register(Stuff, StuffAdmin)
 admin.site.register(CarGroupOrder, CarGroupOrderAdmin)
+admin.site.register(Diagnostic, DiagnosticAdmin)
 
 admin.site.site_header = u'Интерфейс администратора'
 admin.site.index_title = u'Управление'

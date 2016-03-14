@@ -223,3 +223,16 @@ class Service(models.Model):
             if self.type == typ:
                 return name
 
+
+# тех.осмотр
+class Diagnostic(models.Model):
+    name = models.CharField(u'название', max_length=50)
+    car = models.ForeignKey(Car, verbose_name=u'модель машины', null=True)
+    services = models.ManyToManyField(Service, verbose_name=u'работы')
+
+    class Meta:
+        verbose_name_plural = u'ТО'
+        verbose_name = u'ТО'
+
+    def __unicode__(self):
+        return u'%s на %s' % (self.name, self.car)
