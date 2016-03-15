@@ -2,11 +2,14 @@
 
 from django.core.paginator import Paginator
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
+from django.views.decorators.csrf import ensure_csrf_cookie
 from .models import GeneralInfo, News, Actions, Service, Stuff, Car, CarGroupOrder, CAR_TYPE, SERVICE_TYPE, Diagnostic
 from collections import OrderedDict
+from smspilot import Sender
 
 
+@ensure_csrf_cookie
 def home(req):
     service_types = [{'code': code, 'name': name} for code, name in SERVICE_TYPE]
     context = {
@@ -167,3 +170,21 @@ def api_cars(req):
         car_type = t[0]
         result[car_type] = list(cars.filter(type=car_type).values())
     return JsonResponse(result)
+
+
+def api_callme(request):
+    phone = request.POST.get('phone')
+
+    smsgate = 'http://smspilot.ru/api.php'
+    to = '79213918069'
+    msg = u'%s попросил перезвонить (лансер-сервис)' % phone
+    apikey = 'UUC5278JARUS61YA17AIG10QM78HP272CF33669UP70X40J13O8G4219527124NC'
+
+    d = dict(smsgate=smsgate, to=to, msg=msg, apikey=apikey)
+    url = u'{smsgate}?to={to}&send={msg}&apikey={apikey}'.format(**d)
+
+    pilot = Sender(apikey)
+    pilot.addSMS(1, '79213918069', msg)
+    result = pilot.send()
+
+    return HttpResponse('ok')

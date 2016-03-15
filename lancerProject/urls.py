@@ -22,4 +22,6 @@ urlpatterns = [
     url(r'^price/', 'lancerApp.views.price', name='price'),
 
     url(r'^api/cars/', 'lancerApp.views.api_cars', name='api_cars'),
+    url(r'^api/callme/', 'lancerApp.views.api_callme', name='api_callme'),
+
 ]
