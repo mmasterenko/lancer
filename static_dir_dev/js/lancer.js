@@ -280,6 +280,18 @@ function getCookie(name) {
     return cookieValue;
 }
 
+function phone_validate(number) {
+    var c = 0;
+    var digits = '0123456789';
+    for(var i in number) {
+        if (digits.indexOf(number[i]) > -1) c++;
+    }
+    if ((c < 7) || (c > 13)) return false;
+
+    var re_phone = /^(?:\+[0-9]|8)?[ \(-\.]?(?:[0-9]{3,5})?[ \)-\.]?[0-9\.-]+$/i;
+    return re_phone.test(number);
+}
+
 
 $(document).ready(function(){
 
@@ -346,16 +358,21 @@ $(document).ready(function(){
         // отправить сообщение
         var phone = $('#phone').val();
         var csrftoken = getCookie('csrftoken');
-
         var data = {'phone': phone};
 
-        $.ajax({
-            type: 'POST',
-            url: '/api/callme/',
-            data: data,
-            headers: {'X-CSRFToken': csrftoken}
-        });
-        $('#callme').hide(500);
+        if(phone_validate(phone)) {
+            $.ajax({
+                type: 'POST',
+                url: '/api/callme/',
+                data: data,
+                headers: {'X-CSRFToken': csrftoken}
+            });
+            $('#callme').hide(500);
+        } else {
+            alert('Введен некорректный номер телефона');
+        }
+
+
     });
 
     $('#callme a.close').on('click', function(){
