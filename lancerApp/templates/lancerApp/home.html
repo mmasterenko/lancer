@@ -39,14 +39,14 @@
                 <div class="subheader container-fluid">
                     <div class="row">
                         <div class="col-xs-9 col-md-8">
-                            <span>Mitsubishi Lancer Service</span>
+                            <span class="hidden-xs">Mitsubishi Lancer Service</span>
                             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                             <span>лансер-сервис.рф</span>
                         </div>
                         <div class="col-xs-3 col-md-4 text-right">
                             <a href="{% url 'clients:login' %}" class="enter">
                                 <span>Вход</span>
-                                <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                                <span class="hidden-xs glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
                             </a>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                                 {% comment %}<img src="{% static 'images/slices/logo.png' %}" alt="logo">{% endcomment %}
                             </a>
                         </div>
-                        <div class="hidden-xs col-sm-6 col-md-3 col-lg-3 logo">
+                        <div class="hidden-xs hidden-sm col-md-3 col-lg-3 logo">
                             <a href="{% url 'home' %}">
                                 <img class="hidden-xs hidden-sm" src="{% static '4wd_logo.png' %}" alt="logo">
                                 {% comment %}<img src="{% static 'images/slices/logo.png' %}" alt="logo">{% endcomment %}
@@ -96,7 +96,7 @@
                         </div>
                     </div>
                     <div id="main-menu" class="row">
-                        <div class="col-md-12 col">
+                        <div class="col-xs-12 col-sm-12 col">
                             <ul>
                                 <li><i class="fa fa-home"></i><a href="{% url 'home' %}">Главная</a></li>
                                 <li><i class="fa fa-book"></i><a href="{% url 'about' %}">О нас</a></li>
@@ -183,6 +183,7 @@
                         <li class="active">Крошки</li>
                     </ol>
                 {% endcomment %}
+
                 </section>
                 {% endblock %}
                 {% block content %}
@@ -193,7 +194,7 @@
                             <p>Нажмите на марку авто, чтобы узнать стоимость услуг</p>
                         </div>
                         <div class="row">
-                            <div class="car-model-wrap col-md-3">
+                            <div class="car-model-wrap col-sm-6 col-md-3">
                                 <div class="car-model" data-car-model="lancer9">
                                     <h2>LANCER 9</h2>
                                     <div class="car-img">
@@ -231,7 +232,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="car-model-wrap col-md-3">
+                            <div class="car-model-wrap col-sm-6 col-md-3">
                                 <div class="car-model" data-car-model="lancer10">
                                     <h2>LANCER X</h2>
                                     <div class="car-img">
@@ -269,7 +270,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="car-model-wrap col-md-3">
+                            <div class="car-model-wrap col-sm-6 col-md-3">
                                 <div class="car-model" data-car-model="evo">
                                     <h2>EVOLUTION</h2>
                                     <div class="car-img">
@@ -307,7 +308,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="car-model-wrap col-md-3">
+                            <div class="car-model-wrap col-sm-6 col-md-3">
                                 <div class="car-model" data-car-model="asx">
                                     <h2>MITSUBISHI ASX</h2>
                                     <div class="car-img">
@@ -347,7 +348,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="car-model-wrap col-md-3">
+                            <div class="car-model-wrap col-sm-6 col-md-3">
                                 <div class="car-model" data-car-model="out_classic">
                                     <h2>OUTLANDER CLASSIC</h2>
                                     <div class="car-img">
@@ -385,7 +386,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="car-model-wrap col-md-3">
+                            <div class="car-model-wrap col-sm-6 col-md-3">
                                 <div class="car-model" data-car-model="out_xl">
                                     <h2>OUTLANDER XL</h2>
                                     <div class="car-img">
@@ -423,7 +424,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="car-model-wrap col-md-3">
+                            <div class="car-model-wrap col-sm-6 col-md-3">
                                 <div class="car-model" data-car-model="out3">
                                     <h2>OUTLANDER III</h2>
                                     <div class="car-img">
@@ -461,7 +462,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="car-model-wrap col-md-3">
+                            <div class="car-model-wrap col-sm-6 col-md-3">
                                 <div class="car-model" data-car-model="l200">
                                     <h2>L-200</h2>
                                     <div class="car-img">
@@ -501,8 +502,8 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-3"></div>
-                            <div class="car-model-wrap col-md-3">
+                            <div class="hidden-sm col-md-3"></div>
+                            <div class="car-model-wrap col-sm-6 col-md-3">
                                 <div class="car-model" data-car-model="pajero">
                                     <h2>PAJERO III-IV</h2>
                                     <div class="car-img">
@@ -540,7 +541,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="car-model-wrap col-md-3">
+                            <div class="car-model-wrap col-sm-6 col-md-3">
                                 <div class="car-model" data-car-model="paj_sport">
                                     <h2>PAJERO SPORT</h2>
                                     <div class="car-img">
@@ -584,7 +585,7 @@
                 <section id="info" class="clearfix">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-6 about">
+                            <div class="col-xs-12 col-sm-6 col-md-6 about">
                                 <h3><i class="fa fa-book"></i>О Компании</h3>
                                 <div class="wrap-content">
                                     <div class="content">
@@ -597,27 +598,29 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 contacts">
+                            <div class="col-xs-12 col-sm-6 col-md-6 contacts">
                                 <h3><i class="fa fa-map-marker"></i>Контакты</h3>
                                 <div class="wrap-content">
                                     <div class="content container-fluid">
                                         <div class="row">
-                                            <div class="col-md-8">
+                                            <div class="col-xs-12 col-md-8">
                                                 <strong>Часы работы:</strong> <br>
                                                 {{ info.workhours | linebreaksbr }}
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="visible-xs col-xs-12"><br></div>
+                                            <div class="col-xs-12 col-md-4">
                                                 <strong>Телефоны:</strong> <br>
                                                 {{ info.phones | linebreaksbr }}
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-12">
+                                            <div class="col-xs-12 col-md-12">
                                                 <br>
                                                 <strong>Email: </strong><a href="mailto:{{ info.email }}" class="email">{{ info.email }}</a><br>
                                                 <strong>Адрес: </strong>
                                                 {{ info.address }}
                                             </div>
+                                            <div class="visible-xs col-xs-12"><br></div>
                                         </div>
                                     </div>
                                     <div class="moreinfo">
@@ -629,11 +632,12 @@
                     </div>
                 </section>
                 <section id="newsblock" class="clearfix">
+                    <div class="visible-xs"><br><br></div>
                     <h3><i class="fa fa-newspaper-o"></i>Новости</h3>
                     <div class="container-fluid">
                         <div class="row">
                             {% for headline in news %}
-                                <div class="col-md-4">
+                                <div class="col-sm-6 col-md-4">
                                     <h4>{{ headline.header | truncatechars:30 }}</h4>
                                     <div class="anons">
                                         <img src="{% static 'images/slices/logo-sm.png' %}" alt="news title">

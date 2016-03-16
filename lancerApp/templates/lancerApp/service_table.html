@@ -3,7 +3,7 @@
 {% block title %}{{ service.name }} | Лансер Сервис{% endblock %}
 {% block breadcrumbs %}
     <section id="breadcrumbs" class="clearfix">
-        <ol class="breadcrumb">
+        <ol class="breadcrumb col-xs-12">
             <li><a href="{% url 'home' %}">Главная</a></li>
             <li><a href="{% url 'service' %}">Услуги</a></li>
             <li><a href="{% url 'price' service_type=service.type %}">{{ service.type_name }}</a></li>

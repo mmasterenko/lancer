@@ -84,6 +84,12 @@ body {
   font-size: 36px;
   text-align: right;
 }
+@media (max-width: 768px) {
+  #header .header #sub-menu .contact .phone {
+    font-size: 30px;
+    margin-top: 10px;
+  }
+}
 #header .header #sub-menu .contact .phone span {
   color: #39b385;
   font-size: 18px;
@@ -92,6 +98,12 @@ body {
   text-align: right;
   color: #2f3b4b;
   font-size: 15px;
+}
+@media (max-width: 768px) {
+  #header .header #sub-menu .contact .address {
+    font-size: 13px;
+    padding-bottom: 10px;
+  }
 }
 #header .header #sub-menu #callme.popup {
   background: #fff url(../images/slices/bg-menu-track.png);
@@ -151,6 +163,11 @@ body {
 #header .header #main-menu > .col {
   background: #eeeef0 url(../images/slices/bg-menu-track.png) right;
 }
+@media (max-width: 768px) {
+  #header .header #main-menu > .col {
+    background-image: none;
+  }
+}
 #header .header #main-menu ul {
   list-style-type: none;
   padding-left: 0;
@@ -160,6 +177,12 @@ body {
   font-size: 14px;
   margin-right: 15px;
   display: inline-block;
+}
+@media (max-width: 768px) {
+  #header .header #main-menu ul li {
+    width: 55%;
+    padding-bottom: 5px;
+  }
 }
 #header .header #main-menu ul li i {
   color: #595959;
@@ -181,6 +204,11 @@ section#actions {
 section#actions .carousel {
   width: 67%;
   float: left;
+}
+@media (max-width: 768px) {
+  section#actions .carousel {
+    width: 100%;
+  }
 }
 section#actions .carousel .carousel-indicators {
   bottom: 0;
@@ -215,6 +243,11 @@ section#actions .carousel .carousel-control:hover {
 section#actions .carousel-captions {
   width: 33%;
   float: left;
+}
+@media (max-width: 768px) {
+  section#actions .carousel-captions {
+    width: 100%;
+  }
 }
 section#actions .carousel-captions .carousel-caption {
   display: none;
@@ -445,6 +478,11 @@ section#info h3 i {
   color: #078cd6;
   margin-right: 10px;
 }
+@media (max-width: 768px) {
+  section#info h3 {
+    font-size: 16px;
+  }
+}
 section#info .about,
 section#info .contacts {
   padding: 0;
@@ -471,7 +509,6 @@ section#info .contacts .moreinfo {
 section#info .content {
   background-color: #fff;
   padding: 10px 15px;
-  height: 140px;
 }
 section#info .moreinfo {
   text-align: right;
@@ -502,6 +539,11 @@ section#newsblock h3 {
 section#newsblock h3 i {
   color: #078cd6;
   margin-right: 10px;
+}
+@media (max-width: 768px) {
+  section#newsblock h3 {
+    font-size: 16px;
+  }
 }
 section#newsblock .moreinfo {
   text-align: right;
@@ -715,6 +757,11 @@ section#about h3 i {
   color: #078cd6;
   margin-right: 10px;
 }
+@media (max-width: 768px) {
+  section#about h3 {
+    font-size: 16px;
+  }
+}
 section#about .local-wrapper {
   margin: 20px auto 40px;
   width: 80%;
@@ -732,6 +779,11 @@ section#stuff h3 {
 section#stuff h3 i {
   color: #078cd6;
   margin-right: 10px;
+}
+@media (max-width: 768px) {
+  section#stuff h3 {
+    font-size: 16px;
+  }
 }
 section#stuff .stuff {
   text-align: center;
@@ -767,11 +819,21 @@ section#page-service h3 i {
   color: #078cd6;
   margin-right: 10px;
 }
+@media (max-width: 768px) {
+  section#page-service h3 {
+    font-size: 16px;
+  }
+}
 section#page-service .service-highlight {
   color: #138ad0;
 }
 section#page-service h3 {
   padding: 0 15px 10px;
+}
+@media (max-width: 768px) {
+  section#page-service h3 {
+    padding-bottom: 0;
+  }
 }
 section#page-service .row {
   padding-bottom: 20px;
@@ -797,6 +859,11 @@ section#page-service .row .service-type {
   color: inherit;
   position: relative;
 }
+@media (max-width: 768px) {
+  section#page-service .row .service-type {
+    margin-bottom: 10px;
+  }
+}
 section#page-service .row .service-type .service-name {
   font-size: 24px;
   vertical-align: middle;
@@ -804,9 +871,19 @@ section#page-service .row .service-type .service-name {
   top: 60px;
   left: 43%;
 }
+@media (max-width: 768px) {
+  section#page-service .row .service-type .service-name {
+    font-size: 20px;
+  }
+}
 section#page-service .row .service-type img {
   max-height: 150px;
   padding: 20px;
+}
+@media (max-width: 768px) {
+  section#page-service .row .service-type img {
+    max-height: 120px;
+  }
 }
 section#page-service .row .service-type:hover {
   background: #e0e0ec;
