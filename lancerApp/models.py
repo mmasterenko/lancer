@@ -60,6 +60,7 @@ class News(SEOFieldsMixin, models.Model):
     class Meta:
         verbose_name = u'новость'
         verbose_name_plural = u'новости'
+        ordering = ('id',)
 
     def __unicode__(self):
         return self.header
@@ -76,7 +77,9 @@ class News(SEOFieldsMixin, models.Model):
 
 class Actions(models.Model):
     class Meta:
-        verbose_name_plural = u'Акции'
+        verbose_name_plural = u'акции'
+        verbose_name = u'акцию'
+        ordering = ('id',)
 
     def __unicode__(self):
         return '%s' % self.header
@@ -201,6 +204,7 @@ class Service(models.Model):
         verbose_name_plural = u'услуги'
         verbose_name = u'услуга'
         unique_together = ('type', 'name', 'car')
+        ordering = ('id',)
 
     def __unicode__(self):
         return u'%s на %s (%d руб)' % (self.name, self.car, self.price)
@@ -233,6 +237,7 @@ class Diagnostic(models.Model):
     class Meta:
         verbose_name_plural = u'ТО'
         verbose_name = u'ТО'
+        ordering = ('id',)
 
     def __unicode__(self):
         return u'%s на %s' % (self.name, self.car)
