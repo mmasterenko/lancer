@@ -168,9 +168,9 @@ class Spares(models.Model):
 
     def __unicode__(self):
         if self.car:
-            return '%s (%s)' % (self.name, self.car.name)
+            return u'%s на %s (%d р)' % (self.name, self.car, self.price)
         else:
-            return '%s' % self.name
+            return u'%s (%d р)' % (self.name, self.price)
     name = models.CharField(u'название', max_length=100)
     car = models.ForeignKey(Car, verbose_name=u'модель автомобиля', null=True, blank=True, on_delete=models.SET_NULL)
     price = models.DecimalField(u'цена', max_digits=9, decimal_places=2)
@@ -184,7 +184,7 @@ class TechLiquids(models.Model):
         verbose_name = u'тех.жидкость'
 
     def __unicode__(self):
-        return '%s' % self.name
+        return u'%s (%d р)' % (self.name, self.price)
     name = models.CharField(u'название', max_length=100)
     price = models.DecimalField(u'цена', max_digits=9, decimal_places=2)
 
@@ -207,7 +207,7 @@ class Service(models.Model):
         ordering = ('id',)
 
     def __unicode__(self):
-        return u'%s на %s (%d руб)' % (self.name, self.car, self.price)
+        return u'%s на %s (%d р)' % (self.name, self.car, self.price)
 
     @property
     def price_materials(self):
