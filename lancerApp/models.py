@@ -203,7 +203,7 @@ class Service(models.Model):
     class Meta:
         verbose_name_plural = u'услуги'
         verbose_name = u'услуга'
-        unique_together = ('type', 'name', 'car')
+        unique_together = ('type', 'name', 'car', 'price')
         ordering = ('id',)
 
     def __unicode__(self):
