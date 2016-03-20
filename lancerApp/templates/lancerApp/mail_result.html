@@ -1,0 +1,25 @@
+{% extends 'lancerApp/home.html' %}
+{% block title %}Лансер Сервис{% endblock %}
+{% block actions %}
+{% endblock %}
+{% block content %}
+
+    <style>
+        #not_found {
+            margin: 130px auto;
+            text-align: center;
+            font-size: 32px;
+            position: relative;
+            color: #aaaaaa;
+            font-family: 'PT Sans', sans-serif;
+        }
+    </style>
+
+    {% if success %}
+        <div id="not_found">Сообщение успешно отправлено !</div>
+    {% else %}
+        <div id="not_found">Ошибка при отправке письма.<br>Попробуйте снова.</div>
+    {% endif %}
+
+{% endblock %}
+{% block carousel_js %}{% endblock %}

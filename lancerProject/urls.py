@@ -21,6 +21,8 @@ urlpatterns = [
     url(r'^price/(?P<service_type>[-\w]+)', 'lancerApp.views.price', name='price'),
     url(r'^price/', 'lancerApp.views.price', name='price'),
 
+    url(r'^mail_(?P<result>success|error)/', 'lancerApp.views.mail_result', name='mail_result'),
+
     url(r'^api/cars/', 'lancerApp.views.api_cars', name='api_cars'),
     url(r'^api/callme/', 'lancerApp.views.api_callme', name='api_callme'),
 

@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from django.core.paginator import Paginator
-from django.shortcuts import render
-from django.http import JsonResponse, HttpResponse
-from django.views.decorators.csrf import ensure_csrf_cookie
-from .models import GeneralInfo, News, Actions, Service, Stuff, Car, CarGroupOrder, CAR_TYPE, SERVICE_TYPE, Diagnostic
 from collections import OrderedDict
 from smspilot import Sender
+from django.core.urlresolvers import reverse
+from django.core.mail import send_mail
+from django.core.paginator import Paginator
+from django.shortcuts import render
+from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
+from django.views.decorators.csrf import ensure_csrf_cookie
+from .models import GeneralInfo, News, Actions, Service, Stuff, Car, CarGroupOrder, CAR_TYPE, SERVICE_TYPE, Diagnostic
+from .forms import MailForm
 
 
 @ensure_csrf_cookie
@@ -38,8 +41,30 @@ def news(req):
     return render(req, 'lancerApp/news.html')
 
 
-def contact(req):
-    return render(req, 'lancerApp/contact.html')
+def contact(request):
+    if request.method == 'POST':
+        form = MailForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            phone = form.cleaned_data['phone']
+            message = u'от: %s \n' % name
+            message += u'телефон: %s \n\n' % phone if phone else u'не указан'
+            message += form.cleaned_data['message']
+
+            subject = u'письмо с сайта лансер-сервис.рф'
+            sender = form.cleaned_data['email']
+            recipients = ['mmasterenko@gmail.com']
+
+            send_mail(subject, message, sender, recipients)
+
+            return HttpResponseRedirect(reverse('mail_result', kwargs={'result': 'success'}))
+        else:
+            return HttpResponseRedirect(reverse('mail_result', kwargs={'result': 'error'}))
+    return render(request, 'lancerApp/contact.html')
+
+
+def mail_result(req, result=None):
+    return render(req, 'lancerApp/mail_result.html', {'success': result == 'success'})
 
 
 def partners(req):
