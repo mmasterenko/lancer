@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib import admin
-from .models import Car, Service, Spares, TechLiquids, GeneralInfo, News, Actions, Stuff, CarGroupOrder, Diagnostic
+from .models import Car, Service, Spares, TechLiquids, GeneralInfo, News, Actions, Stuff, Diagnostic
 
 
 class GeneralInfoAdmin(admin.ModelAdmin):
@@ -31,14 +31,6 @@ class NewsAdmin(admin.ModelAdmin):
         })
     ]
     list_display = ('header', 'date', 'url')
-
-
-class CarGroupOrderAdmin(admin.ModelAdmin):
-    list_display = ('type', 'order1', 'order2', 'order3')
-    fieldsets = [(None, {
-        'fields': ('type', 'order1', 'order2', 'order3'),
-        'description': u'по умолчанию используется следующий порядок: 1.подвид 2.трансмиссия 3.двигатель'
-    })]
 
 
 class CarAdmin(admin.ModelAdmin):
@@ -96,7 +88,6 @@ admin.site.register(GeneralInfo, GeneralInfoAdmin)
 admin.site.register(News, NewsAdmin)
 admin.site.register(Actions)
 admin.site.register(Stuff, StuffAdmin)
-admin.site.register(CarGroupOrder, CarGroupOrderAdmin)
 admin.site.register(Diagnostic, DiagnosticAdmin)
 
 admin.site.site_header = u'Интерфейс администратора'
