@@ -12,7 +12,7 @@ class GeneralInfoAdmin(admin.ModelAdmin):
             'classes': ('wide',)
         }),
         (u'Настройки СМС', {
-            'fields': ('sms_phone', 'is_smsing'),
+            'fields': ('sms_phone', 'is_smsing', 'apikey'),
             'classes': ('wide',)
         }),
         (u'О компании', {

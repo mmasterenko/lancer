@@ -150,16 +150,21 @@ def api_cars(req):
 def api_callme(request):
     phone = request.POST.get('phone')
 
-    smsgate = 'http://smspilot.ru/api.php'
-    to = '79213918069'
-    msg = u'%s попросил перезвонить (лансер-сервис)' % phone
-    apikey = 'UUC5278JARUS61YA17AIG10QM78HP272CF33669UP70X40J13O8G4219527124NC'
+    gi_record = GeneralInfo.objects.first()
+    is_smsing = gi_record.is_smsing
+    sms_phone = str(gi_record.sms_phone)
+    apikey = gi_record.apikey
 
-    d = dict(smsgate=smsgate, to=to, msg=msg, apikey=apikey)
-    url = u'{smsgate}?to={to}&send={msg}&apikey={apikey}'.format(**d)
+    if is_smsing:
+        if not sms_phone or not apikey:
+            return HttpResponse('some settings wrong')
+        to = sms_phone.translate(None, '-+.() ')
+        msg = u'%s попросил перезвонить (лансер-сервис)' % phone
 
-    pilot = Sender(apikey)
-    pilot.addSMS(1, '79213918069', msg)
-    result = pilot.send()
+        pilot = Sender(apikey)
+        pilot.addSMS(1, to, msg)
+        result = pilot.send()
 
-    return HttpResponse('ok')
+        return HttpResponse('ok')
+    else:
+        return HttpResponse('sms disabled')

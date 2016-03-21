@@ -50,6 +50,7 @@ class GeneralInfo(SEOFieldsMixin, models.Model):
     is_smsing = models.BooleanField(u'включить отправку СМС', default=True,
                                     help_text=u'отключите эту опцию, если хотите, '
                                               u'чтобы с вашего СМС-счета НЕ списывались деньги')
+    apikey = models.CharField(u'api-key', max_length=100, default='', help_text=u'api-key для smspilot.ru. НЕ менять !')
 
     class Meta:
         verbose_name = u'общая информация'
