@@ -45,17 +45,19 @@ def contact(request):
     if request.method == 'POST':
         form = MailForm(request.POST)
         if form.is_valid():
-            email = GeneralInfo.objects.first().email
+            gi_record = GeneralInfo.objects.first()
+            subject = gi_record.subject
+            sender = gi_record.sender
+            recipient = gi_record.recipient
+            recipients = [recipient]
 
             name = form.cleaned_data['name']
             phone = form.cleaned_data['phone']
-            message = u'от: %s \n' % name
-            message += u'телефон: %s \n\n' % (phone if phone else u'не указан')
+            From = form.cleaned_data['email']
+            message = u'Имя: %s \n' % name
+            message += u'E-mail: %s \n' % From
+            message += u'Телефон: %s \n\n' % (phone if phone else u'не указан')
             message += form.cleaned_data['message']
-
-            subject = u'письмо с сайта лансер-сервис.рф'
-            sender = form.cleaned_data['email']
-            recipients = [email if email else 'mmasterenko@gmail.com']
 
             send_mail(subject, message, sender, recipients)
 

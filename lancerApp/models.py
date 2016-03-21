@@ -35,10 +35,10 @@ CAR_TYPE = (
 
 class GeneralInfo(SEOFieldsMixin, models.Model):
     general_help_text = u'отображается на всех страницах в "шапке"'
-    about_help_text = u'отображаются на главной странице'
+    about_help_text = u'отображается на главной странице'
 
     main_phone = models.CharField(u'основной телефон', max_length=20, help_text=general_help_text)
-    email = models.EmailField(u'e-mail', help_text=u'на этот email будут приходить письма, отправленные с сайта')
+    email = models.EmailField(u'e-mail', help_text=about_help_text)
     address = models.CharField(u'адрес', max_length=60, help_text=general_help_text)
     workhours = models.TextField(u'часы работы', help_text=about_help_text)
     phones = models.TextField(u'телефоны', help_text=about_help_text)
@@ -51,6 +51,11 @@ class GeneralInfo(SEOFieldsMixin, models.Model):
                                     help_text=u'отключите эту опцию, если хотите, '
                                               u'чтобы с вашего СМС-счета НЕ списывались деньги')
     apikey = models.CharField(u'api-key', max_length=100, default='', help_text=u'api-key для smspilot.ru. НЕ менять !')
+    sender = models.CharField(u'отправитель', default='no-reply@mitsubishi4wd.ru', max_length=100, blank=True,
+                              help_text=u'будет указано в поле От:')
+    subject = models.CharField(u'тема письма', default=u'письмо с сайта лансер-сервис.рф', max_length=100, blank=True)
+    recipient = models.EmailField(u'e-mail', default='MitsubishiLancerService@gmail.com', blank=True,
+                                  help_text=u'на этот email будут приходить письма, отправленные с сайта')
 
     class Meta:
         verbose_name = u'общая информация'

@@ -15,6 +15,10 @@ class GeneralInfoAdmin(admin.ModelAdmin):
             'fields': ('sms_phone', 'is_smsing', 'apikey'),
             'classes': ('wide',)
         }),
+        (u'Настройки почты', {
+            'fields': ('recipient', 'subject', 'sender'),
+            'classes': ('wide',)
+        }),
         (u'О компании', {
             'fields': ('workhours', 'phones', 'about'),
             'classes': ('wide',)
