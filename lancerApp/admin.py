@@ -8,16 +8,20 @@ class GeneralInfoAdmin(admin.ModelAdmin):
     actions = None
     fieldsets = [
         (u'Общая информация', {
-            'fields': ('main_phone', 'email', 'address', 'footerText', 'feedbackURL'),
+            'fields': ('main_phone', 'address', 'email', 'feedbackURL', 'footerText'),
+            'classes': ('wide',)
+        }),
+        (u'Настройки СМС', {
+            'fields': ('sms_phone', 'is_smsing'),
             'classes': ('wide',)
         }),
         (u'О компании', {
             'fields': ('workhours', 'phones', 'about'),
-            'classes': ('wide', 'collapse')
+            'classes': ('wide',)
         }),
-        (u'Описания для машин', {
-            'fields': ('car_lancer9', 'car_lancer10', 'car_evolution', 'car_lancerASX'),
-            'classes': ('wide', 'collapse')
+        (u'для SEO', {
+            'fields': ('title', 'meta_keywords', 'meta_desc'),
+            'classes': ('collapse', 'wide')
         })
     ]
 

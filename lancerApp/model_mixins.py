@@ -8,9 +8,11 @@ class SEOFieldsMixin(models.Model):
     class Meta:
         abstract = True
 
-    title = models.CharField('<title>', max_length=100, null=True, blank=True)
-    meta_desc = models.CharField('meta description', max_length=100, null=True, blank=True)
-    meta_keywords = models.CharField('meta keywords', max_length=100, null=True, blank=True)
+    title = models.CharField('Title', max_length=100, null=True, blank=True, help_text='&lt;title&gt;')
+    meta_desc = models.CharField('Description', max_length=100, null=True, blank=True,
+                                 help_text='&lt;meta name="description"&gt;')
+    meta_keywords = models.CharField('Keywords', max_length=100, null=True, blank=True,
+                                     help_text='&lt;meta name="keywords"&gt;')
 
 
 class SlugNullField(models.SlugField):

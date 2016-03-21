@@ -33,27 +33,30 @@ CAR_TYPE = (
 )
 
 
-class GeneralInfo(models.Model):
+class GeneralInfo(SEOFieldsMixin, models.Model):
+    general_help_text = u'отображается на всех страницах в "шапке"'
+    about_help_text = u'отображаются на главной странице'
+
+    main_phone = models.CharField(u'основной телефон', max_length=20, help_text=general_help_text)
+    email = models.EmailField(u'e-mail', help_text=u'на этот email будут приходить письма, отправленные с сайта')
+    address = models.CharField(u'адрес', max_length=60, help_text=general_help_text)
+    workhours = models.TextField(u'часы работы', help_text=about_help_text)
+    phones = models.TextField(u'телефоны', help_text=about_help_text)
+    about = models.TextField(u'о компании', help_text=about_help_text)
+    footerText = models.TextField(u'текст в футере', help_text=u'отображается на всех страницах внизу')
+    feedbackURL = models.URLField(u'Ссылка на форум', help_text=u'ссылка в меню "ОТЗЫВЫ"',
+                                  default='http://www.forum.lancer-club.ru/index.php?showtopic=117021')
+    sms_phone = models.CharField(u'телефон для СМС', max_length=20, default='', help_text=u'в формате: 79213332211')
+    is_smsing = models.BooleanField(u'включить отправку СМС', default=True,
+                                    help_text=u'отключите эту опцию, если хотите, '
+                                              u'чтобы с вашего СМС-счета НЕ списывались деньги')
+
     class Meta:
         verbose_name = u'общая информация'
         verbose_name_plural = u'общая информация'
 
     def __unicode__(self):
         return u'общая информация'
-
-    main_phone = models.CharField(u'основной телефон', max_length=20)
-    email = models.EmailField(u'e-mail')
-    address = models.CharField(u'адрес', max_length=60)
-    workhours = models.TextField(u'часы работы')
-    phones = models.TextField(u'телефоны')
-    about = models.TextField(u'о компании')
-    footerText = models.TextField(u'текст в футере')
-    feedbackURL = models.URLField(u'Ссылка на форум', default='http://www.forum.lancer-club.ru/index.php?showtopic=117021')
-
-    car_lancer9 = models.TextField(u'Lancer 9')
-    car_lancer10 = models.TextField(u'Lancer 10')
-    car_evolution = models.TextField(u'Evolution')
-    car_lancerASX = models.TextField(u'Mitsubishi ASX')
 
 
 class News(SEOFieldsMixin, models.Model):
@@ -71,8 +74,8 @@ class News(SEOFieldsMixin, models.Model):
     header = models.CharField(u'Заголовок', max_length=80)
     text = models.TextField(u'Текст')
     date = models.DateField(u'Дата', default=now)
-    uri_help_text = u'URI под которым будет доступна новость. например: /udivitelnaya-novost/'
-    url = SlugNullField(u'URI', help_text=uri_help_text, null=True, blank=True, unique=True, max_length=90, default=None)
+    url_help_text = u'URL под которым будет доступна новость. например: /udivitelnaya-novost/'
+    url = SlugNullField(u'URL', help_text=url_help_text, null=True, blank=True, unique=True, max_length=90, default=None)
 
 
 class Actions(models.Model):
