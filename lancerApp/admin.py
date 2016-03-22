@@ -80,6 +80,7 @@ class StuffAdmin(admin.ModelAdmin):
 
 
 class DiagnosticAdmin(admin.ModelAdmin):
+    list_select_related = ('car',)
     save_as = True
     list_display = ('__unicode__', 'car')
     list_filter = ('car__type',)
