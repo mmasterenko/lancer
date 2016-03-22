@@ -8,7 +8,6 @@ from .model_mixins import SlugNullField, SEOFieldsMixin
 upload_path = 'images/original'
 
 SERVICE_TYPE = (
-    ('', u''),
     ('to',        u'Тех.осмотр'),
     ('oil',       u'Замена жидкостей'),
     ('wheel',     u'Рулевое управление'),
