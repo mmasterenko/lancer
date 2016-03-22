@@ -8,6 +8,7 @@ from .model_mixins import SlugNullField, SEOFieldsMixin
 upload_path = 'images/original'
 
 SERVICE_TYPE = (
+    ('', u''),
     ('to',        u'Тех.осмотр'),
     ('oil',       u'Замена жидкостей'),
     ('wheel',     u'Рулевое управление'),
@@ -154,13 +155,14 @@ class Spares(models.Model):
     class Meta:
         verbose_name_plural = u'запчасти'
         verbose_name = u'запчасть'
+        unique_together = ('name', 'price')
 
     def __unicode__(self):
         return u'%s (%d р)' % (self.name, self.price)
     name = models.CharField(u'название', max_length=100)
     price = models.DecimalField(u'цена', max_digits=9, decimal_places=2)
-    service_type = models.CharField(u'тип услуги', max_length=15, choices=SERVICE_TYPE, null=True, blank=True)
-    number = models.CharField(u'номер', max_length=25, null=True, blank=True, default=None)
+    service_type = models.CharField(u'тип услуги', max_length=15, choices=SERVICE_TYPE, default='', blank=True)
+    number = models.CharField(u'номер', max_length=25, blank=True, default='')
 
 
 class TechLiquids(models.Model):

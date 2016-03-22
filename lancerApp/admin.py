@@ -50,7 +50,6 @@ class CarAdmin(admin.ModelAdmin):
 
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ('name', 'car', 'type', 'price', 'price_cons')
-    list_editable = ('car',)
     list_filter = ('car__type', 'type')
     save_as = True
     filter_horizontal = ('techliq', 'spares')
