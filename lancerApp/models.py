@@ -182,6 +182,7 @@ class Service(models.Model):
     price_cons = models.DecimalField(u'стоимость расходных материалов', max_digits=9, decimal_places=2, default=0)
 
     car = models.ForeignKey(Car, verbose_name=u'модель автомобиля', null=True, on_delete=models.SET_NULL)
+    car_name = models.CharField(max_length=200, null=True, blank=True, default='')
 
     spares = models.ManyToManyField(Spares, verbose_name=u'запчасти', blank=True)
     techliq = models.ManyToManyField(TechLiquids, verbose_name=u'тех.жидкости', blank=True)
@@ -193,7 +194,7 @@ class Service(models.Model):
         ordering = ('id',)
 
     def __unicode__(self):
-        return u'%s на %s (%d р)' % (self.name, self.car, self.price)
+        return u'%s на %s (%d р)' % (self.name, self.car_name, self.price)
 
     @property
     def price_materials(self):
