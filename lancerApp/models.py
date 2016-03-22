@@ -121,13 +121,13 @@ class Car(models.Model):
     TRANSMISSION_TYPE = (
         ('auto', u'автоматическая'),
         ('mech', u'механическая'),
-        # ('all',  u'любая'),
+        ('', u''),
     )
 
     type = models.CharField(u'вид а/м', max_length=20, choices=CAR_TYPE)
     subtype = models.CharField(u'подвид а/м', max_length=20, null=True, blank=True)
     engine = models.CharField(u'двигатель', max_length=20, null=True, blank=True)
-    transmission = models.CharField(u'трансмиссия', max_length=4, choices=TRANSMISSION_TYPE, null=True, blank=True)
+    transmission = models.CharField(u'трансмиссия', max_length=4, choices=TRANSMISSION_TYPE, blank=True, default='')
 
     class Meta:
         verbose_name_plural = u'машины'
@@ -154,15 +154,10 @@ class Spares(models.Model):
     class Meta:
         verbose_name_plural = u'запчасти'
         verbose_name = u'запчасть'
-        unique_together = ('name', 'car')
 
     def __unicode__(self):
-        if self.car:
-            return u'%s на %s (%d р)' % (self.name, self.car, self.price)
-        else:
-            return u'%s (%d р)' % (self.name, self.price)
+        return u'%s (%d р)' % (self.name, self.price)
     name = models.CharField(u'название', max_length=100)
-    car = models.ForeignKey(Car, verbose_name=u'модель автомобиля', null=True, blank=True, on_delete=models.SET_NULL)
     price = models.DecimalField(u'цена', max_digits=9, decimal_places=2)
     service_type = models.CharField(u'тип услуги', max_length=15, choices=SERVICE_TYPE, null=True, blank=True)
     number = models.CharField(u'номер', max_length=25, null=True, blank=True, default=None)
