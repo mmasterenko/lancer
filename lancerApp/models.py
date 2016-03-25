@@ -69,7 +69,7 @@ class News(SEOFieldsMixin, models.Model):
     class Meta:
         verbose_name = u'новость'
         verbose_name_plural = u'новости'
-        ordering = ('id',)
+        ordering = ('-date', '-id')
 
     def __unicode__(self):
         return self.header

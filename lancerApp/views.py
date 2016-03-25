@@ -38,7 +38,8 @@ def map_page(req):
 
 
 def news(req):
-    return render(req, 'lancerApp/news.html')
+    context = {'news': News.objects.all()}
+    return render(req, 'lancerApp/news.html', context=context)
 
 
 def contact(request):

@@ -31,6 +31,7 @@ class GeneralInfoAdmin(admin.ModelAdmin):
 
 
 class NewsAdmin(admin.ModelAdmin):
+    date_hierarchy = 'date'
     fieldsets = [
         (None, {'fields': ('header', 'text', 'date')}),
         (u'для SEO', {
@@ -38,7 +39,7 @@ class NewsAdmin(admin.ModelAdmin):
             'classes': ('collapse', 'wide')
         })
     ]
-    list_display = ('header', 'date', 'url')
+    list_display = ('header', 'date')
 
 
 class CarAdmin(admin.ModelAdmin):
