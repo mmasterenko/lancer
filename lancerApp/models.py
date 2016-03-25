@@ -8,7 +8,7 @@ from .model_mixins import SlugNullField, SEOFieldsMixin
 upload_path = 'images/original'
 
 SERVICE_TYPE = (
-    ('to',        u'Тех.осмотр'),
+    ('to',        u'Техническое обслуживание'),
     ('oil',       u'Замена жидкостей'),
     ('wheel',     u'Рулевое управление'),
     ('brake',     u'Тормозная система'),
@@ -23,7 +23,7 @@ CAR_TYPE = (
     ('lancer9',     'Lancer 9'),
     ('lancer10',    'Lancer X'),
     ('evo',         'Evolution'),
-    ('asx',         'Lancer ASX'),
+    ('asx',         'ASX'),
     ('out_classic', 'OutLander Classic'),
     ('out_xl',      'OutLander XL'),
     ('out3',        'OutLander III'),
