@@ -201,8 +201,15 @@ STATIC_URL = '/static/'
 # # # # # # # # # #
 
 DATABASES = {
-    'default': dj_database_url.config()
+    'url': dj_database_url.config(),
+    'sqlite': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
+
+DATABASES['default'] = DATABASES['url']
+DATABASES['mysql'] = DATABASES['url']
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
