@@ -1,5 +1,3 @@
-clientArea/templates/
-clientArea/static/
 makeup
 node_modules
 devfiles
@@ -8,6 +6,7 @@ devfiles
 .idea
 .env
 venv
+media
 staticfiles
 settings_dev.py
 migrations
