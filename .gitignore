@@ -9,5 +9,4 @@ venv
 media
 staticfiles
 settings_dev.py
-migrations
 
