@@ -632,6 +632,7 @@
                     </div>
                 </section>
                 <section id="newsblock" class="clearfix">
+                {% if news %}
                     <div class="visible-xs"><br><br></div>
                     <h3><i class="fa fa-newspaper-o"></i>Новости</h3>
                     <div class="container-fluid">
@@ -655,6 +656,7 @@
                     <div class="moreinfo">
                         <a href="{% url 'news' %}">Все новости</a>
                     </div>
+                {% endif %}
                 </section>
                 {% endblock %}
                 {% block socials %}
