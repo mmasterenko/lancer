@@ -56,7 +56,7 @@ class ServiceAdmin(admin.ModelAdmin):
     filter_horizontal = ('techliq', 'spares')
     list_select_related = ('car',)
     search_fields = ('name',)
-    fields = ('type', 'name', 'price', 'price_cons', 'car', 'spares', 'techliq', 'car_name')
+    fields = ('type', 'name', 'price', 'price_cons', 'car', 'spares', 'techliq')
 
     def save_model(self, request, obj, form, change):
         obj.car_name = obj.car.name
