@@ -916,3 +916,14 @@ section#page-service table.price-table td {
 section#page-service table.price-table tr:nth-child(odd) {
   background-color: #c6c6d4;
 }
+.partner-name:hover,
+.partner-name:active,
+.partner-name:visited {
+  text-decoration: none;
+}
+.partner-name h3 {
+  color: #333;
+}
+.partner-name h3:hover {
+  color: #ff3300;
+}

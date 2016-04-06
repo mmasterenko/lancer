@@ -228,3 +228,18 @@ class Diagnostic(models.Model):
 
     def __unicode__(self):
         return u'%s на %s' % (self.name, self.car)
+
+
+class Partners(models.Model):
+    name = models.CharField(u'название', max_length=128)
+    text = models.TextField(u'описание', null=True, blank=True)
+    img = models.ImageField(u'логотип', upload_to=upload_path, null=True, blank=True)
+    url = models.URLField(u'URL', blank=True, default='')
+
+    class Meta:
+        verbose_name = u'партнёр'
+        verbose_name_plural = u'партнёры'
+
+    def __unicode__(self):
+        return self.name
+

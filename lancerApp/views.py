@@ -8,7 +8,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import ensure_csrf_cookie
-from .models import GeneralInfo, News, Actions, Service, Stuff, Car, CAR_TYPE, SERVICE_TYPE, Diagnostic
+from .models import GeneralInfo, News, Actions, Service, Stuff, Car, CAR_TYPE, SERVICE_TYPE, Diagnostic, Partners
 from .forms import MailForm
 
 
@@ -73,7 +73,10 @@ def mail_result(req, result=None):
 
 
 def partners(req):
-    return render(req, 'lancerApp/partners.html')
+    context = {
+        'partners': Partners.objects.all()
+    }
+    return render(req, 'lancerApp/partners.html', context=context)
 
 
 def service(req, service_id=None):

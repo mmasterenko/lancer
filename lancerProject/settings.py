@@ -79,6 +79,11 @@ ADMIN_SHORTCUTS = [
                 'title': u'Наша команда',
                 'class': 'user'
             },
+            {
+                'url_name': 'admin:lancerApp_partners_changelist',
+                'title': u'Партнёры',
+                'class': 'user'
+            },
         ]
     },
     {

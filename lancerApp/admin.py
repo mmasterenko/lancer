@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib import admin
-from .models import Car, Service, Spares, TechLiquids, GeneralInfo, News, Actions, Stuff, Diagnostic
+from .models import Car, Service, Spares, TechLiquids, GeneralInfo, News, Actions, Stuff, Diagnostic, Partners
 
 
 class GeneralInfoAdmin(admin.ModelAdmin):
@@ -100,6 +100,7 @@ admin.site.register(News, NewsAdmin)
 admin.site.register(Actions)
 admin.site.register(Stuff, StuffAdmin)
 admin.site.register(Diagnostic, DiagnosticAdmin)
+admin.site.register(Partners)
 
 admin.site.site_header = u'Интерфейс администратора'
 admin.site.index_title = u'Управление'

@@ -1,20 +1,40 @@
 {% extends 'lancerApp/home.html' %}
+{% load extra_filters %}
 {% block title %}Партнеры Лансер Сервис{% endblock %}
 {% block actions %}
 {% endblock %}
 {% block content %}
 
-    <style>
-        #not_found {
-            margin: 130px auto;
-            text-align: center;
-            font-size: 32px;
-            position: relative;
-            color: #aaaaaa;
-            font-family: 'PT Sans', sans-serif;
-        }
-    </style>
-    <div id="not_found">404 <br> Страница еще не готова</div>
+    <div class="container-fluid">
+    {% for partner in partners %}
+        <div class="row">
+            <div class="col-sm-2">
+                <a href="{{ partner.url }}" target="_blank"><img width="130px" height="130px" src="{{ partner.img|placeholdit_if_none:'130x130' }}" alt=""></a>
+            </div>
+            <div class="col-sm-10">
+                <a class="partner-name" href="{{ partner.url }}" target="_blank"><h3>{{ partner.name }}</h3></a>
+                <p>
+                    {% autoescape off %}
+                        {{ partner.text }}
+                    {% endautoescape %}
+                </p>
+            </div>
+        </div>
+    {% empty %}
 
+        <style scoped>
+            #not_found {
+                margin: 130px auto;
+                text-align: center;
+                font-size: 32px;
+                position: relative;
+                color: #aaaaaa;
+                font-family: 'PT Sans', sans-serif;
+            }
+        </style>
+        <div id="not_found">404 <br> Пока нет партнёров</div>
+
+    {% endfor %}
+    </div>
 {% endblock %}
 {% block carousel_js %}{% endblock %}
