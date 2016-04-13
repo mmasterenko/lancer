@@ -75,7 +75,7 @@ class VisitAdmin(admin.ModelAdmin):
 class CustomUserAdmin(admin.ModelAdmin):
     # inlines = [VisitInline]
     search_fields = ('car_number', 'last_name', 'first_name', 'patronymic_name', 'note')
-    list_filter = ('car',)
+    list_filter = ('car__type',)
     list_display = ('get_abbrev_name', 'phone', 'get_car_number', 'car', 'get_visit_count', 'get_last_visit')
     list_select_related = ('car',)
 
