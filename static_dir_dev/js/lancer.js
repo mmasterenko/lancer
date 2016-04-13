@@ -352,11 +352,13 @@ $(document).ready(function(){
      */
     $('#header .callme > a').on('click', function(){
         $('#callme').toggle(400);
+        $('#phone').focus();
     });
 
     $('#callme div a').on('click', function(){
         // отправить сообщение
         var phone = $('#phone').val();
+        $('#phone').val('');
         var csrftoken = getCookie('csrftoken');
         var data = {'phone': phone};
 
@@ -377,6 +379,7 @@ $(document).ready(function(){
 
     $('#callme a.close').on('click', function(){
         $('#callme').toggle(500);
+        $('#phone').val('');
     });
 
 });
