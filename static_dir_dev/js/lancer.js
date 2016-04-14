@@ -355,10 +355,11 @@ $(document).ready(function(){
         $('#phone').focus();
     });
 
-    $('#callme div a').on('click', function(){
+    var send_message = function () {
         // отправить сообщение
-        var phone = $('#phone').val();
-        $('#phone').val('');
+        var phoneEl = $('#phone');
+        var phone = phoneEl.val();
+        phoneEl.val('');
         var csrftoken = getCookie('csrftoken');
         var data = {'phone': phone};
 
@@ -374,7 +375,13 @@ $(document).ready(function(){
             alert('Введен некорректный номер телефона');
         }
 
+    };
 
+    $('#callme div a').on('click', send_message);
+    $('#phone').keypress(function (e) {
+        if(e.which == 13){
+            send_message();
+        }
     });
 
     $('#callme a.close').on('click', function(){
