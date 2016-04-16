@@ -9,19 +9,25 @@ from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import ensure_csrf_cookie
 from .models import GeneralInfo, News, Actions, Service, Stuff, Car, CAR_TYPE, SERVICE_TYPE, Diagnostic, Partners
+from clientArea.models import CustomUser
 from .forms import MailForm
 
 
 @ensure_csrf_cookie
-def home(req):
+def home(request):
     service_types = [{'code': code, 'name': name} for code, name in SERVICE_TYPE]
+    if request.user.is_authenticated() and isinstance(request.user, CustomUser):
+        car_number = u'Ваш номер: %s. Войти' % request.user.car_number
+    else:
+        car_number = u'Вход'
     context = {
+        'car_number': car_number,
         'news': News.objects.order_by('-date', '-id')[:3],
         'info': GeneralInfo.objects.first(),
         'actions': Actions.objects.order_by('-id'),
         'service_types': service_types
     }
-    return render(req, 'lancerApp/home.html', context)
+    return render(request, 'lancerApp/home.html', context)
 
 
 def about(req):

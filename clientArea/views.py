@@ -28,19 +28,16 @@ def login_view(request):
         user = authenticate(car_number=car_number, password=password)
         if user and isinstance(user, CustomUser):
             login(request, user)
-        else:
-            return HttpResponseForbidden(u'Неверный логин или пароль')
-        if request.user.is_authenticated() and isinstance(request.user, CustomUser):
             return HttpResponseRedirect(reverse('clients:visits'))
         else:
-            return render(request, 'clientArea/pages/login.html')
+            return HttpResponseForbidden(u'Неверный логин или пароль')
     else:
         return render(request, 'clientArea/pages/login.html')
 
 
 def logout_view(request):
     logout(request)
-    return HttpResponseRedirect(reverse('clients:login'))
+    return HttpResponseRedirect(reverse('home'))
 
 
 # def pages(req, page_name):
